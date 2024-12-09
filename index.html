@@ -100,19 +100,18 @@
         @media only screen and (max-width: 600px) {
             .container {
                 padding: 0;
-                margin: 5px;
+                margin: 10px;
             }
             .image-container {
-                flex-direction: column;
-                align-items: left;
-                gap: 10px;
+                padding: 0 10px; /* Match padding with .content for alignment */
+                max-width: 100%; /* Allow full width usage */
             }
             .content {
                 padding: 0 10px;
             }
             .image-row {
                 flex-direction: column;
-                align-items: left;
+                align-items: flex-start;
             }
             .image-row img {
                 width: 475px;
@@ -172,6 +171,7 @@
             <br>
             <p>Contact</a></p>
             <p><a href="https://www.instagram.com/hongbinxu_/" target="_blank">Instagram: @hongbinxu_</a></p>
+            <br>
             <br>
         </div>
         <div class="image-container">

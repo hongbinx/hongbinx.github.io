@@ -115,9 +115,11 @@
                 align-items: flex-start;
             }
             .image-row img {
-                width: 100%;
-                padding: 0 px;
-                width: calc(100% - 20px); /* Adjust the width to fit within the padding */
+                max-width: 100%;
+                height: auto;
+                width: 100vw; /* Ensure full screen width */
+                padding: 0;
+                margin: 0;
             }
             .title {
                 text-align: center;
@@ -127,10 +129,10 @@
             .subtitle {
                 text-align: center;
                 margin: 0;
-                font-size: 10px;
+                font-size: 11px;
             }
             body {
-                font-size: 10px;
+                font-size: 11px;
                 line-height: 1.1;
             }
         }
@@ -177,7 +179,7 @@
         </div>
         <div class="image-container">
             <div class="image-row">
-                <img src="image3.jpg" width=475px height=auto>
+                <img src="image3.jpg" width=auto height=auto>
                 <img src="" width=475px height=auto>
             </div>
         </div>

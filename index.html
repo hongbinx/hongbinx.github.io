@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hongbin Xu 许鸿彬</title>
     <style>
+        /* Global Box-Sizing */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Ensure Body and HTML Fit the Viewport */
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
         @font-face {
             font-family: 'MyFont';
             src: url('Adobe Hebrew Regular.otf') format('truetype');
@@ -74,8 +88,8 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             background: rgba(0, 0, 0, 0.5);
             display: none;
             justify-content: center;

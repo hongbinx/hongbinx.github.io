@@ -5,20 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hongbin Xu 许鸿彬</title>
     <style>
-        /* Global Box-Sizing */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Ensure Body and HTML Fit the Viewport */
-        html, body {
-            height: 100%;
-            margin: 0;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
-        }
-
         @font-face {
             font-family: 'MyFont';
             src: url('Adobe Hebrew Regular.otf') format('truetype');
@@ -88,8 +74,8 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
             background: rgba(0, 0, 0, 0.5);
             display: none;
             justify-content: center;
@@ -99,7 +85,7 @@
         .modal {
             background: white;
             padding: 20px;
-            max-width: 60%;
+            max-width: 600px;
             max-height: 30em; /* Limits height to approximately 10 lines */
             overflow-y: scroll; /* Enables scrolling */
             scrollbar-width: none; /* Hides scrollbar in Firefox */
@@ -129,6 +115,10 @@
             .button {
                 font-size: 11px;
                 padding: 8px 15px;
+            }
+
+            .modal {
+                max-width: 75%;
             }
 
             .modal img {

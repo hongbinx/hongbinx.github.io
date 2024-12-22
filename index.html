@@ -8,30 +8,29 @@
         @font-face {
             font-family: 'MyFont';
             src: url('Adobe Hebrew Regular.otf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
         }
+
         body {
             background-color: white;
             color: black;
             font-family: 'MyFont', sans-serif;
             font-size: 13px;
-            line-height: 1.1;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Full viewport height */
-            overflow: hidden;
+            height: 100vh;
         }
         body.night-mode {
             background-color: black;
             color: white;
         }
+
         .container {
             text-align: center;
         }
+
         a {
             color: black;
             text-decoration: none;
@@ -42,31 +41,35 @@
         a:hover {
             text-decoration: underline;
         }
+
         .buttons {
             display: flex;
             flex-direction: column;
-            gap: 20px; /* Space between buttons */
+            align-items: center;
+            gap: 20px;
         }
+
         .button {
             font-family: 'MyFont', sans-serif;
             font-size: 13px;
             padding: 10px 20px;
             background: white;
             cursor: pointer;
-            transition: 0.3s;
-            outline: none;
             border: none;
+            transition: background 0.3s;
         }
         body.night-mode .button {
             background: black;
             color: white;
         }
+
         .button:hover {
             background: lightgray;
         }
         body.night-mode .button:hover {
-            background: #111111;
+            background: #080808;
         }
+
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -74,54 +77,33 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
             display: none;
             justify-content: center;
             align-items: center;
         }
+
         .modal {
             background: white;
             padding: 20px;
-            width: 90%;
-            max-width: 800px;
+            max-width: 60%;
             border-radius: 0px;
             text-align: center;
-            position: relative;
         }
         body.night-mode .modal {
-            background: #111111;
+            background: #080808;
             color: white;
         }
-        .blur {
-            filter: blur(5px);
-            pointer-events: none;
-        }
-        .image-container,
-        .content {
-            transition: filter 0.3s;
-        }
-        .title, .subtitle {
-            margin: 5px 0;
-        }
+
         @media only screen and (max-width: 600px) {
             body {
                 font-size: 11px;
             }
+
             .button {
                 font-size: 11px;
                 padding: 8px 15px;
             }
-            .modal {
-                background: white;
-                padding: 5px;
-                border-radius: 0px;
-                text-align: center;
-                position: relative;
-                max-width: calc(100% - 20px); /* Ensure it doesn't overflow horizontally */
-                max-height: calc(100% - 20px); /* Ensure it doesn't overflow vertically */
-                overflow-y: auto; /* Allow scrolling if content is too long */
-                box-sizing: content-box; /* Ensure padding doesn't increase size */
-            }
+
         }
     </style>
 </head>
@@ -131,17 +113,18 @@
             <button class="button" onclick="showModal('bio')">Bio</button>
             <button class="button" onclick="showModal('credits')">Credits</button>
             <button class="button" onclick="showModal('contact')">Contact</button>
+            <button class="button" onclick="showModal('gallery')">:)</button>
         </div>
     </div>
-    <div id="bio" class="modal-overlay" onclick="closeModal(event)">
+
+    <div id="bio" class="modal-overlay" onclick="closeModal()">
         <div class="modal">
-            <span class="close" onclick="closeModal(event)"></span>
-            <p>Hongbin Xu is a keyboardist and producer based in Los Angeles, California. He earned a bachelor of music in keyboard performance in contemporary styles with a minor in audio production from the Musicians Institute. Since then, he has supported artists, including <a href="https://en.wikipedia.org/wiki/Priscilla_Chan_(singer)" target="_blank">Priscilla Chan Wai Han</a>, <a href="https://en.wikipedia.org/wiki/Linda_Chung" target="_blank">Linda Chung</a>, <a href="https://en.wikipedia.org/wiki/Ding_Dang_(singer)" target="_blank">Ding Dang</a>, <a href="https://en.wikipedia.org/wiki/Andy_Hui" target="_blank">Andy Hui</a>, Zach Louis and Maya Kuriel. Outside of his musicianship on stage, his recording and production credits include Qiming Fei, Ann One, Killagramz, among others. </a></p>
+            <p>Hongbin Xu is a keyboardist and producer based in Los Angeles, California. He earned a bachelor of music in keyboard performance in contemporary styles with a minor in audio production from the Musicians Institute. Since then, he has supported artists, including <a href="https://en.wikipedia.org/wiki/Priscilla_Chan_(singer)" target="_blank">Priscilla Chan Wai Han</a>, <a href="https://en.wikipedia.org/wiki/Linda_Chung" target="_blank">Linda Chung</a>, <a href="https://en.wikipedia.org/wiki/Ding_Dang_(singer)" target="_blank">Ding Dang</a>, <a href="https://en.wikipedia.org/wiki/Andy_Hui" target="_blank">Andy Hui</a>, Zach Louis and Maya Kuriel. Outside of his musicianship on stage, his recording and production credits include Qiming Fei, Ann One, Killagramz, among others.</p>
         </div>
     </div>
-    <div id="credits" class="modal-overlay" onclick="closeModal(event)">
+
+    <div id="credits" class="modal-overlay" onclick="closeModal()">
         <div class="modal">
-            <span class="close" onclick="closeModal(event)"></span>
             <p><a href="https://www.youtube.com/watch?v=AnulGk5ZyQo" target="_blank">Aria Liang - Dishes (production, recording, mixing)</a></p>
             <p><a href="https://www.youtube.com/watch?v=3ZZznCLuGrg" target="_blank">Qiming Fei - For You (arrangement, keyboards)</a></p>
             <p><a href="https://www.youtube.com/watch?v=t9bsTvXaPSY" target="_blank">Killagramz, Ann One, Big Banana & Vin.Chee - Ktown Love (arrangement, keyboards)</a></p>
@@ -169,29 +152,29 @@
             <p><a href="https://www.youtube.com/watch?v=m9-OnmkcK94" target="_blank">Lanigan - You Know I Know (piano) </a></p>
         </div>
     </div>
-    <div id="contact" class="modal-overlay" onclick="closeModal(event)">
+
+    <div id="contact" class="modal-overlay" onclick="closeModal()">
         <div class="modal">
-            <span class="close" onclick="closeModal(event)"></span>
             <p><a href="https://www.instagram.com/hongbinxu_/" target="_blank">Instagram: @hongbinxu_</a></p>
         </div>
     </div>
+
+    <div id="gallery" class="modal-overlay" onclick="closeModal()">
+        <div class="modal">
+            <img src="image4.jpg" width=200px height=auto>
+        </div>
+    </div>
+
     <script>
         function showModal(id) {
-            closeModal(); // Close any open modals
-            const modal = document.getElementById(id);
-            modal.style.display = 'flex';
-            document.querySelector('.content')?.classList.add('blur');
-            document.querySelector('.image-container')?.classList.add('blur');
+            closeModal();
+            document.getElementById(id).style.display = 'flex';
         }
 
-        function closeModal(event) {
-            if (!event || event.target.classList.contains('modal-overlay') || event.target.classList.contains('close')) {
-                document.querySelectorAll('.modal-overlay').forEach(modal => {
-                    modal.style.display = 'none';
-                });
-                document.querySelector('.content')?.classList.remove('blur');
-                document.querySelector('.image-container')?.classList.remove('blur');
-            }
+        function closeModal() {
+            document.querySelectorAll('.modal-overlay').forEach(modal => {
+                modal.style.display = 'none';
+            });
         }
         function toggleNightMode() {
             const hour = new Date().getHours();

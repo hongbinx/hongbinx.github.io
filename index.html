@@ -86,9 +86,22 @@
             background: white;
             padding: 20px;
             max-width: 60%;
-            border-radius: 0px;
+            max-height: 30em; /* Limits height to approximately 10 lines */
+            overflow-y: scroll; /* Enables scrolling */
+            scrollbar-width: none; /* Hides scrollbar in Firefox */
+            -ms-overflow-style: none; /* Hides scrollbar in Internet Explorer */
             text-align: center;
         }
+
+        .modal::-webkit-scrollbar {
+            display: none; /* Hides scrollbar in Chrome, Safari, and Edge */
+        }
+
+        .modal img {
+            width: 300px; /* Keeps desktop settings as is */
+            height: auto;
+        }
+
         body.night-mode .modal {
             background: #080808;
             color: white;
@@ -102,6 +115,11 @@
             .button {
                 font-size: 11px;
                 padding: 8px 15px;
+            }
+
+            .modal img {
+                width: 200px; /* Adjusts to 60% of screen width on mobile */
+                height: auto; /* Maintains aspect ratio */
             }
 
         }
@@ -160,8 +178,8 @@
     </div>
 
     <div id="gallery" class="modal-overlay" onclick="closeModal()">
-        <div class="modal">
-            <img src="image4.jpg" width=200px height=auto>
+        <div class="modal img">
+            <img src="image4.jpg" width=auto height=auto>
         </div>
     </div>
 

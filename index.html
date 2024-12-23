@@ -89,13 +89,23 @@
             max-width: 600px;
             max-height: 30em; /* Limits height to approximately 10 lines */
             overflow-y: scroll; /* Enables scrolling */
-            scrollbar-width: none; /* Hides scrollbar in Firefox */
-            -ms-overflow-style: none; /* Hides scrollbar in Internet Explorer */
+            scrollbar-width: thin; /* Thin scrollbar for Firefox */
+            scrollbar-color: black transparent; /* Black scrollbar track and transparent thumb for Firefox */
             text-align: center;
         }
 
         .modal::-webkit-scrollbar {
-            display: none; /* Hides scrollbar in Chrome, Safari, and Edge */
+            width: 8px; /* Thin scrollbar for WebKit browsers */
+            background-color: transparent;
+        }
+
+        .modal::-webkit-scrollbar-thumb {
+            background-color: darkgray; /* Black scrollbar thumb */
+            border-radius: 4px; /* Smooth corners */
+        }
+
+        .modal::-webkit-scrollbar-track {
+            background-color: transparent; /* Transparent track */
         }
 
         .modal img {
@@ -124,7 +134,7 @@
             }
 
             .modal img {
-                width: 200px; /* Adjusts to 60% of screen width on mobile */
+                width: 200px;
                 height: auto; /* Maintains aspect ratio */
             }
 
@@ -211,6 +221,7 @@
 
         // Set night mode on page load
         window.onload = toggleNightMode;
+
     </script>
 </body>
 </html>

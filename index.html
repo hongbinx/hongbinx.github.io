@@ -114,8 +114,25 @@
             max-height: 30em
         }
 
+        #clock {
+            font-family: 'MyFont', sans-serif;
+            font-size: 13px; /* Adjust size to your preference */
+            color: black;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: transparent; /* Match the existing background */
+            padding: 5px 10px;
+            border-radius: 0px;
+        }
+        body.night-mode #clock {
+            color: white;
+            background-color: transparent;
+        }
+
         body.night-mode .modal {
-            background: #080808;
+            background: black;
             color: white;
         }
 
@@ -200,6 +217,8 @@
         </div>
     </div>
 
+    <div id="clock"></div>
+
     <script>
         function showModal(id) {
             closeModal();
@@ -213,7 +232,7 @@
         }
         function toggleNightMode() {
             const hour = new Date().getHours();
-            if (hour >= 17 || hour < 6) {
+            if (hour >= 16 || hour < 6) {
                 document.body.classList.add('night-mode');
             } else {
                 document.body.classList.remove('night-mode');
@@ -222,6 +241,17 @@
 
         // Set night mode on page load
         window.onload = toggleNightMode;
+
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        setInterval(updateClock, 1000); // Update clock every second
+        updateClock(); // Initialize clock immediately
 
     </script>
 </body>

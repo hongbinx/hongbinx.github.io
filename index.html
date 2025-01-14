@@ -176,7 +176,7 @@
             <button class="button" onclick="showModal('credits')">Credits</button>
             <button class="button" onclick="showModal('contact')">Contact</button>
             <button class="button" onclick="showModal('gallery')">Gallery</button>
-            <button id="translateButton" class="button" onclick="toggleLanguage()">EN/中文</button>
+            <button id="translateButton" class="button" onclick="toggleLanguage()">中文</button>
 
         </div>
     </div>
@@ -347,6 +347,9 @@
 
         function toggleLanguage() {
             currentLanguage = currentLanguage === "english" ? "chinese" : "english";
+            const translateButton = document.getElementById("translateButton");
+            translateButton.textContent = currentLanguage === "english" ? "中文" : "English";
+     
 
             // Update button texts and font
             document.querySelectorAll(".button").forEach((button) => {

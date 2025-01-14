@@ -10,6 +10,11 @@
             src: url('Adobe Hebrew Regular.otf') format('truetype');
         }
 
+        @font-face {
+            font-family: 'ChineseFont';
+            src: url('思源宋体.ttf') format('truetype');
+        }
+        
         body {
             background-color: white;
             color: black;
@@ -138,11 +143,11 @@
 
         @media only screen and (max-width: 600px) {
             body {
-                font-size: 11px;
+                font-size: 13px;
             }
 
             .button {
-                font-size: 11px;
+                font-size: 13px;
                 padding: 8px 15px;
             }
 
@@ -165,49 +170,53 @@
             <button class="button" onclick="showModal('credits')">Credits</button>
             <button class="button" onclick="showModal('contact')">Contact</button>
             <button class="button" onclick="showModal('gallery')">Gallery</button>
+            <button id="translateButton" class="button" onclick="toggleLanguage()">EN/中文</button>
+
         </div>
     </div>
 
     <div id="bio" class="modal-overlay" onclick="closeModal()">
         <div class="modal">
-            <p>Hongbin Xu is a keyboardist and producer based in Los Angeles, California. He earned a bachelor of music in keyboard performance in contemporary styles with a minor in audio production from the Musicians Institute. Since then, he has supported artists, including <a href="https://en.wikipedia.org/wiki/Priscilla_Chan_(singer)" target="_blank">Priscilla Chan Wai Han</a>, <a href="https://en.wikipedia.org/wiki/Linda_Chung" target="_blank">Linda Chung</a>, <a href="https://en.wikipedia.org/wiki/Ding_Dang_(singer)" target="_blank">Ding Dang</a>, <a href="https://en.wikipedia.org/wiki/Andy_Hui" target="_blank">Andy Hui</a>, Zach Louis and Maya Kuriel. Outside of his musicianship on stage, his recording and production credits include Qiming Fei, Ann One, Killagramz, among others.</p>
+            <p id="bioContent">Hongbin Xu is a keyboardist and producer based in Los Angeles, California. He earned a bachelor of music in keyboard performance in contemporary styles with a minor in audio production from the Musicians Institute. Since then, he has supported artists, including <a href="https://en.wikipedia.org/wiki/Priscilla_Chan_(singer)" target="_blank">Priscilla Chan Wai Han</a>, <a href="https://en.wikipedia.org/wiki/Linda_Chung" target="_blank">Linda Chung</a>, <a href="https://en.wikipedia.org/wiki/Ding_Dang_(singer)" target="_blank">Ding Dang</a>, <a href="https://en.wikipedia.org/wiki/Andy_Hui" target="_blank">Andy Hui</a>, Zach Louis and Maya Kuriel. Outside of his musicianship on stage, his recording and production credits include Qiming Fei, Ann One, Killagramz, among others.</p>
         </div>
     </div>
 
     <div id="credits" class="modal-overlay" onclick="closeModal()">
         <div class="modal">
-            <p><a href="https://www.youtube.com/watch?v=fAOQt2kirP0" target="_blank">Jellyeeee - Flourish (arrangement, synthesizer)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=AnulGk5ZyQo" target="_blank">Aria Liang - Dishes (production, recording, mixing)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=3ZZznCLuGrg" target="_blank">Qiming Fei - For You (arrangement, keyboards)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=t9bsTvXaPSY" target="_blank">Killagramz, Ann One, Big Banana & Vin.Chee - Ktown Love (arrangement, keyboards)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=8XTHxYHs57k" target="_blank">Sarah Lanigan - Indecisive (production, recording, mixing)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=mY4uVTmhYRM" target="_blank">PALM3 - Searching For You (piano)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=1qs7Unsvrio&list=OLAK5uy_k-arr-QoU8dObv3XtuVGQHrnt9YDGf8Yg&index=3" target="_blank">Su Isaac - I Want (keyboards)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=1qs7Unsvrio&list=OLAK5uy_k-arr-QoU8dObv3XtuVGQHrnt9YDGf8Yg&index=2" target="_blank">Su Isaac - Good Fruit (keyboards)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=IYoCH1ZdzAg&list=OLAK5uy_k-arr-QoU8dObv3XtuVGQHrnt9YDGf8Yg&index=3" target="_blank">Su Isaac - Drunkenly (keyboards)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=nBrzG-c-6Es&list=OLAK5uy_k-arr-QoU8dObv3XtuVGQHrnt9YDGf8Yg&index=4" target="_blank">Su Isaac - Trouble (keyboards)</a></p>
-            <p><a href="https://music.163.com/#/album?id=152195434" target="_blank">Hurshi - What If (plucked piano)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=SPwxivqRI70&list=OLAK5uy_nyigETXlUP2KAqgTKsLfT0hEkM9jbvO_4&index=7" target="_blank">Jellyeeee - Outsider (organ)</a></p>
-            <p><a href="https://soundcloud.com/hongbinxu/what-if?si=3200bcd1cdf94ef3ab1a1d74dc2637d9&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"target="_blank">Hongbin Xu  - What If (production, songwriting, recording, mixing)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=ltxpXCotBQc&list=OLAK5uy_mfEawMUyCg5lcbO2heIrIItc_eSmF9rKc" target="_blank">Lanigan - Strut (keyboards)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=sRyAQCqPJvo&list=OLAK5uy_mfEawMUyCg5lcbO2heIrIItc_eSmF9rKc&index=2" target="_blank">Lanigan - Cut To The Chase (keyboards)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=cwjR_xU9EAY&list=OLAK5uy_mfEawMUyCg5lcbO2heIrIItc_eSmF9rKc&index=3" target="_blank">Lanigan - What’s A Girl Gotta Do (keyboards)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=2KnddcSLn_Y&list=OLAK5uy_mfEawMUyCg5lcbO2heIrIItc_eSmF9rKc&index=4" target="_blank">Lanigan - Lavender (keyboards)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=4FpUUszr2Dg" target="_blank">Tambor - 2016 (keyboards)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=Ehq7F6-mQ5M" target="_blank">Tambor - Cigarettes & Poetry (production, lyric writing, mixing)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=iP_vnsOVDbY" target="_blank">Benjamin Fortin - Bigger than the Sky (piano)</a></p>
-            <p><a href="https://music.163.com/#/album?id=124384447" target="_blank">Hurshi - Exits (rhodes, organ)</a></p>
-            <p><a href="https://music.163.com/#/album?id=124387689" target="_blank">Hurshi - Sunless (additional harmony)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=g8PR4EsKSPA" target="_blank">Yoshuah - Let Me be Honest with You (production)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=THRyLMwaB1E&list=OLAK5uy_kRn-iJTBFCFGosX3TfLQhG04dDEycO3yU&index=4" target="_blank">Yoshuah - Words Are Lies (production)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=iRvbYOqitDo" target="_blank">Lanigan - All Choked Up (keyboards)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=m9-OnmkcK94" target="_blank">Lanigan - You Know I Know (piano) </a></p>
+            <div id="creditsContent">
+                <p><a href="https://www.youtube.com/watch?v=fAOQt2kirP0" target="_blank">Jellyeeee - Flourish (arrangement, synthesizer)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=AnulGk5ZyQo" target="_blank">Aria Liang - Dishes (production, recording, mixing)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=3ZZznCLuGrg" target="_blank">Qiming Fei - For You (arrangement, keyboards)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=t9bsTvXaPSY" target="_blank">Killagramz, Ann One, Big Banana & Vin.Chee - Ktown Love (arrangement, keyboards)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=8XTHxYHs57k" target="_blank">Sarah Lanigan - Indecisive (production, recording, mixing)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=mY4uVTmhYRM" target="_blank">PALM3 - Searching For You (piano)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=1qs7Unsvrio&list=OLAK5uy_k-arr-QoU8dObv3XtuVGQHrnt9YDGf8Yg&index=3" target="_blank">Su Isaac - I Want (keyboards)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=1qs7Unsvrio&list=OLAK5uy_k-arr-QoU8dObv3XtuVGQHrnt9YDGf8Yg&index=2" target="_blank">Su Isaac - Good Fruit (keyboards)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=IYoCH1ZdzAg&list=OLAK5uy_k-arr-QoU8dObv3XtuVGQHrnt9YDGf8Yg&index=3" target="_blank">Su Isaac - Drunkenly (keyboards)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=nBrzG-c-6Es&list=OLAK5uy_k-arr-QoU8dObv3XtuVGQHrnt9YDGf8Yg&index=4" target="_blank">Su Isaac - Trouble (keyboards)</a></p>
+                <p><a href="https://music.163.com/#/album?id=152195434" target="_blank">Hurshi - What If (plucked piano)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=SPwxivqRI70&list=OLAK5uy_nyigETXlUP2KAqgTKsLfT0hEkM9jbvO_4&index=7" target="_blank">Jellyeeee - Outsider (organ)</a></p>
+                <p><a href="https://soundcloud.com/hongbinxu/what-if?si=3200bcd1cdf94ef3ab1a1d74dc2637d9&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"target="_blank">Hongbin Xu  - What If (production, songwriting, recording, mixing)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=ltxpXCotBQc&list=OLAK5uy_mfEawMUyCg5lcbO2heIrIItc_eSmF9rKc" target="_blank">Lanigan - Strut (keyboards)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=sRyAQCqPJvo&list=OLAK5uy_mfEawMUyCg5lcbO2heIrIItc_eSmF9rKc&index=2" target="_blank">Lanigan - Cut To The Chase (keyboards)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=cwjR_xU9EAY&list=OLAK5uy_mfEawMUyCg5lcbO2heIrIItc_eSmF9rKc&index=3" target="_blank">Lanigan - What’s A Girl Gotta Do (keyboards)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=2KnddcSLn_Y&list=OLAK5uy_mfEawMUyCg5lcbO2heIrIItc_eSmF9rKc&index=4" target="_blank">Lanigan - Lavender (keyboards)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=4FpUUszr2Dg" target="_blank">Tambor - 2016 (keyboards)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=Ehq7F6-mQ5M" target="_blank">Tambor - Cigarettes & Poetry (production, lyric writing, mixing)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=iP_vnsOVDbY" target="_blank">Benjamin Fortin - Bigger than the Sky (piano)</a></p>
+                <p><a href="https://music.163.com/#/album?id=124384447" target="_blank">Hurshi - Exits (rhodes, organ)</a></p>
+                <p><a href="https://music.163.com/#/album?id=124387689" target="_blank">Hurshi - Sunless (additional harmony)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=g8PR4EsKSPA" target="_blank">Yoshuah - Let Me be Honest with You (production)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=THRyLMwaB1E&list=OLAK5uy_kRn-iJTBFCFGosX3TfLQhG04dDEycO3yU&index=4" target="_blank">Yoshuah - Words Are Lies (production)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=iRvbYOqitDo" target="_blank">Lanigan - All Choked Up (keyboards)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=m9-OnmkcK94" target="_blank">Lanigan - You Know I Know (piano) </a></p>
+            </div>
         </div>
     </div>
 
     <div id="contact" class="modal-overlay" onclick="closeModal()">
         <div class="modal">
-            <p><a href="https://www.instagram.com/hongbinxu_/" target="_blank">Instagram: @hongbinxu_</a></p>
+            <p id="contactContent"><a href="https://www.instagram.com/hongbinxu_/" target="_blank">Instagram: @hongbinxu_</a></p>
         </div>
     </div>
 
@@ -252,6 +261,109 @@
 
         setInterval(updateClock, 1000); // Update clock every second
         updateClock(); // Initialize clock immediately
+
+    const translations = {
+        english: {
+            bio: "Bio",
+            credits: "Credits",
+            contact: "Contact",
+            gallery: "Gallery",
+            bioContent: "Hongbin Xu is a keyboardist and producer based in Los Angeles, California. He earned a bachelor of music in keyboard performance in contemporary styles with a minor in audio production from the Musicians Institute. Since then, he has supported artists, including Priscilla Chan Wai Han, Linda Chung, Ding Dang, Andy Hui, Zach Louis, and Maya Kuriel. Outside of his musicianship on stage, his recording and production credits include Qiming Fei, Ann One, Killagramz, among others.",
+            creditsContent: 
+            `<p><a href="https://www.youtube.com/watch?v=fAOQt2kirP0" target="_blank">Jellyeeee - Flourish (arrangement, synthesizer)</a></p>
+            <p><a href="https://www.youtube.com/watch?v=AnulGk5ZyQo" target="_blank">Aria Liang - Dishes (production, recording, mixing)</a></p>
+            <p><a href="https://www.youtube.com/watch?v=3ZZznCLuGrg" target="_blank">Qiming Fei - For You (arrangement, keyboards)</a></p>
+            <p><a href="https://www.youtube.com/watch?v=t9bsTvXaPSY" target="_blank">Killagramz, Ann One, Big Banana & Vin.Chee - Ktown Love (arrangement, keyboards)</a></p>
+            <p><a href="https://www.youtube.com/watch?v=8XTHxYHs57k" target="_blank">Sarah Lanigan - Indecisive (production, recording, mixing)</a></p>
+            <p><a href="https://www.youtube.com/watch?v=mY4uVTmhYRM" target="_blank">PALM3 - Searching For You (piano)</a></p>
+            <p><a href="https://www.youtube.com/watch?v=1qs7Unsvrio&list=OLAK5uy_k-arr-QoU8dObv3XtuVGQHrnt9YDGf8Yg&index=3" target="_blank">Su Isaac - I Want (keyboards)</a></p>
+            <p><a href="https://www.youtube.com/watch?v=1qs7Unsvrio&list=OLAK5uy_k-arr-QoU8dObv3XtuVGQHrnt9YDGf8Yg&index=2" target="_blank">Su Isaac - Good Fruit (keyboards)</a></p>
+            <p><a href="https://www.youtube.com/watch?v=IYoCH1ZdzAg&list=OLAK5uy_k-arr-QoU8dObv3XtuVGQHrnt9YDGf8Yg&index=3" target="_blank">Su Isaac - Drunkenly (keyboards)</a></p>
+            <p><a href="https://www.youtube.com/watch?v=nBrzG-c-6Es&list=OLAK5uy_k-arr-QoU8dObv3XtuVGQHrnt9YDGf8Yg&index=4" target="_blank">Su Isaac - Trouble (keyboards)</a></p>
+            <p><a href="https://music.163.com/#/album?id=152195434" target="_blank">Hurshi - What If (plucked piano)</a></p>
+             <p><a href="https://www.youtube.com/watch?v=SPwxivqRI70&list=OLAK5uy_nyigETXlUP2KAqgTKsLfT0hEkM9jbvO_4&index=7" target="_blank">Jellyeeee - Outsider (organ)</a></p>
+            <p><a href="https://soundcloud.com/hongbinxu/what-if?si=3200bcd1cdf94ef3ab1a1d74dc2637d9&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"target="_blank">Hongbin Xu  - What If (production, songwriting, recording, mixing)</a></p>
+            <p><a href="https://www.youtube.com/watch?v=ltxpXCotBQc&list=OLAK5uy_mfEawMUyCg5lcbO2heIrIItc_eSmF9rKc" target="_blank">Lanigan - Strut (keyboards)</a></p>
+            <p><a href="https://www.youtube.com/watch?v=sRyAQCqPJvo&list=OLAK5uy_mfEawMUyCg5lcbO2heIrIItc_eSmF9rKc&index=2" target="_blank">Lanigan - Cut To The Chase (keyboards)</a></p>
+            <p><a href="https://www.youtube.com/watch?v=cwjR_xU9EAY&list=OLAK5uy_mfEawMUyCg5lcbO2heIrIItc_eSmF9rKc&index=3" target="_blank">Lanigan - What’s A Girl Gotta Do (keyboards)</a></p>
+            <p><a href="https://www.youtube.com/watch?v=2KnddcSLn_Y&list=OLAK5uy_mfEawMUyCg5lcbO2heIrIItc_eSmF9rKc&index=4" target="_blank">Lanigan - Lavender (keyboards)</a></p>
+            <p><a href="https://www.youtube.com/watch?v=4FpUUszr2Dg" target="_blank">Tambor - 2016 (keyboards)</a></p>
+            <p><a href="https://www.youtube.com/watch?v=Ehq7F6-mQ5M" target="_blank">Tambor - Cigarettes & Poetry (production, lyric writing, mixing)</a></p>
+            <p><a href="https://www.youtube.com/watch?v=iP_vnsOVDbY" target="_blank">Benjamin Fortin - Bigger than the Sky (piano)</a></p>
+            <p><a href="https://music.163.com/#/album?id=124384447" target="_blank">Hurshi - Exits (rhodes, organ)</a></p>
+            <p><a href="https://music.163.com/#/album?id=124387689" target="_blank">Hurshi - Sunless (additional harmony)</a></p>
+            <p><a href="https://www.youtube.com/watch?v=g8PR4EsKSPA" target="_blank">Yoshuah - Let Me be Honest with You (production)</a></p>
+            <p><a href="https://www.youtube.com/watch?v=THRyLMwaB1E&list=OLAK5uy_kRn-iJTBFCFGosX3TfLQhG04dDEycO3yU&index=4" target="_blank">Yoshuah - Words Are Lies (production)</a></p>
+            <p><a href="https://www.youtube.com/watch?v=iRvbYOqitDo" target="_blank">Lanigan - All Choked Up (keyboards)</a></p>
+            <p><a href="https://www.youtube.com/watch?v=m9-OnmkcK94" target="_blank">Lanigan - You Know I Know (piano) </a></p>`, // Use the original English text from the credits modal here
+
+            contactContent: `<a href="https://www.instagram.com/hongbinxu_/" target="_blank">Instagram: @hongbinxu_</a>`,
+        },
+        chinese: {
+            bio: "简介",
+            credits: "作品",
+            contact: "联系",
+            gallery: "照片",
+            bioContent: "许鸿彬是一名来自广东佛山的键盘手和制作人。毕业于MI音乐家学院，获得当代键盘演奏专业的本科学位，并辅修音频工程。他不仅与陈慧娴、钟嘉欣、丁当、许志安、杜德伟、温岚等艺人同台演出，舞台之外，他的录音和制作作品包括费启鸣等。",
+            creditsContent: 
+            `<p><a href="https://music.163.com/#/song?id=2651096459" target="_blank">Jellyeeee - Flourish (编曲, 合成器)</a></p>
+            <p><a href="https://music.163.com/#/song?id=2645132297" target="_blank">Aria Liang - Dishes (制作, 录音, 混音)</a></p>
+            <p><a href="https://music.163.com/#/song?id=2626750030" target="_blank">费启鸣 - 为你 (编曲，键盘)</a></p>
+            <p><a href="https://music.163.com/#/song?id=2616478914" target="_blank">Killagramz, Ann One, Big Banana & Vin.Chee - Ktown Love (编曲，键盘)</a></p>
+            <p><a href="https://music.163.com/#/song?id=2141923357" target="_blank">Sarah Lanigan - Indecisive (制作, 录音, 混音)</a></p>
+            <p><a href="https://music.163.com/#/song?id=2129957328" target="_blank">PALM3 - Searching For You (钢琴)</a></p>
+            <p><a href="https://music.163.com/#/song?id=2100240706" target="_blank">Su Isaac - I Want (键盘)</a></p>
+            <p><a href="https://music.163.com/#/song?id=2100239963" target="_blank">Su Isaac - Good Fruit (键盘)</a></p>
+            <p><a href="https://music.163.com/#/song?id=2100239964" target="_blank">Su Isaac - Drunkenly (键盘)</a></p>
+            <p><a href="https://music.163.com/#/song?id=2100240707" target="_blank">Su Isaac - Trouble (键盘)</a></p>
+            <p><a href="https://music.163.com/#/album?id=152195434" target="_blank">Hurshi - 若 (处理钢琴)</a></p>
+            <p><a href="https://music.163.com/#/song?id=1954696309" target="_blank">Jellyeeee - Outsider (风琴)</a></p>
+            <p><a href="https://music.163.com/#/song?id=1938533515"target="_blank">许鸿彬  - What If (词曲，制作, 录音, 混音)</a></p>
+            <p><a href="https://music.163.com/#/song?id=1918970424" target="_blank">Lanigan - Strut (键盘)</a></p>
+            <p><a href="https://music.163.com/#/song?id=1918969493" target="_blank">Lanigan - Cut To The Chase (键盘)</a></p>
+            <p><a href="https://music.163.com/#/song?id=1918970425" target="_blank">Lanigan - What’s A Girl Gotta Do (键盘)</a></p>
+            <p><a href="https://music.163.com/#/song?id=1918969494" target="_blank">Lanigan - Lavender (键盘)</a></p>
+            <p><a href="https://music.163.com/#/song?id=1927825022" target="_blank">Tambor - 2016 (键盘)</a></p>
+            <p><a href="https://music.163.com/#/song?id=1831951781" target="_blank">Tambor - Cigarettes & Poetry (歌词，制作, 混音)</a></p>
+            <p><a href="https://music.163.com/#/song?id=2650460989" target="_blank">Benjamin Fortin - Bigger than the Sky (钢琴)</a></p>
+            <p><a href="https://music.163.com/#/album?id=124384447" target="_blank">Hurshi - Exits (电钢琴, 风琴)</a></p>
+            <p><a href="https://music.163.com/#/album?id=124387689" target="_blank">Hurshi - Sunless (额外和声)</a></p>
+            <p><a href="https://music.163.com/#/song?id=1958413951" target="_blank">Yoshuah - Let Me be Honest with You (制作)</a></p>
+            <p><a href="https://music.163.com/#/song?id=1958413952" target="_blank">Yoshuah - Words Are Lies (制作)</a></p>
+            <p><a href="https://www.youtube.com/watch?v=iRvbYOqitDo" target="_blank">Lanigan - All Choked Up (键盘)</a></p>
+            <p><a href="https://www.youtube.com/watch?v=m9-OnmkcK94" target="_blank">Lanigan - You Know I Know (钢琴) </a></p>`, 
+
+            contactContent: `微信: @hongbinxu_</a>`,
+        }
+    };
+
+        let currentLanguage = "english";
+
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === "english" ? "chinese" : "english";
+
+            // Update button texts and font
+            document.querySelectorAll(".button").forEach((button) => {
+                const id = button.getAttribute("onclick")?.match(/'(.*?)'/)?.[1];
+                if (translations[currentLanguage][id]) {
+                    button.textContent = translations[currentLanguage][id];
+                }
+                button.style.fontFamily =
+                    currentLanguage === "chinese" ? "'MyFont', sans-serif" : "'MyFont', sans-serif";
+                button.style.fontSize = currentLanguage === "chinese" ? "13px" : "13px"; // Adjust font size
+            });
+
+            // Update modal content
+            document.getElementById("bioContent").innerHTML = translations[currentLanguage].bioContent;
+            document.getElementById("creditsContent").innerHTML = translations[currentLanguage].creditsContent;
+            document.getElementById("contactContent").innerHTML = translations[currentLanguage].contactContent;
+
+            // Apply font and font size globally for body
+            document.body.style.fontFamily =
+                currentLanguage === "chinese" ? "'MyFont', sans-serif" : "'MyFont', sans-serif";
+            document.body.style.fontSize = currentLanguage === "chinese" ? "13px" : "13px"; // Adjust body font size
+        }
+
 
     </script>
 </body>

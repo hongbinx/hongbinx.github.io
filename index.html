@@ -13,17 +13,14 @@
     <style>
         @font-face {
             font-family: 'MyFont';
-            src: url('Adobe Hebrew Regular.otf') format('truetype');
-        }
-
-        @font-face {
-            font-family: 'ChineseFont';
-            src: url('思源宋体.ttf') format('truetype');
+            src: url('') format('truetype');
         }
         
         body {
+            background: url('image5.jpeg') no-repeat center center fixed;
+            background-size: cover;
             background-color: white;
-            color: black;
+            color: white;
             font-family: 'MyFont', sans-serif;
             font-size: 13px;
             margin: 0;
@@ -33,22 +30,16 @@
             align-items: center;
             height: 100vh;
         }
-        body.night-mode {
-            background-color: black;
-            color: white;
-        }
 
         .container {
             text-align: center;
         }
 
         a {
-            color: black;
+            color: white;
             text-decoration: none;
         }
-        .night-mode a {
-            color: white;
-        }
+
         a:hover {
             text-decoration: underline;
         }
@@ -64,22 +55,15 @@
             font-family: 'MyFont', sans-serif;
             font-size: 13px;
             padding: 10px 20px;
-            color: black;
-            background: white;
+            color: white;
+            background: transparent;
             cursor: pointer;
             border: none;
             transition: background 0.3s;
         }
-        body.night-mode .button {
-            background: black;
-            color: white;
-        }
 
         .button:hover {
-            background: lightgray;
-        }
-        body.night-mode .button:hover {
-            background: #080808;
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .modal-overlay {
@@ -88,14 +72,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.2);
             display: none;
             justify-content: center;
             align-items: center;
         }
 
         .modal {
-            background: white;
+            background: black;
             padding: 20px;
             max-width: 600px;
             max-height: 30em; /* Limits height to approximately 10 lines */
@@ -119,32 +103,16 @@
             background-color: transparent; /* Transparent track */
         }
 
-        .modal img {
-            width: 300px; /* Keeps desktop settings as is */
-            height: auto;
-            max-height: 30em
+        @media (orientation: landscape) {
+            body {
+                background-position: 50% 30%;
+            }
         }
 
-        #clock {
-            font-family: 'MyFont', sans-serif;
-            font-size: 13px; /* Adjust size to your preference */
-            color: black;
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: transparent; /* Match the existing background */
-            padding: 5px 10px;
-            border-radius: 0px;
-        }
-        body.night-mode #clock {
-            color: white;
-            background-color: transparent;
-        }
-
-        body.night-mode .modal {
-            background: black;
-            color: white;
+        @media (orientation: portrait) {
+            body {
+                background-position: 50% 50%;
+            }
         }
 
         @media only screen and (max-width: 600px) {
@@ -172,50 +140,48 @@
 <body>
     <div class="container">
         <div class="buttons">
-            <button class="button" onclick="showModal('bio')">Bio</button>
-            <button class="button" onclick="showModal('credits')">Credits</button>
+            <button class="button" onclick="showModal('liveshows')">Live Shows</button>
+            <button class="button" onclick="showModal('studiossesions')">Studio Sessions</button>
             <button class="button" onclick="showModal('contact')">Contact</button>
-            <button class="button" onclick="showModal('gallery')">Gallery</button>
             <button id="translateButton" class="button" onclick="toggleLanguage()">中文</button>
 
         </div>
     </div>
 
-    <div id="bio" class="modal-overlay" onclick="closeModal()">
+    <div id="liveshows" class="modal-overlay" onclick="closeModal()">
         <div class="modal">
-            <p id="bioContent">Hongbin Xu is a keyboardist and producer based in Los Angeles. He earned a bachelor of music in keyboard performance in contemporary styles with a minor in audio production from the Musicians Institute. Since then, he has supported artists, including Zach Louis and Maya Kuriel. Outside of his musicianship on stage, his recording and production credits include Ann One, Killagramz, among others.</p>
+            <div id="liveshowsContent">
+                <p>Leah Dou Out of the Loop US Tour (keyboards)</p>
+                <p>The Fortunes at Dsney California Adventure (keyboards)</p>
+                <p>Zach Louis at the Echoplex (keyboards)</p>
+                <p>Maya Kuriel opening for Saay at the Moroccan Lounge (MD, keyboards)</p>
+                <p>Alex To & Lande Wen at the Thunder Valley Venue (MD, keyboards)</p>
+                <p>Priscilla Chan Wai Han at the Thunder Valley Venue (keyboards)</p>
+                <p>Della Ding Dang at Morongo Casino (keyboards)</p>
+            </div>
         </div>
     </div>
 
-    <div id="credits" class="modal-overlay" onclick="closeModal()">
+    <div id="studiossesions" class="modal-overlay" onclick="closeModal()">
         <div class="modal">
-            <div id="creditsContent">
-                <p><a href="https://www.youtube.com/watch?v=gDo5f_EnKdo" target="_blank">Aria Liang - So Sweet (production, recording, mixing)</a></p>
+            <div id="studiossesionsContent">
                 <p><a href="https://www.youtube.com/watch?v=fAOQt2kirP0" target="_blank">Jellyeeee - Flourish (arrangement, synthesizer)</a></p>
                 <p><a href="https://www.youtube.com/watch?v=AnulGk5ZyQo" target="_blank">Aria Liang - Dishes (production, recording, mixing)</a></p>
                 <p><a href="https://www.youtube.com/watch?v=3ZZznCLuGrg" target="_blank">Qiming Fei - For You (arrangement, keyboards)</a></p>
                 <p><a href="https://www.youtube.com/watch?v=t9bsTvXaPSY" target="_blank">Killagramz, Ann One, Big Banana & Vin.Chee - Ktown Love (production)</a></p>
                 <p><a href="https://www.youtube.com/watch?v=8XTHxYHs57k" target="_blank">Sarah Lanigan - Indecisive (production, recording, mixing)</a></p>
-                <p><a href="https://www.youtube.com/watch?v=mY4uVTmhYRM" target="_blank">PALM3 - Searching For You (piano)</a></p>
-                <p><a href="https://www.youtube.com/watch?v=1qs7Unsvrio&list=OLAK5uy_k-arr-QoU8dObv3XtuVGQHrnt9YDGf8Yg&index=3" target="_blank">Su Isaac - I Want (keyboards)</a></p>
-                <p><a href="https://www.youtube.com/watch?v=1qs7Unsvrio&list=OLAK5uy_k-arr-QoU8dObv3XtuVGQHrnt9YDGf8Yg&index=2" target="_blank">Su Isaac - Good Fruit (keyboards)</a></p>
-                <p><a href="https://www.youtube.com/watch?v=IYoCH1ZdzAg&list=OLAK5uy_k-arr-QoU8dObv3XtuVGQHrnt9YDGf8Yg&index=3" target="_blank">Su Isaac - Drunkenly (keyboards)</a></p>
                 <p><a href="https://www.youtube.com/watch?v=nBrzG-c-6Es&list=OLAK5uy_k-arr-QoU8dObv3XtuVGQHrnt9YDGf8Yg&index=4" target="_blank">Su Isaac - Trouble (keyboards)</a></p>
                 <p><a href="https://music.163.com/#/album?id=152195434" target="_blank">Hurshi - What If (plucked piano)</a></p>
                 <p><a href="https://www.youtube.com/watch?v=SPwxivqRI70&list=OLAK5uy_nyigETXlUP2KAqgTKsLfT0hEkM9jbvO_4&index=7" target="_blank">Jellyeeee - Outsider (organ)</a></p>
                 <p><a href="https://soundcloud.com/hongbinxu/what-if?si=3200bcd1cdf94ef3ab1a1d74dc2637d9&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"target="_blank">Hongbin Xu  - What If (production, songwriting, recording, mixing)</a></p>
-                <p><a href="https://www.youtube.com/watch?v=ltxpXCotBQc&list=OLAK5uy_mfEawMUyCg5lcbO2heIrIItc_eSmF9rKc" target="_blank">Lanigan - Strut (keyboards)</a></p>
-                <p><a href="https://www.youtube.com/watch?v=sRyAQCqPJvo&list=OLAK5uy_mfEawMUyCg5lcbO2heIrIItc_eSmF9rKc&index=2" target="_blank">Lanigan - Cut To The Chase (keyboards)</a></p>
-                <p><a href="https://www.youtube.com/watch?v=cwjR_xU9EAY&list=OLAK5uy_mfEawMUyCg5lcbO2heIrIItc_eSmF9rKc&index=3" target="_blank">Lanigan - What’s A Girl Gotta Do (keyboards)</a></p>
                 <p><a href="https://www.youtube.com/watch?v=2KnddcSLn_Y&list=OLAK5uy_mfEawMUyCg5lcbO2heIrIItc_eSmF9rKc&index=4" target="_blank">Lanigan - Lavender (keyboards)</a></p>
                 <p><a href="https://www.youtube.com/watch?v=4FpUUszr2Dg" target="_blank">Tambor - 2016 (keyboards)</a></p>
                 <p><a href="https://www.youtube.com/watch?v=Ehq7F6-mQ5M" target="_blank">Tambor - Cigarettes & Poetry (production, lyric writing, mixing)</a></p>
                 <p><a href="https://music.163.com/#/album?id=124384447" target="_blank">Hurshi - Exits (rhodes, organ)</a></p>
                 <p><a href="https://music.163.com/#/album?id=124387689" target="_blank">Hurshi - Sunless (additional harmony)</a></p>
                 <p><a href="https://www.youtube.com/watch?v=g8PR4EsKSPA" target="_blank">Yoshuah - Let Me be Honest with You (production)</a></p>
-                <p><a href="https://www.youtube.com/watch?v=THRyLMwaB1E&list=OLAK5uy_kRn-iJTBFCFGosX3TfLQhG04dDEycO3yU&index=4" target="_blank">Yoshuah - Words Are Lies (production)</a></p>
-                <p><a href="https://www.youtube.com/watch?v=iRvbYOqitDo" target="_blank">Lanigan - All Choked Up (keyboards)</a></p>
                 <p><a href="https://www.youtube.com/watch?v=m9-OnmkcK94" target="_blank">Lanigan - You Know I Know (piano) </a></p>
+                <p><a href="https://www.youtube.com/watch?v=iRvbYOqitDo" target="_blank">Lanigan - All Choked Up (keyboards)</a></p>
             </div>
         </div>
     </div>
@@ -225,14 +191,6 @@
             <p id="contactContent"><a href="https://www.instagram.com/hongbinxu_/" target="_blank">Instagram: @hongbinxu_</a></p>
         </div>
     </div>
-
-    <div id="gallery" class="modal-overlay" onclick="closeModal()">
-        <div class="modal img">
-            <img src="image4.jpg" width=auto height=auto>
-        </div>
-    </div>
-
-    <div id="clock"></div>
 
     <script>
         function showModal(id) {
@@ -245,73 +203,56 @@
                 modal.style.display = 'none';
             });
         }
-        function toggleNightMode() {
-            const hour = new Date().getHours();
-            if (hour >= 17 || hour < 6) {
-                document.body.classList.add('night-mode');
-            } else {
-                document.body.classList.remove('night-mode');
-            }
-        }
-
-        // Set night mode on page load
-        window.onload = toggleNightMode;
-
-        function updateClock() {
-            const now = new Date();
-            const hours = now.getHours().toString().padStart(2, '0');
-            const minutes = now.getMinutes().toString().padStart(2, '0');
-            const seconds = now.getSeconds().toString().padStart(2, '0');
-            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
-        }
-
-        setInterval(updateClock, 1000); // Update clock every second
-        updateClock(); // Initialize clock immediately
 
     const translations = {
         english: {
-            bio: "Bio",
-            credits: "Credits",
+            liveshows: "Live Shows",
+            studiossesions: "Studio Sessions",
             contact: "Contact",
-            gallery: "Gallery",
-            bioContent: "Hongbin Xu is a keyboardist and producer based in Los Angeles. He earned a bachelor of music in keyboard performance in contemporary styles with a minor in audio production from the Musicians Institute. Since then, he has supported artists, including Zach Louis and Maya Kuriel. Outside of his musicianship on stage, his recording and production credits include Ann One, Killagramz, among others.",
-            creditsContent: 
-            `<p><a href="https://www.youtube.com/watch?v=gDo5f_EnKdo" target="_blank">Aria Liang - So Sweet (production, recording, mixing)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=fAOQt2kirP0" target="_blank">Jellyeeee - Flourish (arrangement, synthesizer)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=AnulGk5ZyQo" target="_blank">Aria Liang - Dishes (production, recording, mixing)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=3ZZznCLuGrg" target="_blank">Qiming Fei - For You (production)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=t9bsTvXaPSY" target="_blank">Killagramz, Ann One, Big Banana & Vin.Chee - Ktown Love (arrangement, keyboards)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=8XTHxYHs57k" target="_blank">Sarah Lanigan - Indecisive (production, recording, mixing)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=mY4uVTmhYRM" target="_blank">PALM3 - Searching For You (piano)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=1qs7Unsvrio&list=OLAK5uy_k-arr-QoU8dObv3XtuVGQHrnt9YDGf8Yg&index=3" target="_blank">Su Isaac - I Want (keyboards)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=1qs7Unsvrio&list=OLAK5uy_k-arr-QoU8dObv3XtuVGQHrnt9YDGf8Yg&index=2" target="_blank">Su Isaac - Good Fruit (keyboards)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=IYoCH1ZdzAg&list=OLAK5uy_k-arr-QoU8dObv3XtuVGQHrnt9YDGf8Yg&index=3" target="_blank">Su Isaac - Drunkenly (keyboards)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=nBrzG-c-6Es&list=OLAK5uy_k-arr-QoU8dObv3XtuVGQHrnt9YDGf8Yg&index=4" target="_blank">Su Isaac - Trouble (keyboards)</a></p>
-            <p><a href="https://music.163.com/#/album?id=152195434" target="_blank">Hurshi - What If (plucked piano)</a></p>
-             <p><a href="https://www.youtube.com/watch?v=SPwxivqRI70&list=OLAK5uy_nyigETXlUP2KAqgTKsLfT0hEkM9jbvO_4&index=7" target="_blank">Jellyeeee - Outsider (organ)</a></p>
-            <p><a href="https://soundcloud.com/hongbinxu/what-if?si=3200bcd1cdf94ef3ab1a1d74dc2637d9&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"target="_blank">Hongbin Xu  - What If (production, songwriting, recording, mixing)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=ltxpXCotBQc&list=OLAK5uy_mfEawMUyCg5lcbO2heIrIItc_eSmF9rKc" target="_blank">Lanigan - Strut (keyboards)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=sRyAQCqPJvo&list=OLAK5uy_mfEawMUyCg5lcbO2heIrIItc_eSmF9rKc&index=2" target="_blank">Lanigan - Cut To The Chase (keyboards)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=cwjR_xU9EAY&list=OLAK5uy_mfEawMUyCg5lcbO2heIrIItc_eSmF9rKc&index=3" target="_blank">Lanigan - What’s A Girl Gotta Do (keyboards)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=2KnddcSLn_Y&list=OLAK5uy_mfEawMUyCg5lcbO2heIrIItc_eSmF9rKc&index=4" target="_blank">Lanigan - Lavender (keyboards)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=4FpUUszr2Dg" target="_blank">Tambor - 2016 (keyboards)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=Ehq7F6-mQ5M" target="_blank">Tambor - Cigarettes & Poetry (production, lyric writing, mixing)</a></p>
-            <p><a href="https://music.163.com/#/album?id=124384447" target="_blank">Hurshi - Exits (rhodes, organ)</a></p>
-            <p><a href="https://music.163.com/#/album?id=124387689" target="_blank">Hurshi - Sunless (additional harmony)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=g8PR4EsKSPA" target="_blank">Yoshuah - Let Me be Honest with You (production)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=THRyLMwaB1E&list=OLAK5uy_kRn-iJTBFCFGosX3TfLQhG04dDEycO3yU&index=4" target="_blank">Yoshuah - Words Are Lies (production)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=iRvbYOqitDo" target="_blank">Lanigan - All Choked Up (keyboards)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=m9-OnmkcK94" target="_blank">Lanigan - You Know I Know (piano) </a></p>`, // Use the original English text from the credits modal here
+            liveshowsContent: 
+                `<p>Leah Dou Out of the Loop US Tour (keyboards)</p>
+                <p>The Fortunes at Dsney California Adventure (keyboards)</p>
+                <p>Zach Louis at the Echoplex (keyboards)</p>
+                <p>Maya Kuriel opening for Saay at the Moroccan Lounge (MD, keyboards)</p>
+                <p>Alex To & Lande Wen at the Thunder Valley Venue (MD, keyboards)</p>
+                <p>Priscilla Chan Wai Han at the Thunder Valley Venue (keyboards)</p>
+                <p>Della Ding Dang at Morongo Casino (keyboards)</p>`,
+
+            studiossesionsContent: 
+                `<p><a href="https://www.youtube.com/watch?v=fAOQt2kirP0" target="_blank">Jellyeeee - Flourish (arrangement, synthesizer)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=AnulGk5ZyQo" target="_blank">Aria Liang - Dishes (production, recording, mixing)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=3ZZznCLuGrg" target="_blank">Qiming Fei - For You (arrangement, keyboards)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=t9bsTvXaPSY" target="_blank">Killagramz, Ann One, Big Banana & Vin.Chee - Ktown Love (production)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=8XTHxYHs57k" target="_blank">Sarah Lanigan - Indecisive (production, recording, mixing)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=nBrzG-c-6Es&list=OLAK5uy_k-arr-QoU8dObv3XtuVGQHrnt9YDGf8Yg&index=4" target="_blank">Su Isaac - Trouble (keyboards)</a></p>
+                <p><a href="https://music.163.com/#/album?id=152195434" target="_blank">Hurshi - What If (plucked piano)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=SPwxivqRI70&list=OLAK5uy_nyigETXlUP2KAqgTKsLfT0hEkM9jbvO_4&index=7" target="_blank">Jellyeeee - Outsider (organ)</a></p>
+                <p><a href="https://soundcloud.com/hongbinxu/what-if?si=3200bcd1cdf94ef3ab1a1d74dc2637d9&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"target="_blank">Hongbin Xu  - What If (production, songwriting, recording, mixing)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=2KnddcSLn_Y&list=OLAK5uy_mfEawMUyCg5lcbO2heIrIItc_eSmF9rKc&index=4" target="_blank">Lanigan - Lavender (keyboards)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=4FpUUszr2Dg" target="_blank">Tambor - 2016 (keyboards)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=Ehq7F6-mQ5M" target="_blank">Tambor - Cigarettes & Poetry (production, lyric writing, mixing)</a></p>
+                <p><a href="https://music.163.com/#/album?id=124384447" target="_blank">Hurshi - Exits (rhodes, organ)</a></p>
+                <p><a href="https://music.163.com/#/album?id=124387689" target="_blank">Hurshi - Sunless (additional harmony)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=g8PR4EsKSPA" target="_blank">Yoshuah - Let Me be Honest with You (production)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=m9-OnmkcK94" target="_blank">Lanigan - You Know I Know (piano) </a></p>
+                <p><a href="https://www.youtube.com/watch?v=iRvbYOqitDo" target="_blank">Lanigan - All Choked Up (keyboards)</a></p>`, // Use the original English text from the credits modal here
 
             contactContent: `<a href="https://www.instagram.com/hongbinxu_/" target="_blank">Instagram: @hongbinxu_</a>`,
         },
         chinese: {
-            bio: "简介",
-            credits: "作品",
+            liveshows: "现场演出",
+            studiossesions: "作品",
             contact: "联系",
             gallery: "照片",
-            bioContent: "许鸿彬是一名来自广东佛山的键盘手和制作人。毕业于MI音乐家学院，获得当代键盘演奏专业的本科学位，并辅修音频工程。他不仅与陈慧娴、丁当、许志安、杜德伟、温岚等艺人同台演出，还参与了费启鸣的录音作品制作。",
-            creditsContent: 
+            liveshowsContent:
+                `<p>窦靖童状况外北美巡演 (键盘)</p>
+                <p>The Fortunes迪士尼加州冒险乐园 (键盘)</p>
+                <p>Zach Louis at the Echoplex (键盘)</p>
+                <p>Maya Kuriel opening for Saay at the Moroccan Lounge (音乐总监, 键盘)</p>
+                <p>杜德偉、溫嵐 at the Thunder Valley Venue (音乐总监, 键盘)</p>
+                <p>陳慧嫻 at the Thunder Valley Venue (键盘)</p>
+                <p>丁噹 at Morongo Casino (键盘)</p>`,
+            studiossesionsContent: 
             `<p><a href="https://www.youtube.com/watch?v=gDo5f_EnKdo" target="_blank">Aria Liang - So Sweet (制作、录音、混音)</a></p>
             <p><a href="https://www.youtube.com/watch?v=fAOQt2kirP0" target="_blank">Jellyeeee - Flourish (编曲、合成器)</a></p>
             <p><a href="https://music.163.com/#/song?id=2645132297" target="_blank">Aria Liang - Dishes (制作、录音、混音)</a></p>
@@ -362,8 +303,8 @@
             });
 
             // Update modal content
-            document.getElementById("bioContent").innerHTML = translations[currentLanguage].bioContent;
-            document.getElementById("creditsContent").innerHTML = translations[currentLanguage].creditsContent;
+            document.getElementById("liveshowsContent").innerHTML = translations[currentLanguage].liveshowsContent;
+            document.getElementById("studiossesionsContent").innerHTML = translations[currentLanguage].studiossesionsContent;
             document.getElementById("contactContent").innerHTML = translations[currentLanguage].contactContent;
 
             // Apply font and font size globally for body

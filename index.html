@@ -80,7 +80,7 @@
         }
 
         .modal {
-            background: black;
+            background: rgba(0, 0, 0, 0.9);
             padding: 20px;
             max-width: 600px;
             max-height: 30em; /* Limits height to approximately 10 lines */
@@ -141,31 +141,31 @@
 <body>
     <div class="container">
         <div class="buttons">
-            <button class="button" onclick="showModal('liveshows')">Live Shows</button>
-            <button class="button" onclick="showModal('studiossesions')">Studio Sessions</button>
+            <button class="button" onclick="showModal('live')">Live</button>
+            <button class="button" onclick="showModal('studio')">Studio</button>
             <button class="button" onclick="showModal('contact')">Contact</button>
             <button id="translateButton" class="button" onclick="toggleLanguage()">中文</button>
 
         </div>
     </div>
 
-    <div id="liveshows" class="modal-overlay" onclick="closeModal()">
+    <div id="live" class="modal-overlay" onclick="closeModal()">
         <div class="modal">
-            <div id="liveshowsContent">
+            <div id="liveContent">
                 <p>Leah Dou Out of the Loop US Tour (keyboards)</p>
                 <p>The Fortunes at Dsney California Adventure (keyboards)</p>
                 <p>Zach Louis at the Echoplex (keyboards)</p>
                 <p>Maya Kuriel opening for Saay at the Moroccan Lounge (MD, keyboards)</p>
-                <p>Alex To & Landy Wen at the Thunder Valley Venue (MD, keyboards)</p>
+                <p>Alex To & Lande Wen at the Thunder Valley Venue (MD, keyboards)</p>
                 <p>Priscilla Chan Wai Han at the Thunder Valley Venue (keyboards)</p>
                 <p>Della Ding Dang at Morongo Casino (keyboards)</p>
             </div>
         </div>
     </div>
 
-    <div id="studiossesions" class="modal-overlay" onclick="closeModal()">
+    <div id="studio" class="modal-overlay" onclick="closeModal()">
         <div class="modal">
-            <div id="studiossesionsContent">
+            <div id="studioContent">
                 <p><a href="https://www.youtube.com/watch?v=fAOQt2kirP0" target="_blank">Jellyeeee - Flourish (arrangement, synthesizer)</a></p>
                 <p><a href="https://www.youtube.com/watch?v=AnulGk5ZyQo" target="_blank">Aria Liang - Dishes (production, recording, mixing)</a></p>
                 <p><a href="https://www.youtube.com/watch?v=3ZZznCLuGrg" target="_blank">Qiming Fei - For You (arrangement, keyboards)</a></p>
@@ -207,10 +207,10 @@
 
     const translations = {
         english: {
-            liveshows: "Live Shows",
-            studiossesions: "Studio Sessions",
+            live: "Live",
+            studio: "Studio",
             contact: "Contact",
-            liveshowsContent: 
+            liveContent: 
                 `<p>Leah Dou Out of the Loop US Tour (keyboards)</p>
                 <p>The Fortunes at Dsney California Adventure (keyboards)</p>
                 <p>Zach Louis at the Echoplex (keyboards)</p>
@@ -219,7 +219,7 @@
                 <p>Priscilla Chan Wai Han at the Thunder Valley Venue (keyboards)</p>
                 <p>Della Ding Dang at Morongo Casino (keyboards)</p>`,
 
-            studiossesionsContent: 
+            studioContent: 
                 `<p><a href="https://www.youtube.com/watch?v=fAOQt2kirP0" target="_blank">Jellyeeee - Flourish (arrangement, synthesizer)</a></p>
                 <p><a href="https://www.youtube.com/watch?v=AnulGk5ZyQo" target="_blank">Aria Liang - Dishes (production, recording, mixing)</a></p>
                 <p><a href="https://www.youtube.com/watch?v=3ZZznCLuGrg" target="_blank">Qiming Fei - For You (arrangement, keyboards)</a></p>
@@ -241,18 +241,18 @@
             contactContent: `<a href="https://www.instagram.com/hongbinxu_/" target="_blank">Instagram: @hongbinxu_</a>`,
         },
         chinese: {
-            liveshows: "现场演出",
-            studiossesions: "录音作品",
+            live: "现场演出",
+            studio: "录音作品",
             contact: "联系方式",
-            liveshowsContent:
+            liveContent:
                 `<p>窦靖童状况外北美巡演 (键盘)</p>
                 <p>The Fortunes迪士尼加州冒险乐园 (键盘)</p>
                 <p>Zach Louis at the Echoplex (键盘)</p>
                 <p>Maya Kuriel opening for Saay at the Moroccan Lounge (音乐总监, 键盘)</p>
-                <p>杜德偉 & 溫嵐 at the Thunder Valley Venue (音乐总监, 键盘)</p>
+                <p>杜德偉、溫嵐 at the Thunder Valley Venue (音乐总监, 键盘)</p>
                 <p>陳慧嫻 at the Thunder Valley Venue (键盘)</p>
                 <p>丁噹 at Morongo Casino (键盘)</p>`,
-            studiossesionsContent: 
+            studioContent: 
             `<p><a href="https://www.youtube.com/watch?v=fAOQt2kirP0" target="_blank">Jellyeeee - Flourish (编曲、合成器)</a></p>
             <p><a href="https://music.163.com/#/song?id=2645132297" target="_blank">Aria Liang - Dishes (制作、录音、混音)</a></p>
             <p><a href="https://music.163.com/#/song?id=2626750030" target="_blank">费启鸣 - 为你 (编曲、键盘)</a></p>
@@ -294,8 +294,8 @@
             });
 
             // Update modal content
-            document.getElementById("liveshowsContent").innerHTML = translations[currentLanguage].liveshowsContent;
-            document.getElementById("studiossesionsContent").innerHTML = translations[currentLanguage].studiossesionsContent;
+            document.getElementById("liveContent").innerHTML = translations[currentLanguage].liveContent;
+            document.getElementById("studioContent").innerHTML = translations[currentLanguage].studioContent;
             document.getElementById("contactContent").innerHTML = translations[currentLanguage].contactContent;
 
             // Apply font and font size globally for body

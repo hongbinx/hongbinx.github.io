@@ -145,12 +145,11 @@
 <body>
     <div class="container">
         <div class="buttons">
-            <button class="button" onclick="showModal('bio')">Bio</button>
-            <button class="button" onclick="showModal('live')">Live</button>
-            <button class="button" onclick="showModal('studio')">Studio</button>
-            <button class="button" onclick="showModal('contact')">Contact</button>
-            <button id="translateButton" class="button" onclick="toggleLanguage()">中文</button>
-
+        <button class="button" data-bg="bio" onclick="showModal('bio')">Bio</button>
+        <button class="button" data-bg="live" onclick="showModal('live')">Live</button>
+        <button class="button" data-bg="studio" onclick="showModal('studio')">Studio</button>
+        <button class="button" data-bg="contact" onclick="showModal('contact')">Contact</button>
+        <button id="translateButton" class="button" onclick="toggleLanguage()">中文</button>
         </div>
     </div>
 
@@ -205,19 +204,40 @@
     </div>
 
     <script>
-    function showModal(id) {
-        closeModal(); 
-        document.getElementById(id).style.display = 'flex';
-        document.querySelector('.buttons').style.display = 'none'; // Hide buttons
-    }
+        const originalBg = 'image7.jpg';
+        const backgrounds = {
+            bio: { landscape: 'bio-landscape.jpg', portrait: 'bio-portrait.jpg' },
+            live: { landscape: 'live-landscape.jpg', portrait: 'live-landscape.jpg' },
+            studio: { landscape: 'studio-landscape.jpg', portrait: 'studio-landscape.jpg' },
+            contact: { landscape: 'contact-landscape.jpg', portrait: 'contact-landscape.jpg' }
+        };
 
-    function closeModal() {
-        document.querySelectorAll('.modal-overlay').forEach(modal => {
-            modal.style.display = 'none';
-        });
-        document.querySelector('.buttons').style.display = 'flex'; // Show buttons again
-    }
+        function changeBackground(section) {
+            const mode = window.matchMedia("(orientation: portrait)").matches ? 'portrait' : 'landscape';
+            document.body.style.background = `url('${backgrounds[section][mode]}') no-repeat center center fixed`;
+            document.body.style.backgroundSize = 'cover';
+        }
 
+        function resetBackground() {
+            const mode = window.matchMedia("(orientation: portrait)").matches ? 'portrait' : 'landscape';
+            const originalBg = mode === 'portrait' ? 'image5.jpeg' : 'image7.jpg';
+            
+            document.body.style.background = `url('${originalBg}') no-repeat center center fixed`;
+            document.body.style.backgroundSize = 'cover';
+        }
+
+        function showModal(id) {
+            closeModal();
+            document.getElementById(id).style.display = 'flex';
+            document.querySelector('.buttons').style.display = 'none';
+            changeBackground(id);
+        }
+
+        function closeModal() {
+            document.querySelectorAll('.modal-overlay').forEach(modal => modal.style.display = 'none');
+            document.querySelector('.buttons').style.display = 'flex';
+            resetBackground();
+        }
     const translations = {
         english: {
             bio: "Bio",

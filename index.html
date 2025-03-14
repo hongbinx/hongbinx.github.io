@@ -27,6 +27,8 @@
             font-size: 14px;
             margin: 0;
             padding: 0;
+    width: 100vw;
+    height: calc(var(--vh) * 100);
             overflow: hidden; /* Prevent scrolling */
             display: flex;
             justify-content: center;
@@ -142,6 +144,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="buttons">
@@ -212,6 +215,13 @@
             studio: { landscape: 'https://pub-86a4ed04217e4c07bbd21b357b180894.r2.dev/studio-landscape.jpg', portrait: 'https://pub-86a4ed04217e4c07bbd21b357b180894.r2.dev/studio-landscape.jpg' },
             contact: { landscape: 'https://pub-86a4ed04217e4c07bbd21b357b180894.r2.dev/contact-landscape.jpg', portrait: 'https://pub-86a4ed04217e4c07bbd21b357b180894.r2.dev/contact-landscape.jpg' }
         };
+
+function adjustBackground() {
+    document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
+}
+
+window.addEventListener('resize', adjustBackground);
+adjustBackground();
 
         function changeBackground(section) {
             const mode = window.matchMedia("(orientation: portrait)").matches ? 'portrait' : 'landscape';

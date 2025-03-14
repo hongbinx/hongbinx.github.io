@@ -19,7 +19,7 @@
         }
         
         body {
-            background: url('image7.jpg') no-repeat center center fixed;
+            background: url('https://pub-86a4ed04217e4c07bbd21b357b180894.r2.dev/default-landscape.jpg') no-repeat center center fixed;
             background-size: cover;
             background-color: white;
             color: white;
@@ -52,7 +52,7 @@
             top: 0;
             left: 0;
         }
-        
+
         a {
             color: white;
             text-decoration: none;
@@ -129,7 +129,7 @@
 
         @media (orientation: portrait) {
             body {
-                background: url('image5.jpeg') no-repeat fixed;
+                background: url('https://pub-86a4ed04217e4c07bbd21b357b180894.r2.dev/default-portrait.jpeg') no-repeat fixed;
                 background-size: cover;
                 background-position: 50% 50%;
             }
@@ -220,12 +220,12 @@
     </div>
 
     <script>
-        const originalBg = 'image7.jpg';
+        const originalBg = 'https://pub-86a4ed04217e4c07bbd21b357b180894.r2.dev/default-landscape.jpg';
         const backgrounds = {
-            bio: { landscape: 'bio-landscape.jpg', portrait: 'bio-portrait.jpg' },
-            live: { landscape: 'live-landscape2.jpg', portrait: 'image5.jpeg' },
-            studio: { landscape: 'studio-landscape.jpg', portrait: 'studio-landscape.jpg' },
-            contact: { landscape: 'contact-landscape.jpg', portrait: 'contact-landscape.jpg' }
+            bio: { landscape: 'https://pub-86a4ed04217e4c07bbd21b357b180894.r2.dev/bio-landscape.jpg', portrait: 'https://pub-86a4ed04217e4c07bbd21b357b180894.r2.dev/bio-portrait.jpg' },
+            live: { landscape: 'https://pub-86a4ed04217e4c07bbd21b357b180894.r2.dev/live-landscape.jpg', portrait: 'https://pub-86a4ed04217e4c07bbd21b357b180894.r2.dev/default-portrait.jpeg' },
+            studio: { landscape: 'https://pub-86a4ed04217e4c07bbd21b357b180894.r2.dev/studio-landscape.jpg', portrait: 'https://pub-86a4ed04217e4c07bbd21b357b180894.r2.dev/studio-landscape.jpg' },
+            contact: { landscape: 'https://pub-86a4ed04217e4c07bbd21b357b180894.r2.dev/contact-landscape.jpg', portrait: 'https://pub-86a4ed04217e4c07bbd21b357b180894.r2.dev/contact-landscape.jpg' }
         };
 
         function changeBackground(section) {
@@ -236,7 +236,7 @@
 
         function resetBackground() {
             const mode = window.matchMedia("(orientation: portrait)").matches ? 'portrait' : 'landscape';
-            const originalBg = mode === 'portrait' ? 'image5.jpeg' : 'image7.jpg';
+            const originalBg = mode === 'portrait' ? 'https://pub-86a4ed04217e4c07bbd21b357b180894.r2.dev/default-portrait.jpeg' : 'https://pub-86a4ed04217e4c07bbd21b357b180894.r2.dev/default-landscape.jpg';
             
             document.body.style.background = `url('${originalBg}') no-repeat center center fixed`;
             document.body.style.backgroundSize = 'cover';

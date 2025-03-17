@@ -233,11 +233,18 @@
             changeBackground(id);
         }
 
-        function closeModal() {
-            document.querySelectorAll('.modal-overlay').forEach(modal => modal.style.display = 'none');
-            document.querySelector('.buttons').style.display = 'flex';
-            resetBackground();
-        }
+function closeModal(event) {
+    if (event && event.target.classList.contains('modal-overlay')) {
+        document.querySelectorAll('.modal-overlay').forEach(modal => modal.style.display = 'none');
+        document.querySelector('.buttons').style.display = 'flex';
+        resetBackground();
+    }
+}
+
+// Attach event listeners to all modal overlays
+document.querySelectorAll('.modal-overlay').forEach(modal => {
+    modal.addEventListener('click', closeModal);
+});
         
     const translations = {
         english: {

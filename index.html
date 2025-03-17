@@ -203,7 +203,10 @@
 
     <div id="contact" class="modal-overlay" onclick="closeModal()">
         <div class="modal">
-            <p id="contactContent"><a href="https://www.instagram.com/hongbinxu_/" target="_blank">Instagram: @hongbinxu_</a></p>
+            <div id="contactContent">
+                <p><a href="https://www.instagram.com/hongbinxu_/" target="_blank">Instagram: @hongbinxu_</a></p>
+                <p>Email: contact@hongbinxu.com</p>
+            </div>
         </div>
     </div>
 
@@ -284,7 +287,9 @@ adjustBackground();
                 <p><a href="https://www.youtube.com/watch?v=m9-OnmkcK94" target="_blank">Lanigan - You Know I Know (piano) </a></p>
                 <p><a href="https://www.youtube.com/watch?v=iRvbYOqitDo" target="_blank">Lanigan - All Choked Up (keyboards)</a></p>`, // Use the original English text from the credits modal here
 
-            contactContent: `<a href="https://www.instagram.com/hongbinxu_/" target="_blank">Instagram: @hongbinxu_</a>`,
+            contactContent: 
+                `<p><a href="https://www.instagram.com/hongbinxu_/" target="_blank">Instagram: @hongbinxu_</a></p>
+                <p>Email: contact@hongbinxu.com</p>`,
         },
         chinese: {
             bio: "个人简介",
@@ -301,25 +306,27 @@ adjustBackground();
                 <p><a href="http://xhslink.com/a/0flmhcYJH5b7" target="_blank">陳慧嫻 at Thunder Valley Venue (键盘)</a></p>
                 <p><a href="http://xhslink.com/a/i4skT7HvL5b7" target="_blank">丁噹 at Morongo Casino (键盘)</a></p>`,
             studioContent: 
-            `<p><a href="https://www.youtube.com/watch?v=fAOQt2kirP0" target="_blank">Jellyeeee - Flourish (编曲、合成器)</a></p>
-            <p><a href="https://music.163.com/#/song?id=2645132297" target="_blank">Aria Liang - Dishes (制作、录音、混音)</a></p>
-            <p><a href="https://music.163.com/#/song?id=2626750030" target="_blank">费启鸣 - 为你 (编曲、键盘)</a></p>
-            <p><a href="https://music.163.com/#/song?id=2616478914" target="_blank">Killagramz, Ann One, Big Banana & Vin.Chee - Ktown Love (制作)</a></p>
-            <p><a href="https://music.163.com/#/song?id=2141923357" target="_blank">Sarah Lanigan - Indecisive (制作、录音、混音)</a></p>
-            <p><a href="https://music.163.com/#/song?id=2100240707" target="_blank">Su Isaac - Trouble (键盘)</a></p>
-            <p><a href="https://music.163.com/#/album?id=152195434" target="_blank">Hurshi - 若 (处理钢琴)</a></p>
-            <p><a href="https://music.163.com/#/song?id=1954696309" target="_blank">Jellyeeee - Outsider (风琴)</a></p>
-            <p><a href="https://music.163.com/#/song?id=1938533515"target="_blank">许鸿彬  - What If (词曲、制作、录音、混音)</a></p>
-            <p><a href="https://music.163.com/#/song?id=1918969494" target="_blank">Lanigan - Lavender (键盘)</a></p>
-            <p><a href="https://music.163.com/#/song?id=1927825022" target="_blank">Tambor - 2016 (键盘)</a></p>
-            <p><a href="https://music.163.com/#/song?id=1831951781" target="_blank">Tambor - Cigarettes & Poetry (歌词、制作、混音)</a></p>
-            <p><a href="https://music.163.com/#/album?id=124384447" target="_blank">Hurshi - Exits (电钢琴、风琴)</a></p>
-            <p><a href="https://music.163.com/#/album?id=124387689" target="_blank">Hurshi - Sunless (额外和声)</a></p>
-            <p><a href="https://music.163.com/#/song?id=1958413951" target="_blank">Yoshuah - Let Me be Honest with You (制作)</a></p>
-            <p><a href="https://www.youtube.com/watch?v=m9-OnmkcK94" target="_blank">Lanigan - You Know I Know (钢琴) </a></p>
-            <p><a href="https://www.youtube.com/watch?v=iRvbYOqitDo" target="_blank">Lanigan - All Choked Up (键盘)</a></p>`, 
+                `<p><a href="https://www.youtube.com/watch?v=fAOQt2kirP0" target="_blank">Jellyeeee - Flourish (编曲、合成器)</a></p>
+                <p><a href="https://music.163.com/#/song?id=2645132297" target="_blank">Aria Liang - Dishes (制作、录音、混音)</a></p>
+                <p><a href="https://music.163.com/#/song?id=2626750030" target="_blank">费启鸣 - 为你 (编曲、键盘)</a></p>
+                <p><a href="https://music.163.com/#/song?id=2616478914" target="_blank">Killagramz, Ann One, Big Banana & Vin.Chee - Ktown Love (制作)</a></p>
+                <p><a href="https://music.163.com/#/song?id=2141923357" target="_blank">Sarah Lanigan - Indecisive (制作、录音、混音)</a></p>
+                <p><a href="https://music.163.com/#/song?id=2100240707" target="_blank">Su Isaac - Trouble (键盘)</a></p>
+                <p><a href="https://music.163.com/#/album?id=152195434" target="_blank">Hurshi - 若 (处理钢琴)</a></p>
+                <p><a href="https://music.163.com/#/song?id=1954696309" target="_blank">Jellyeeee - Outsider (风琴)</a></p>
+                <p><a href="https://music.163.com/#/song?id=1938533515"target="_blank">许鸿彬  - What If (词曲、制作、录音、混音)</a></p>
+                <p><a href="https://music.163.com/#/song?id=1918969494" target="_blank">Lanigan - Lavender (键盘)</a></p>
+                <p><a href="https://music.163.com/#/song?id=1927825022" target="_blank">Tambor - 2016 (键盘)</a></p>
+                <p><a href="https://music.163.com/#/song?id=1831951781" target="_blank">Tambor - Cigarettes & Poetry (歌词、制作、混音)</a></p>
+                <p><a href="https://music.163.com/#/album?id=124384447" target="_blank">Hurshi - Exits (电钢琴、风琴)</a></p>
+                <p><a href="https://music.163.com/#/album?id=124387689" target="_blank">Hurshi - Sunless (额外和声)</a></p>
+                <p><a href="https://music.163.com/#/song?id=1958413951" target="_blank">Yoshuah - Let Me be Honest with You (制作)</a></p>
+                <p><a href="https://www.youtube.com/watch?v=m9-OnmkcK94" target="_blank">Lanigan - You Know I Know (钢琴) </a></p>
+                <p><a href="https://www.youtube.com/watch?v=iRvbYOqitDo" target="_blank">Lanigan - All Choked Up (键盘)</a></p>`, 
 
-            contactContent: `微信: @hongbinxu_</a>`,
+            contactContent: 
+                `<p>微信: @hongbinxu_</a></p>
+                <p>邮箱: contact@hongbinxu.com</p>`,
         }
     };
 

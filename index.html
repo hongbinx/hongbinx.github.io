@@ -212,13 +212,6 @@
             contact: { landscape: 'https://pub-86a4ed04217e4c07bbd21b357b180894.r2.dev/contact-landscape.jpg', portrait: 'https://pub-86a4ed04217e4c07bbd21b357b180894.r2.dev/contact-landscape.jpg' }
         };
 
-function adjustBackground() {
-    document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
-}
-
-window.addEventListener('resize', adjustBackground);
-adjustBackground();
-
         function changeBackground(section) {
             const mode = window.matchMedia("(orientation: portrait)").matches ? 'portrait' : 'landscape';
             document.body.style.background = `url('${backgrounds[section][mode]}') no-repeat center center fixed`;
@@ -245,6 +238,7 @@ adjustBackground();
             document.querySelector('.buttons').style.display = 'flex';
             resetBackground();
         }
+        
     const translations = {
         english: {
             bio: "Bio",

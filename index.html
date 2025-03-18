@@ -82,6 +82,7 @@
         }
 
         .modal {
+            position: relative;
             background: rgba(0, 0, 0, 0.4);
             padding: 20px;
             max-width: 600px;
@@ -90,6 +91,17 @@
             scrollbar-width: thin; /* Thin scrollbar for Firefox */
             scrollbar-color: black transparent; /* Black scrollbar track and transparent thumb for Firefox */
             text-align: center;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
         }
 
         .modal::-webkit-scrollbar {
@@ -152,6 +164,7 @@
 
     <div id="bio" class="modal-overlay" onclick="closeModal()">
         <div class="modal">
+        <button class="close-button" onclick="closeModal('bio')">&times;</button>
             <p id="bioContent">Hongbin Xu is a keyboardist and producer based in Los Angeles. He earned a Bachelor of Music in Keyboard Performance in Contemporary Styles with a Minor in Audio Production from the Musicians Institute. Since then, he has supported artists on stage and in studio.</p>
         </div>
     </div>
@@ -159,6 +172,7 @@
     <div id="live" class="modal-overlay" onclick="closeModal()">
         <div class="modal">
             <div id="liveContent">
+                <button class="close-button" onclick="closeModal('live')">&times;</button>
                 <p><a href="https://www.youtube.com/watch?v=UOQlCaRE6Yc" target="_blank">Leah Dou Out of the Loop US Tour (keyboards)</a></p>
                 <p><a href="https://www.instagram.com/thefortunesband/" target="_blank">The Fortunes at Disney California Adventure (keyboards)</a></p>
                 <p><a href="https://www.instagram.com/z_vinyl/reel/C-qLAxfvXsU/?hl=en" target="_blank">Zach Louis at Echoplex (keyboards)</a></p>
@@ -173,6 +187,7 @@
     <div id="studio" class="modal-overlay" onclick="closeModal()">
         <div class="modal">
             <div id="studioContent">
+                <button class="close-button" onclick="closeModal('studio')">&times;</button>
                 <p><a href="https://www.youtube.com/watch?v=fAOQt2kirP0" target="_blank">Jellyeeee - Flourish (arrangement, synthesizer)</a></p>
                 <p><a href="https://www.youtube.com/watch?v=AnulGk5ZyQo" target="_blank">Aria Liang - Dishes (production, recording, mixing)</a></p>
                 <p><a href="https://www.youtube.com/watch?v=3ZZznCLuGrg" target="_blank">Qiming Fei - For You (arrangement, keyboards)</a></p>
@@ -197,6 +212,7 @@
     <div id="contact" class="modal-overlay" onclick="closeModal()">
         <div class="modal">
             <div id="contactContent">
+                <button class="close-button" onclick="closeModal('contact')">&times;</button>
                 <p><a href="https://www.instagram.com/hongbinxu_/" target="_blank">Instagram: @hongbinxu_</a></p>
                 <p>Email: contact@hongbinxu.com</p>
             </div>
@@ -226,26 +242,20 @@
             document.body.style.backgroundSize = 'cover';
         }
 
+        
         function showModal(id) {
-            closeModal();
             document.getElementById(id).style.display = 'flex';
             document.querySelector('.buttons').style.display = 'none';
-            changeBackground(id);
+                        changeBackground(id);
         }
 
-function closeModal(event) {
-    if (event && event.target.classList.contains('modal-overlay')) {
-        document.querySelectorAll('.modal-overlay').forEach(modal => modal.style.display = 'none');
-        document.querySelector('.buttons').style.display = 'flex';
-        resetBackground();
-    }
-}
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+            document.querySelector('.buttons').style.display = 'flex';
+                    resetBackground();
+        }
 
-// Attach event listeners to all modal overlays
-document.querySelectorAll('.modal-overlay').forEach(modal => {
-    modal.addEventListener('click', closeModal);
-});
-        
+
     const translations = {
         english: {
             bio: "Bio",
@@ -254,7 +264,9 @@ document.querySelectorAll('.modal-overlay').forEach(modal => {
             contact: "Contact",
             bioContent: "Hongbin Xu is a keyboardist and producer based in Los Angeles. He earned a Bachelor of Music in Keyboard Performance in Contemporary Styles with a Minor in Audio Production from the Musicians Institute. Since then, he has supported artists on stage and in studio.",
             liveContent: 
-                `<p><a href="https://www.youtube.com/watch?v=UOQlCaRE6Yc" target="_blank">Leah Dou Out of the Loop US Tour (keyboards)</a></p>
+                `
+                <button class="close-button" onclick="closeModal('live')">&times;</button>
+                <p><a href="https://www.youtube.com/watch?v=UOQlCaRE6Yc" target="_blank">Leah Dou Out of the Loop US Tour (keyboards)</a></p>
                 <p><a href="https://www.instagram.com/thefortunesband/" target="_blank">The Fortunes at Disney California Adventure (keyboards)</a></p>
                 <p><a href="https://www.instagram.com/z_vinyl/reel/C-qLAxfvXsU/?hl=en" target="_blank">Zach Louis at Echoplex (keyboards)</a></p>
                 <p><a href="https://www.blastoutyourstereo.com/saay-us-2024-tour-moroccan-lounge-review/" target="_blank">Maya Kuriel opening for Saay at Moroccan Lounge (MD, keyboards)</a></p>
@@ -263,7 +275,9 @@ document.querySelectorAll('.modal-overlay').forEach(modal => {
                 <p><a href="https://www.youtube.com/watch?v=2KWHCAZKios" target="_blank">Della Ding Dang at Morongo Casino (keyboards)</a></p>`,
 
             studioContent: 
-                `<p><a href="https://www.youtube.com/watch?v=fAOQt2kirP0" target="_blank">Jellyeeee - Flourish (arrangement, synthesizer)</a></p>
+                `
+                <button class="close-button" onclick="closeModal('studio')">&times;</button>
+                <p><a href="https://www.youtube.com/watch?v=fAOQt2kirP0" target="_blank">Jellyeeee - Flourish (arrangement, synthesizer)</a></p>
                 <p><a href="https://www.youtube.com/watch?v=AnulGk5ZyQo" target="_blank">Aria Liang - Dishes (production, recording, mixing)</a></p>
                 <p><a href="https://www.youtube.com/watch?v=3ZZznCLuGrg" target="_blank">Qiming Fei - For You (arrangement, keyboards)</a></p>
                 <p><a href="https://www.youtube.com/watch?v=t9bsTvXaPSY" target="_blank">Killagramz, Ann One, Big Banana & Vin.Chee - Ktown Love (production)</a></p>
@@ -282,7 +296,9 @@ document.querySelectorAll('.modal-overlay').forEach(modal => {
                 <p><a href="https://www.youtube.com/watch?v=iRvbYOqitDo" target="_blank">Lanigan - All Choked Up (keyboards)</a></p>`, // Use the original English text from the credits modal here
 
             contactContent: 
-                `<p><a href="https://www.instagram.com/hongbinxu_/" target="_blank">Instagram: @hongbinxu_</a></p>
+                `
+                <button class="close-button" onclick="closeModal('contact')">&times;</button>
+                <p><a href="https://www.instagram.com/hongbinxu_/" target="_blank">Instagram: @hongbinxu_</a></p>
                 <p>Email: contact@hongbinxu.com</p>`,
         },
         chinese: {
@@ -292,7 +308,9 @@ document.querySelectorAll('.modal-overlay').forEach(modal => {
             contact: "联系方式",
             bioContent: "许鸿彬是一名来自广东佛山的键盘手和制作人。毕业于MI音乐家学院，获得当代键盘演奏专业的本科学位，并辅修音频工程。自此之后，他不仅与不同的艺人的同台演出，还参与了录音作品制作。",
             liveContent:
-                `<p><a href="http://xhslink.com/a/kymbFQW0B1b7" target="_blank">窦靖童状况外巡演北美站 (键盘)</a></p>
+                `
+                <button class="close-button" onclick="closeModal('live')">&times;</button>
+                <p><a href="http://xhslink.com/a/kymbFQW0B1b7" target="_blank">窦靖童状况外巡演北美站 (键盘)</a></p>
                 <p><a href="http://xhslink.com/a/nnsKsLoWo5b7" target="_blank">The Fortunes at Disney California Adventure (键盘)</a></p>
                 <p>Zach Louis at Echoplex (键盘)</p>
                 <p>Maya Kuriel opening for Saay at Moroccan Lounge (MD, 键盘)</p>
@@ -300,7 +318,9 @@ document.querySelectorAll('.modal-overlay').forEach(modal => {
                 <p><a href="http://xhslink.com/a/0flmhcYJH5b7" target="_blank">陳慧嫻 at Thunder Valley Venue (键盘)</a></p>
                 <p><a href="http://xhslink.com/a/i4skT7HvL5b7" target="_blank">丁噹 at Morongo Casino (键盘)</a></p>`,
             studioContent: 
-                `<p><a href="https://www.youtube.com/watch?v=fAOQt2kirP0" target="_blank">Jellyeeee - Flourish (编曲、合成器)</a></p>
+                `
+                <button class="close-button" onclick="closeModal('studio')">&times;</button>
+                <p><a href="https://www.youtube.com/watch?v=fAOQt2kirP0" target="_blank">Jellyeeee - Flourish (编曲、合成器)</a></p>
                 <p><a href="https://music.163.com/#/song?id=2645132297" target="_blank">Aria Liang - Dishes (制作、录音、混音)</a></p>
                 <p><a href="https://music.163.com/#/song?id=2626750030" target="_blank">费启鸣 - 为你 (编曲、键盘)</a></p>
                 <p><a href="https://music.163.com/#/song?id=2616478914" target="_blank">Killagramz, Ann One, Big Banana & Vin.Chee - Ktown Love (制作)</a></p>
@@ -319,7 +339,9 @@ document.querySelectorAll('.modal-overlay').forEach(modal => {
                 <p><a href="https://www.youtube.com/watch?v=iRvbYOqitDo" target="_blank">Lanigan - All Choked Up (键盘)</a></p>`, 
 
             contactContent: 
-                `<p>微信: @hongbinxu_</a></p>
+                `
+                <button class="close-button" onclick="closeModal('contact')">&times;</button>
+                <p>微信: @hongbinxu_</a></p>
                 <p>邮箱: contact@hongbinxu.com</p>`,
         }
     };
@@ -338,8 +360,6 @@ document.querySelectorAll('.modal-overlay').forEach(modal => {
                 if (translations[currentLanguage][id]) {
                     button.textContent = translations[currentLanguage][id];
                 }
-                button.style.fontFamily =
-                    currentLanguage === "chinese" ? "'MyFont', sans-serif" : "'MyFont', sans-serif";
             });
 
             // Update modal content
@@ -348,9 +368,6 @@ document.querySelectorAll('.modal-overlay').forEach(modal => {
             document.getElementById("studioContent").innerHTML = translations[currentLanguage].studioContent;
             document.getElementById("contactContent").innerHTML = translations[currentLanguage].contactContent;
 
-            // Apply font and font size globally for body
-            document.body.style.fontFamily =
-                currentLanguage === "chinese" ? "'MyFont', sans-serif" : "'MyFont', sans-serif";
         }
 
 

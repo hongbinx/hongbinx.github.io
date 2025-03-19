@@ -94,14 +94,19 @@
         }
 
         .close-button {
-            position: absolute;
-            top: 8px;
-            right: 8px;
+            position: sticky;
+            top: 0;
+            right: -5px; /* Moves the button slightly to the right */
             background: none;
             border: none;
             font-size: 14px;
             color: white;
             cursor: pointer;
+            padding: 0px;
+            display: block;
+            margin-left: auto; /* Ensures alignment to the right */
+            z-index: 10;
+            background-color: none; /* Optional for better visibility */
         }
 
         .modal::-webkit-scrollbar {

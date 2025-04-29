@@ -88,7 +88,8 @@
             max-width: 600px;
             max-height: 30em; /* Limits height to approximately 10 lines */
             overflow-y: scroll; /* Enables scrolling */
-            scrollbar-width: thin; /* Thin scrollbar for Firefox */
+            scrollbar-width: none; /* Thin scrollbar for Firefox */
+            -ms-overflow-style: none; /* IE 10+ */
             scrollbar-color: black transparent; /* Black scrollbar track and transparent thumb for Firefox */
             text-align: center;
         }
@@ -114,11 +115,6 @@
         .modal::-webkit-scrollbar {
             width: 8px; /* Thin scrollbar for WebKit browsers */
             background-color: transparent;
-        }
-
-        .modal::-webkit-scrollbar-thumb {
-            background-color: darkgray; /* Black scrollbar thumb */
-            border-radius: 4px; /* Smooth corners */
         }
 
         .modal::-webkit-scrollbar-track {

@@ -25,7 +25,7 @@
         body {
             background: url('') no-repeat center center fixed;
             background-size: cover;
-            background-color: white;
+            background-color: rgba(0, 64, 0, 1);
             color: black;
             font-family: 'MyFont', sans-serif;
             font-size: 14px;
@@ -129,19 +129,6 @@
             background-color: transparent; /* Transparent track */
         }
 
-        @media (orientation: landscape) {
-            body {
-                background-position: 50% 50%;
-            }
-        }
-
-        @media (orientation: portrait) {
-            body {
-                background: url('') no-repeat fixed;
-                background-size: cover;
-                background-position: 50% 50%;
-            }
-        }
 
         @media only screen and (max-width: 600px) {
             body {
@@ -216,30 +203,7 @@
         </div>
     </div>
 
-    <script>
-        const originalBg = '';
-        const backgrounds = {
-            bio: { landscape: '', portrait: '' },
-            live: { landscape: '', portrait: '' },
-            studio: { landscape: '', portrait: '' },
-            contact: { landscape: '', portrait: '' }
-        };
-
-        function changeBackground(section) {
-            const mode = window.matchMedia("(orientation: portrait)").matches ? 'portrait' : 'landscape';
-            document.body.style.background = `url('${backgrounds[section][mode]}') no-repeat center center fixed`;
-            document.body.style.backgroundSize = 'cover';
-        }
-
-        function resetBackground() {
-            const mode = window.matchMedia("(orientation: portrait)").matches ? 'portrait' : 'landscape';
-            const originalBg = mode === 'portrait' ? '' : '';
-            
-            document.body.style.background = `url('${originalBg}') no-repeat center center fixed`;
-            document.body.style.backgroundSize = 'cover';
-        }
-
-        
+    <script> 
         function showModal(id) {
             document.getElementById(id).style.display = 'flex';
             document.querySelector('.buttons').style.display = 'none';

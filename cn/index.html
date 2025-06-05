@@ -1,10 +1,10 @@
     <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <div style="display:none;"><img src="wechat.png" alt=""></div>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hongbin xu</title>
+    <title>许鸿彬</title>
     <link rel="icon" href="http://www.hongbinxu.com/favicon.ico?v=2"/>
     <link rel="shortcut icon" href="assets/favicon//favicon.ico?v=2"/>
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon//apple-touch-icon.png">
@@ -23,7 +23,7 @@
         }
 
         body {
-            background-color: rgba(202, 219, 253, 1);
+            background-color: rgba(202, 219, 253, 1);;
             color: black;
             font-family: 'MyFont', sans-serif;
             font-size: 14px;
@@ -37,7 +37,7 @@
         }
 
         .container {
-            text-align: left;
+            text-align: center;
         }
 
         a {
@@ -87,16 +87,15 @@
             position: relative;
             background: rgba(0, 0, 0, 0.03);
             padding: 20px;
-            max-width: 500px;
+            max-width: 500px; width: 90%; word-break: break-word;
             width: 90%;
             word-break: break-word;
-            max-height: 30em; /* Limits height to approximately 10 lines */
+            max-height: auto; /* Limits height to approximately 10 lines */
             overflow-y: scroll; /* Enables scrolling */
             scrollbar-width: thin; /* Thin scrollbar for Firefox */
             scrollbar-color: black transparent; /* Black scrollbar track and transparent thumb for Firefox */
             text-align: left;
         }
-
         .modal::-webkit-scrollbar {
             width: 8px; /* Thin scrollbar for WebKit browsers */
             background-color: transparent;
@@ -134,31 +133,31 @@
 <body>
     <div class="container">
         <div class="buttons">
-        <button class="button" data-bg="bio" onclick="showModal('bio')">about</button>
-        <button class="button" data-bg="live" onclick="showModal('live')">live shows</button>
-        <button class="button" data-bg="studio" onclick="showModal('studio')">studio</button>
-        <button class="button" data-bg="contact" onclick="showModal('contact')">contact</button>
+        <button class="button" data-bg="bio" onclick="showModal('bio')">关于</button>
+        <button class="button" data-bg="live" onclick="showModal('live')">现场</button>
+        <button class="button" data-bg="studio" onclick="showModal('studio')">录音</button>
+        <button class="button" data-bg="contact" onclick="showModal('contact')">联系</button>
         </div>
     </div>
 
     <div id="bio" class="modal-overlay" onclick="handleOverlayClick(event, 'bio')">
         <div class="modal" onclick="event.stopPropagation();"><button class="modal-close" onclick="closeModal('bio')">&times;</button>
         
-            <p id="bioContent">hongbin xu is a keyboardist and producer based in los angeles. he earned a bachelor of music in keyboard performance in contemporary styles with a minor in audio production from the musicians institute. since then, he has supported artists on stage and in studio.</p>
+            <p id="bioContent">许鸿彬是一名来自广东佛山的键盘手和制作人。毕业于mi音乐家学院，获得当代键盘演奏专业的本科学位，并辅修音频工程。自此之后，他不仅与不同的艺人的同台演出，还参与了录音作品制作。</p>
         </div>
     </div>
 
     <div id="live" class="modal-overlay" onclick="handleOverlayClick(event, 'live')">
         <div class="modal" onclick="event.stopPropagation();"><button class="modal-close" onclick="closeModal('live')">&times;</button>
             <div id="liveContent">
-                <p>jaya - agua caliente <br><span class="grey-paren" style="line-height: 1.2;">(md/keyboards)</span></a></p>
-                <p><a href="https://www.youtube.com/watch?v=UOQlCaRE6Yc" target="_blank">leah dou - out of the loop us tour</a><br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
-                <p><a href="https://www.instagram.com/thefortunesband/" target="_blank">fortunes - disney california adventure</a><br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
-                <p><a href="https://www.instagram.com/z_vinyl/reel/C-qLAxfvXsU/?hl=en" target="_blank">zach louis - echoplex</a><br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
-                <p><a href="https://www.blastoutyourstereo.com/saay-us-2024-tour-moroccan-lounge-review/" target="_blank">maya kuriel - moroccan lounge</a><br><span class="grey-paren" style="line-height: 1.2;">(md/program/playback/keyboards)</span></a></p>
-                <p><a href="http://xhslink.com/a/ez2GkkNYv5b7" target="_blank">alex & landy wen - thunder valley venue</a><br><span class="grey-paren" style="line-height: 1.2;">(md/program/playback/keyboards)</span></a></p>
-                <p><a href="http://xhslink.com/a/0flmhcYJH5b7" target="_blank">priscilla chan - thunder valley venue</a><br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
-                <p><a href="http://xhslink.com/a/i4skT7HvL5b7" target="_blank">della ding - morongo casino</a><br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
+                <p>jaya - agua caliente</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(音乐总监/键盘)</span></a></p>
+                <p><a href="http://xhslink.com/a/kymbFQW0B1b7" target="_blank">窦靖童 - 状况外巡演北美站</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(键盘)</span></a></p>
+                <p><a href="http://xhslink.com/a/nnsKsLoWo5b7" target="_blank">fortunes - 迪士尼加州冒险乐园</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(键盘)</span></a></p>
+                <p><a href="https://www.instagram.com/z_vinyl/reel/C-qLAxfvXsU/?hl=en" target="_blank">zach louis - echoplex</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(keyboards)</span></a></p>
+                <p><a href="https://www.blastoutyourstereo.com/saay-us-2024-tour-moroccan-lounge-review/" target="_blank">maya kuriel - moroccan lounge</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(乐队总监/预录音轨/音轨播放/键盘)</span></a></p>
+                <p><a href="http://xhslink.com/a/ez2GkkNYv5b7" target="_blank">杜德偉 & 溫嵐 - thunder valley venue</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(乐队总监/预录音轨/音轨播放/键盘)</span></a></p>
+                <p><a href="http://xhslink.com/a/0flmhcYJH5b7" target="_blank">陳慧嫻 - thunder valley venue</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(键盘)</span></a></p>
+                <p><a href="http://xhslink.com/a/i4skT7HvL5b7" target="_blank">丁噹 - morongo casino</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(键盘)</span></a></p>
             </div>
         </div>
     </div>
@@ -166,13 +165,13 @@
     <div id="studio" class="modal-overlay" onclick="handleOverlayClick(event, 'studio')">
         <div class="modal" onclick="event.stopPropagation();"><button class="modal-close" onclick="closeModal('studio')">&times;</button>
             <div id="studioContent">
-                <p><a href="https://music.163.com/#/song?id=2626750030" target="_blank">qiming fei - for you</a><br><span class="grey-paren" style="line-height: 1.2;">(arrangement/keyboards)</span></a></p>
-                <p><a href="https://www.youtube.com/watch?v=8XTHxYHs57k" target="_blank">sarah lanigan - indecisive</a><br><span class="grey-paren" style="line-height: 1.2;">(production/keyboards/recording/mixing/mastering)</span></a></p>
-                <p><a href="https://www.youtube.com/watch?v=AnulGk5ZyQo" target="_blank">aria liang - dishes</a><br><span class="grey-paren" style="line-height: 1.2;">(production/keyboards/recording/mixing/mastering)</span></a></p>
-                <p><a href="https://www.youtube.com/watch?v=t9bsTvXaPSY" target="_blank">killagramz & ann one - ktown love</a><br><span class="grey-paren" style="line-height: 1.2;">(production/keyboards)</span></a></p>
-                <p><a href="https://www.youtube.com/watch?v=nBrzG-c-6Es&list=OLAK5uy_k-arr-QoU8dObv3XtuVGQHrnt9YDGf8Yg&index=4" target="_blank">su isaac - trouble</a><br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
-                <p><a href="https://www.youtube.com/watch?v=tkP20y3K5P4&list=OLAK5uy_kIviR53zq4itk_34aQgvIEZHhrCCN_9Xk&index=7" target="_blank">jellyeeee - outsider </a><br><span class="grey-paren" style="line-height: 1.2;">(organ)</span></a></p>
-                <p><a href="https://music.163.com/#/song?id=1938533515"target="_blank">hongbin xu - what if</a><br><span class="grey-paren" style="line-height: 1.2;">(songwriting/production/keyboards/recording/mixing/mastering)</span></a></p>
+                <p><a href="https://music.163.com/#/song?id=2626750030" target="_blank">费启鸣 - 为你</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(编曲/键盘)</span></a></p>
+                <p><a href="https://music.163.com/#/song?id=2141923357" target="_blank">sarah lanigan - indecisive</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(制作/键盘/录音/混音/母带)</span></a></p>
+                <p><a href="https://music.163.com/#/song?id=2645132297" target="_blank">aria liang - dishes</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(制作/键盘/录音/混音/母带)</span></a></p>
+                <p><a href="https://music.163.com/#/song?id=2616478914" target="_blank">killagramz & ann one - ktown love</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(制作/键盘)</span></a></p>
+                <p><a href="https://www.youtube.com/watch?v=nBrzG-c-6Es&list=OLAK5uy_k-arr-QoU8dObv3XtuVGQHrnt9YDGf8Yg&index=4" target="_blank">su isaac - trouble</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(keyboards)</span></a></p>
+                <p><a href="https://www.youtube.com/watch?v=tkP20y3K5P4&list=OLAK5uy_kIviR53zq4itk_34aQgvIEZHhrCCN_9Xk&index=7" target="_blank">jellyeeee - outsider </a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(organ)</span></a></p>
+                <p><a href="https://music.163.com/#/song?id=1938533515"target="_blank">许鸿彬 - what if</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(词曲/制作/键盘/录音/混音/母带)</span></a></p>
             </div>
         </div>
     </div>
@@ -180,8 +179,8 @@
     <div id="contact" class="modal-overlay" onclick="handleOverlayClick(event, 'contact')">
         <div class="modal" onclick="event.stopPropagation();"><button class="modal-close" onclick="closeModal('contact')">&times;</button>
             <div id="contactContent">
-                <p><a href="https://www.instagram.com/hongbinxu_/" target="_blank">instagram: @hongbinxu_</a></p>
-                <p>email: contact@hongbinxu.com</p>
+                <p>微信: @hongbinxu_</a></p>
+                <p>邮箱: contact@hongbinxu.com</p>
             </div>
         </div>
     </div>

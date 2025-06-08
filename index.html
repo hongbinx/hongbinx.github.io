@@ -236,26 +236,36 @@
     </div>
 
     <script> 
+        
         function showModal(id) {
             document.getElementById(id).style.display = 'flex';
             document.querySelector('.buttons').style.display = 'none';
-                        changeBackground(id);
+            document.querySelector('.lang-toggle-button').style.display = 'none';
+            changeBackground(id);
         }
 
         function closeModal(id) {
             document.getElementById(id).style.display = 'none';
             document.querySelector('.buttons').style.display = 'flex';
-                    resetBackground();
+
+            // Check if any other modal is still open
+            const anyModalOpen = Array.from(document.querySelectorAll('.modal-overlay'))
+                .some(modal => modal.style.display === 'flex');
+            if (!anyModalOpen) {
+                document.querySelector('.lang-toggle-button').style.display = 'block';
+            }
+
+            resetBackground();
         }
 
-    
-    function handleOverlayClick(event, id) {
-        if (event.target.classList.contains('modal-overlay')) {
-            closeModal(id);
+        
+        function handleOverlayClick(event, id) {
+            if (event.target.classList.contains('modal-overlay')) {
+                closeModal(id);
+            }
         }
-    }
 
-</script>
+    </script>
 
     <a href="/cn" class="lang-toggle-button">中</a>
     

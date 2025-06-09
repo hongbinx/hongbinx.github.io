@@ -96,17 +96,17 @@
             position: relative;
             background: rgba(0, 0, 0, 0.03);
             padding: 20px;
-            max-width: 500px; width: 90%; word-break: break-word;
+            max-width: 400px;
             width: 90%;
             word-break: break-word;
-            max-height: auto; /* Limits height to approximately 10 lines */
+            max-height: 20em; /* Limits height to approximately 10 lines */
             overflow-y: scroll; /* Enables scrolling */
-            scrollbar-width: thin; /* Thin scrollbar for Firefox */
+            scrollbar-width: none; /* Thin scrollbar for Firefox */
             scrollbar-color: black transparent; /* Black scrollbar track and transparent thumb for Firefox */
             text-align: left;
         }
         .modal::-webkit-scrollbar {
-            width: 8px; /* Thin scrollbar for WebKit browsers */
+            width: none; /* Thin scrollbar for WebKit browsers */
             background-color: transparent;
         }
 
@@ -206,12 +206,12 @@
         <div class="modal" onclick="event.stopPropagation();"><button class="modal-close" onclick="closeModal('live')">&times;</button>
             <div id="liveContent">
                 <p>jaya - agua caliente</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(音乐总监/键盘)</span></a></p>
-                <p><a href="http://xhslink.com/a/kymbFQW0B1b7" target="_blank">窦靖童 - 状况外巡演北美站</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(键盘)</span></a></p>
-                <p><a href="http://xhslink.com/a/nnsKsLoWo5b7" target="_blank">fortunes - 迪士尼加州冒险乐园</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(键盘)</span></a></p>
-                <p><a href="https://www.instagram.com/z_vinyl/reel/C-qLAxfvXsU/?hl=en" target="_blank">zach louis - echoplex</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(键盘)</span></a></p>
-                <p><a href="https://www.blastoutyourstereo.com/saay-us-2024-tour-moroccan-lounge-review/" target="_blank">maya kuriel - moroccan lounge</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">saay开场艺人(音乐总监/预录音轨/音轨播放/键盘)</span></a></p>
-                <p><a href="http://xhslink.com/a/ez2GkkNYv5b7" target="_blank">杜德偉 & 溫嵐 - thunder valley venue</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(乐队总监/预录音轨/音轨播放/键盘)</span></a></p>
-                <p><a href="http://xhslink.com/a/0flmhcYJH5b7" target="_blank">陳慧嫻 - thunder valley venue</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(键盘)</span></a></p>
+                <p><a href="http://xhslink.com/a/kymbFQW0B1b7" target="_blank">窦靖童 - 状况外巡演北美站<br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(键盘)</span></a></p>
+                <p><a href="http://xhslink.com/a/nnsKsLoWo5b7" target="_blank">fortunes - 迪士尼加州冒险乐园<br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(键盘)</span></a></p>
+                <p><a href="https://www.instagram.com/z_vinyl/reel/C-qLAxfvXsU/?hl=en" target="_blank">zach louis - echoplex<br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(键盘)</span></a></p>
+                <p><a href="https://www.blastoutyourstereo.com/saay-us-2024-tour-moroccan-lounge-review/" target="_blank">maya kuriel - moroccan lounge<br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">saay开场艺人(音乐总监/预录音轨/音轨播放/键盘)</span></a></p>
+                <p><a href="http://xhslink.com/a/ez2GkkNYv5b7" target="_blank">杜德偉 & 溫嵐 - thunder valley venue<br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(乐队总监/预录音轨/音轨播放/键盘)</span></a></p>
+                <p><a href="http://xhslink.com/a/0flmhcYJH5b7" target="_blank">陳慧嫻 - thunder valley venue<br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(键盘)</span></a></p>
                 <p><a href="http://xhslink.com/a/i4skT7HvL5b7" target="_blank">丁噹 - morongo casino<br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(键盘)</span></a></p>
                 <p><a href="http://xhslink.com/a/VO6WL6s11oueb" target="_blank">許志安 - yaamava' theater<br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(键盘)</span></a></p>
                 <p><a href="http://xhslink.com/a/Wsi0qxsAfpueb" target="_blank">鍾嘉欣 - graton casino<br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(键盘)</span></a></p>
@@ -223,13 +223,13 @@
     <div id="studio" class="modal-overlay" onclick="handleOverlayClick(event, 'studio')">
         <div class="modal" onclick="event.stopPropagation();"><button class="modal-close" onclick="closeModal('studio')">&times;</button>
             <div id="studioContent">
-                <p><a href="https://music.163.com/#/song?id=2626750030" target="_blank">费启鸣 - 为你</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(编曲/键盘)</span></a></p>
-                <p><a href="https://music.163.com/#/song?id=2141923357" target="_blank">sarah lanigan - indecisive</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(制作/键盘/录音/混音/母带)</span></a></p>
-                <p><a href="https://music.163.com/#/song?id=2645132297" target="_blank">aria liang - dishes</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(制作/键盘/录音/混音/母带)</span></a></p>
-                <p><a href="https://music.163.com/#/song?id=2616478914" target="_blank">killagramz & ann one - ktown love</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(制作/键盘)</span></a></p>
-                <p><a href="https://www.youtube.com/watch?v=nBrzG-c-6Es&list=OLAK5uy_k-arr-QoU8dObv3XtuVGQHrnt9YDGf8Yg&index=4" target="_blank">su isaac - trouble</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(键盘)</span></a></p>
-                <p><a href="http://163cn.tv/FJXOWpP" target="_blank">jellyeeee - outsider </a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(风琴)</span></a></p>
-                <p><a href="https://music.163.com/#/song?id=1938533515"target="_blank">许鸿彬 - what if</a><br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(词曲/制作/键盘/录音/混音/母带)</span></a></p>
+                <p><a href="https://music.163.com/#/song?id=2626750030" target="_blank">费启鸣 - 为你<br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(编曲/键盘)</span></a></p>
+                <p><a href="https://music.163.com/#/song?id=2141923357" target="_blank">sarah lanigan - indecisive<br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(制作/键盘/录音/混音/母带)</span></a></p>
+                <p><a href="https://music.163.com/#/song?id=2645132297" target="_blank">aria liang - dishes<br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(制作/键盘/录音/混音/母带)</span></a></p>
+                <p><a href="https://music.163.com/#/song?id=2616478914" target="_blank">killagramz & ann one - ktown love<br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(制作/键盘)</span></a></p>
+                <p><a href="https://www.youtube.com/watch?v=nBrzG-c-6Es&list=OLAK5uy_k-arr-QoU8dObv3XtuVGQHrnt9YDGf8Yg&index=4" target="_blank">su isaac - trouble<br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(键盘)</span></a></p>
+                <p><a href="http://163cn.tv/FJXOWpP" target="_blank">jellyeeee - outsider<br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(风琴)</span></a></p>
+                <p><a href="https://music.163.com/#/song?id=1938533515"target="_blank">许鸿彬 - what if<br><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(词曲/制作/键盘/录音/混音/母带)</span></a></p>
             </div>
         </div>
     </div>

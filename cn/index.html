@@ -31,7 +31,7 @@
         }
 
         body {
-            background-color: rgba(202, 219, 253, 1);;
+            background-color: rgba(202, 219, 253, 1);
             color: black;
             font-family: 'MyFont', sans-serif;
             font-size: 14px;
@@ -58,24 +58,24 @@
         }
 
         a:hover {
-            cursor: default;
             text-decoration: underline;
+            cursor: default;
         }
 
         .buttons {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            gap: 25px;
         }
 
         .button {
-            width: 180%;
-            height: 28px;
+            width: 150%;
+            height: 32px;
             background-color: white;
             border: 1px solid rgba(105, 105, 105, 1);
             border-radius: 3px;
-            font-size: 13px;
+            font-size: 14px;
             line-height: 21px;
             text-align: center;
             color: black;
@@ -101,6 +101,15 @@
             align-items: center;
         }
 
+        .modal-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         .modal {
             position: relative;
             background-color: white;
@@ -110,7 +119,7 @@
             max-width: 400px;
             width: 90%;
             word-break: break-word;
-            max-height: 20em;
+            max-height: 40em;
             overflow-y: scroll;
             scrollbar-width: none;
             scrollbar-color: black transparent;
@@ -135,6 +144,16 @@
 
 
         @media only screen and (max-width: 600px) {
+            .modal-wrapper {
+                width: 90%;
+                max-width: 90%;
+            }
+
+            .modal {
+                width: 100%;
+                max-height: 20em;
+                max-width: 100%;
+            }
             body {
                 font-size: 13px;
             }
@@ -145,27 +164,41 @@
                 height: 28px;
             }
 
+            .modal-wrapper {
+                position: relative;
+                width: 100%;
+                max-width: 400px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
             .modal {
                 max-width: 70%;
+                   }
             }
-        }
-    
+
         .modal-close {
-            width: 24px;
-            height: 21px;
-            background-color: white;
-            border: 1px solid rgba(105, 105, 105, 1);
-            border-radius: 3px;
-            font-size: 13px;
-            line-height: 21px;
-            color: black;
-            cursor: default;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-            transition: background-color 0.2s;
-        }
+                position: absolute;
+                top: -40px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 10001;
+                width: 24px;
+                height: 21px;
+                background-color: white;
+                border: 1px solid rgba(105, 105, 105, 1);
+                border-radius: 3px;
+                font-size: 14px;
+                line-height: 21px;
+                color: black;
+                cursor: default;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+                transition: background-color 0.2s;
+            }
 
         .modal-close:hover {
             background-color: #eeeeee;
@@ -175,13 +208,13 @@
             position: fixed;
             bottom: 40px;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translateX(-70%);
             width: 24px;
             height: 21px;
             background-color: white;
             border: 1px solid rgba(105, 105, 105, 1);
             border-radius: 3px;
-            font-size: 13px;
+            font-size: 14px;
             line-height: 21px;
             text-align: center;
             color: black;
@@ -192,8 +225,8 @@
         }
 
         .lang-toggle-button:hover {
-            background-color: #eeeeee;
             text-decoration: none;
+            background-color: #eeeeee;
         }
 
         .hover-preview {
@@ -217,59 +250,72 @@
 <video id="hoverPreview" class="hover-preview" muted autoplay loop playsinline></video>
     <div class="container">
         <div class="buttons">
-        <button class="button" data-bg="bio" onclick="showModal('bio')">自我简介</button>
+        <button class="button" data-bg="bio" onclick="showModal('bio')">关于</button>
         <button class="button" data-bg="live" onclick="showModal('live')">现场演出</button>
         <button class="button" data-bg="studio" onclick="showModal('studio')">录音作品</button>
         <button class="button" data-bg="contact" onclick="showModal('contact')">联系方式</button>
         </div>
     </div>
+    </div>
 
     <div id="bio" class="modal-overlay" onclick="handleOverlayClick(event, 'bio')">
+    <div class="modal-wrapper">
+        <button class="modal-close" onclick="closeModal('bio')">&times;</button>
         <div class="modal" onclick="event.stopPropagation();"><button class="modal-close" onclick="closeModal('bio')">&times;</button>
         
             <p id="bioContent">许鸿彬是一名来自广东佛山的键盘手和制作人。毕业于mi音乐家学院，获得当代键盘演奏专业的本科学位，并辅修音频工程。自此之后，他不仅与不同的艺人的同台演出，还参与了录音作品制作。</p>
         </div>
     </div>
+    </div>
 
     <div id="live" class="modal-overlay" onclick="handleOverlayClick(event, 'live')">
+    <div class="modal-wrapper">
+        <button class="modal-close" onclick="closeModal('live')">&times;</button>
         <div class="modal" onclick="event.stopPropagation();"><button class="modal-close" onclick="closeModal('live')">&times;</button>
             <div id="liveContent">
-               <p><a href="https://www.hongbinxu.com/live/jaya">jaya - agua caliente<br><span class="grey-paren" style="line-height: 1.2;">(md/keyboards)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/live/leahdou">leah dou - out of the loop us tour<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/live/fortunes">fortunes - disney california adventure<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/live/zach">zach louis - echoplex<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/live/maya">maya kuriel - moroccan lounge<br><span class="grey-paren" style="line-height: 1.2;">opening for saay (md/program/playback/keyboards)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/live/alex">alex to & landy wen - thunder valley venue<br><span class="grey-paren" style="line-height: 1.2;">(md/program/playback/keyboards)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/live/priscilla">priscilla chan - thunder valley venue<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/live/della">della ding - morongo casino<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/live/andy">andy hui - yaamava' theater<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/live/linda">linda chung - graton casino<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/live/tambor">tambor - permanent records<br><span class="grey-paren" style="line-height: 1.2;">opening for quivers (keyboards)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/cn/live/jaya">jaya - agua caliente<br/><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(音乐总监/键盘)</span></p>
+                <p><a href="https://www.hongbinxu.com/cn/live/leah">窦靖童 - 状况外巡演北美站<br/><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(键盘)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/cn/live/fortunes">fortunes - 迪士尼加州冒险乐园<br/><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(键盘)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/cn/live/zach">zach louis - echoplex<br/><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(键盘)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/cn/live/maya">maya kuriel - moroccan lounge<br/><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">saay开场艺人(音乐总监/预录音轨/音轨播放/键盘)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/cn/live/alex">杜德偉 & 溫嵐 - thunder valley venue<br/><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(乐队总监/预录音轨/音轨播放/键盘)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/cn/live/priscilla">陳慧嫻 - thunder valley venue<br/><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(键盘)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/cn/live/della">丁噹 - morongo casino<br/><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(键盘)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/cn/live/andy">許志安 - yaamava' theater<br/><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(键盘)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/cn/live/linda">鍾嘉欣 - graton casino<br/><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(键盘)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/cn/live/tambor">tambor - permanent records<br/><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">quivers开场艺人(键盘)</span>
             </div>
         </div>
+    </div>
     </div>
 
     <div id="studio" class="modal-overlay" onclick="handleOverlayClick(event, 'studio')">
+    <div class="modal-wrapper">
+        <button class="modal-close" onclick="closeModal('studio')">&times;</button>
         <div class="modal" onclick="event.stopPropagation();"><button class="modal-close" onclick="closeModal('studio')">&times;</button>
             <div id="studioContent">
-                <p><a href="https://www.youtube.com/watch?v=3ZZznCLuGrg" target="_blank">qiming fei - for you<br><span class="grey-paren" style="line-height: 1.2;">(arrangement/keyboards)</span></a></p>
-                <p><a href="https://www.youtube.com/watch?v=8XTHxYHs57k" target="_blank">sarah lanigan - indecisive<br><span class="grey-paren" style="line-height: 1.2;">(production/keyboards/recording/mixing/mastering)</span></a></p>
-                <p><a href="https://www.youtube.com/watch?v=AnulGk5ZyQo" target="_blank">aria liang - dishes<br><span class="grey-paren" style="line-height: 1.2;">(production/keyboards/recording/mixing/mastering)</span></a></p>
-                <p><a href="https://www.youtube.com/watch?v=t9bsTvXaPSY" target="_blank">killagramz & ann one - ktown love<br><span class="grey-paren" style="line-height: 1.2;">(production/keyboards)</span></a></p>
-                <p><a href="https://www.youtube.com/watch?v=nBrzG-c-6Es&list=OLAK5uy_k-arr-QoU8dObv3XtuVGQHrnt9YDGf8Yg&index=4" target="_blank">su isaac - trouble<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
-                <p><a href="https://www.youtube.com/watch?v=tkP20y3K5P4&list=OLAK5uy_kIviR53zq4itk_34aQgvIEZHhrCCN_9Xk&index=7" target="_blank">jellyeeee - outsider<br><span class="grey-paren" style="line-height: 1.2;">(organ)</span></a></p>
-                <p><a href="https://soundcloud.com/hongbinxu/what-if?in=hongbinxu/sets/after-all"target="_blank">hongbin xu - what if<br><span class="grey-paren" style="line-height: 1.2;">(songwriting/production/keyboards/recording/mixing/mastering)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/cn/studio/foryou">费启鸣 - 为你<br/><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(编曲/键盘)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/cn/studio/indecisive">sarah lanigan - indecisive<br/><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(制作/键盘/录音/混音/母带)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/cn/studio/dishes">aria liang - dishes<br/><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(制作/键盘/录音/混音/母带)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/cn/studio/ktwon">killagramz &amp; ann one - ktown love<br/><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(制作/键盘)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/cn/studio/trouble">su isaac - trouble<br/><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(键盘)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/cn/studio/outsider">jellyeeee - outsider<br/><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(风琴)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/cn/studio/whatif">许鸿彬 - what if<br/><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(词曲/制作/键盘/录音/混音/母带)</span></a></p>
             </div>
         </div>
     </div>
+    </div>
 
     <div id="contact" class="modal-overlay" onclick="handleOverlayClick(event, 'contact')">
+    <div class="modal-wrapper">
+        <button class="modal-close" onclick="closeModal('contact')">&times;</button>
         <div class="modal" onclick="event.stopPropagation();"><button class="modal-close" onclick="closeModal('contact')">&times;</button>
             <div id="contactContent">
-                <p><a href="https://www.instagram.com/hongbinxu_/" target="_blank">instagram: @hongbinxu_</a></p>
-                <p>email: contact@hongbinxu.com</p>
+                <p>微信: @hongbinxu_</p>
+                <p>邮箱: contact@hongbinxu.com</p>
             </div>
         </div>
+    </div>
     </div>
 
     <script> 
@@ -306,24 +352,31 @@
             }
         }
 
-    
 document.addEventListener('DOMContentLoaded', () => {
     const isDesktop = window.matchMedia("(min-width: 768px)").matches;
-
-    if (!isDesktop) return; // Disable hover previews on mobile
+    if (!isDesktop) return;
 
     const previewMap = {
-        'jaya': 'assets/images/jaya.jpg',
+        'jaya': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/jaya.mp4',
         'leah': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/leah.mp4',
         'fortunes': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/fortunes.mp4',
-        'zach': 'assets/images/zach-louis.mp4',
+        'zach': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/zach.mp4',
         'maya': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/maya.mp4',
         'alex': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/alex.mp4',
         'priscilla': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/priscilla.mp4',
         'della': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/della.mp4',
         'andy': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/andy.mp4',
         'linda': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/linda.mp4',
-        'tambor': 'assets/images/tambor.mp4',
+        'tambor': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/tambor.mp4',
+
+        'foryou': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/foryou.mp4',
+        'dishes': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/dishes.mp4',
+        'indecisive': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/indecisive.mp4',
+        'ktwon': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/ktwon.mp4',
+        'outsider': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/outsider.mp4',
+        'trouble': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/trouble.mp4',
+        'whatif': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/whatif.mp4',
+
     };
 
     function getRandomPosition() {
@@ -361,12 +414,15 @@ document.addEventListener('DOMContentLoaded', () => {
         return { left: x + 'px', top: y + 'px' };
     }
 
+    const preview = document.getElementById('hoverPreview');
+    let lastKey = '';
+
     Object.keys(previewMap).forEach(key => {
         const links = document.querySelectorAll(`a[href*="${key}"]`);
         links.forEach(link => {
-            const preview = document.getElementById('hoverPreview');
-
             link.addEventListener('mouseenter', () => {
+                if (lastKey === key) return; // Don't reload same preview
+
                 preview.src = previewMap[key];
                 preview.load();
                 preview.play();
@@ -375,12 +431,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 preview.style.left = pos.left;
                 preview.style.top = pos.top;
                 preview.style.display = 'block';
-            });
 
-            link.addEventListener('mouseleave', () => {
-                preview.pause();
-                preview.style.display = 'none';
-                preview.src = '';
+                lastKey = key;
             });
         });
     });

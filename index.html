@@ -294,69 +294,66 @@
         }
 
     
-    document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
+    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
 
-        const previewMap = {
-            'jaya': 'assets/images/jaya.jpg',
-            'leah': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/leah.mp4',
-            'fortunes': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/fortunes.mp4',
-            'zach': 'assets/images/zach-louis.mp4',
-            'maya': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/maya.mp4',
-            'alex': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/alex.mp4',
-            'priscilla': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/priscilla.mp4',
-            'della': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/della.mp4',
-            'andy': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/andy.mp4',
-            'linda':'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/linda.mp4',
-            'tambor': 'assets/images/tambor.mp4',
-        };
+    if (!isDesktop) return; // Disable hover previews on mobile
 
-        function getRandomPosition() {
-            const screenWidth = window.innerWidth;
-            const screenHeight = window.innerHeight;
+    const previewMap = {
+        'jaya': 'assets/images/jaya.jpg',
+        'leah': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/leah.mp4',
+        'fortunes': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/fortunes.mp4',
+        'zach': 'assets/images/zach-louis.mp4',
+        'maya': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/maya.mp4',
+        'alex': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/alex.mp4',
+        'priscilla': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/priscilla.mp4',
+        'della': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/della.mp4',
+        'andy': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/andy.mp4',
+        'linda': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/linda.mp4',
+        'tambor': 'assets/images/tambor.mp4',
+    };
 
-            const modalWidth = 400;
-            const modalHeight = 320; // approx.
-            const imageWidth = 450;
-            const imageHeight = 450;
-            const margin = 20;
+    function getRandomPosition() {
+        const screenWidth = window.innerWidth;
+        const screenHeight = window.innerHeight;
+        const modalWidth = 400;
+        const modalHeight = 320;
+        const imageWidth = 450;
+        const imageHeight = 450;
+        const margin = 20;
 
-            let x, y;
-            let attempts = 0;
-            const maxAttempts = 100;
+        let x, y, attempts = 0;
+        const maxAttempts = 100;
 
-            do {
-                x = Math.floor(Math.random() * (screenWidth - imageWidth - margin * 2)) + margin;
-                y = Math.floor(Math.random() * (screenHeight - imageHeight - margin * 2)) + margin;
+        do {
+            x = Math.floor(Math.random() * (screenWidth - imageWidth - margin * 2)) + margin;
+            y = Math.floor(Math.random() * (screenHeight - imageHeight - margin * 2)) + margin;
 
-                // Modal is centered on screen
-                const modalLeft = screenWidth / 2 - modalWidth / 2;
-                const modalTop = screenHeight / 2 - modalHeight / 2;
+            const modalLeft = screenWidth / 2 - modalWidth / 2;
+            const modalTop = screenHeight / 2 - modalHeight / 2;
 
-                const overlapsModal =
-                    x < modalLeft + modalWidth + margin &&
-                    x + imageWidth > modalLeft - margin &&
-                    y < modalTop + modalHeight + margin &&
-                    y + imageHeight > modalTop - margin;
+            const overlapsModal =
+                x < modalLeft + modalWidth + margin &&
+                x + imageWidth > modalLeft - margin &&
+                y < modalTop + modalHeight + margin &&
+                y + imageHeight > modalTop - margin;
 
-                if (!overlapsModal) break;
+            if (!overlapsModal) break;
+            attempts++;
+        } while (attempts < maxAttempts);
 
-                attempts++;
-            } while (attempts < maxAttempts);
+        x = Math.max(margin, Math.min(x, screenWidth - imageWidth - margin));
+        y = Math.max(margin, Math.min(y, screenHeight - imageHeight - margin));
 
-            // Clamp just in case of overflow at edges
-            x = Math.max(margin, Math.min(x, screenWidth - imageWidth - margin));
-            y = Math.max(margin, Math.min(y, screenHeight - imageHeight - margin));
+        return { left: x + 'px', top: y + 'px' };
+    }
 
-            return { left: x + 'px', top: y + 'px' };
-        }
-
-            Object.keys(previewMap).forEach(key => {
-                const links = document.querySelectorAll(`a[href*="${key}"]`);
-                links.forEach(link => {
-
+    Object.keys(previewMap).forEach(key => {
+        const links = document.querySelectorAll(`a[href*="${key}"]`);
+        links.forEach(link => {
             const preview = document.getElementById('hoverPreview');
 
-                link.addEventListener('mouseenter', () => {
+            link.addEventListener('mouseenter', () => {
                 preview.src = previewMap[key];
                 preview.load();
                 preview.play();
@@ -367,10 +364,14 @@
                 preview.style.display = 'block';
             });
 
-                });
+            link.addEventListener('mouseleave', () => {
+                preview.pause();
+                preview.style.display = 'none';
+                preview.src = '';
             });
-
         });
+    });
+});
 
 </script>
 

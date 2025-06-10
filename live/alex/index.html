@@ -4,80 +4,86 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>alex to</title>
+
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-      background-color: rgba(202, 219, 253, 1);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
+        @font-face {
+            font-family: 'MyFont';
+            src: url('assets/fonts/Arial.ttf') format('truetype');
+        }
 
-    .container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-    }
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: 'MyFont', sans-serif;
+          background-color: rgba(202, 219, 253, 1);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+        }
 
-    .video-frame {
-      background-color: white;
-      border: 1px solid rgba(105, 105, 105, 1);
-      border-radius: 5px;
-      padding: 15px;
-      box-sizing: border-box;
-      max-width: auto;
-      max-height: auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+        .container {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        }
 
-    video {
-      max-width: 800px;
-      max-height: 500px;
-      border-radius: 5px;
-      object-fit: contain;
-    }
+        .video-frame {
+          background-color: white;
+          border: 1px solid rgba(105, 105, 105, 1);
+          border-radius: 5px;
+          padding: 15px;
+          box-sizing: border-box;
+          max-width: auto;
+          max-height: auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
 
-    @media (max-width: 768px) {
-      video {
-        width: 70vw;  /* 70% of viewport width */
-        height: auto; /* maintain aspect ratio */
-      }
+        video {
+          max-width: 800px;
+          max-height: 500px;
+          border-radius: 5px;
+          object-fit: contain;
+        }
 
-    }
+        @media (max-width: 768px) {
+          video {
+            width: 70vw;  /* 70% of viewport width */
+            height: auto; /* maintain aspect ratio */
+          }
 
-    .more-button {
-      position: fixed;
-      bottom: 75px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 44px;
-      height: 24px;
-      background-color: white;
-      border: 1px solid rgba(105, 105, 105, 1);
-      border-radius: 3px;
-      font-size: 13px;
-      line-height: 24px;
-      text-align: center;
-      color: black;
-      text-decoration: none;
-      cursor: default;
-      transition: background-color 0.2s;
-      z-index: 9999;
-    }
+        }
 
-    .more-button:hover {
-      background-color: #f0f0f0;
-    }
+        .more-button {
+          position: fixed;
+          bottom: 75px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 44px;
+          height: 24px;
+          background-color: white;
+          border: 1px solid rgba(105, 105, 105, 1);
+          border-radius: 3px;
+          font-size: 14px;
+          line-height: 24px;
+          text-align: center;
+          color: black;
+          text-decoration: none;
+          cursor: default;
+          transition: background-color 0.2s;
+          z-index: 9999;
+        }
 
-    .back-button {
+        .more-button:hover {
+          background-color: #f0f0f0;
+        }
+
+        .back-button {
                 position: absolute;
                 top: -40px;
                 left: 50%;
@@ -98,18 +104,18 @@
                 padding: 0;
                 transition: background-color 0.2s;
                 text-decoration: none;
-    }
+        }
 
-    .back-button:hover {
-      background-color: #f0f0f0;
-    }
+        .back-button:hover {
+          background-color: #f0f0f0;
+        }
 
-    .back-symbol {
-      position: relative;
-      top: 1px; /* tweak this as needed: -1px, -1.5px, etc. */
-    }
+        .back-symbol {
+          position: relative;
+          top: 1px; /* tweak this as needed: -1px, -1.5px, etc. */
+        }
 
-  </style>
+</style>
 
 </head>
 

@@ -67,7 +67,7 @@
             background-color: white;
             border: 1px solid rgba(105, 105, 105, 1);
             border-radius: 3px;
-            font-size: 13px;
+            font-size: 14px;
             line-height: 21px;
             text-align: center;
             color: black;
@@ -93,16 +93,21 @@
             align-items: center;
         }
 
+        .modal-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
         .modal {
             position: relative;
             background-color: white;
             border: 1px solid rgba(105, 105, 105, 1);
             border-radius: 5px;
             padding: 20px;
-            max-width: 400px;
+            max-width: 350px;
             width: 90%;
             word-break: break-word;
-            max-height: 20em;
+            max-height: 40em;
             overflow-y: scroll;
             scrollbar-width: none;
             scrollbar-color: black transparent;
@@ -137,12 +142,23 @@
                 height: 28px;
             }
 
-            .modal {
-                max-width: 70%;
+            .modal-wrapper {
+                position: relative;
+                display: inline-block;
             }
+
+            .modal {
+                    max-width: 70%;
+                    }
         }
 
+
         .modal-close {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10001;
             width: 24px;
             height: 21px;
             background-color: white;
@@ -159,6 +175,11 @@
             transition: background-color 0.2s;
         }
 
+
+        .modal-close:hover {
+            background-color: #eeeeee;
+        }
+
         .modal-close:hover {
             background-color: #eeeeee;
         }
@@ -173,7 +194,7 @@
             background-color: white;
             border: 1px solid rgba(105, 105, 105, 1);
             border-radius: 3px;
-            font-size: 13px;
+            font-size: 14px;
             line-height: 21px;
             text-align: center;
             color: black;
@@ -215,15 +236,21 @@
         <button class="button" data-bg="contact" onclick="showModal('contact')">contact</button>
         </div>
     </div>
+    </div>
 
     <div id="bio" class="modal-overlay" onclick="handleOverlayClick(event, 'bio')">
+    <div class="modal-wrapper">
+        <button class="modal-close" onclick="closeModal('bio')">&times;</button>
         <div class="modal" onclick="event.stopPropagation();"><button class="modal-close" onclick="closeModal('bio')">&times;</button>
         
             <p id="bioContent">hongbin xu is a keyboardist and producer based in los angeles. he earned a bachelor of music in keyboard performance in contemporary styles with a minor in audio production from the musicians institute. since then, he has supported artists on stage and in studio.</p>
         </div>
     </div>
+    </div>
 
     <div id="live" class="modal-overlay" onclick="handleOverlayClick(event, 'live')">
+    <div class="modal-wrapper">
+        <button class="modal-close" onclick="closeModal('live')">&times;</button>
         <div class="modal" onclick="event.stopPropagation();"><button class="modal-close" onclick="closeModal('live')">&times;</button>
             <div id="liveContent">
                 <p><a href="https://www.hongbinxu.com/live/jaya">jaya - agua caliente<br><span class="grey-paren" style="line-height: 1.2;">(md/keyboards)</span></a></p>
@@ -240,8 +267,11 @@
             </div>
         </div>
     </div>
+    </div>
 
     <div id="studio" class="modal-overlay" onclick="handleOverlayClick(event, 'studio')">
+    <div class="modal-wrapper">
+        <button class="modal-close" onclick="closeModal('studio')">&times;</button>
         <div class="modal" onclick="event.stopPropagation();"><button class="modal-close" onclick="closeModal('studio')">&times;</button>
             <div id="studioContent">
                 <p><a href="https://www.youtube.com/watch?v=3ZZznCLuGrg" target="_blank">qiming fei - for you<br><span class="grey-paren" style="line-height: 1.2;">(arrangement/keyboards)</span></a></p>
@@ -254,14 +284,18 @@
             </div>
         </div>
     </div>
+    </div>
 
     <div id="contact" class="modal-overlay" onclick="handleOverlayClick(event, 'contact')">
+    <div class="modal-wrapper">
+        <button class="modal-close" onclick="closeModal('contact')">&times;</button>
         <div class="modal" onclick="event.stopPropagation();"><button class="modal-close" onclick="closeModal('contact')">&times;</button>
             <div id="contactContent">
                 <p><a href="https://www.instagram.com/hongbinxu_/" target="_blank">instagram: @hongbinxu_</a></p>
                 <p>email: contact@hongbinxu.com</p>
             </div>
         </div>
+    </div>
     </div>
 
     <script> 

@@ -293,11 +293,9 @@
             }
         }
 
-    
 document.addEventListener('DOMContentLoaded', () => {
     const isDesktop = window.matchMedia("(min-width: 768px)").matches;
-
-    if (!isDesktop) return; // Disable hover previews on mobile
+    if (!isDesktop) return;
 
     const previewMap = {
         'jaya': 'assets/images/jaya.jpg',
@@ -348,12 +346,15 @@ document.addEventListener('DOMContentLoaded', () => {
         return { left: x + 'px', top: y + 'px' };
     }
 
+    const preview = document.getElementById('hoverPreview');
+    let lastKey = '';
+
     Object.keys(previewMap).forEach(key => {
         const links = document.querySelectorAll(`a[href*="${key}"]`);
         links.forEach(link => {
-            const preview = document.getElementById('hoverPreview');
-
             link.addEventListener('mouseenter', () => {
+                if (lastKey === key) return; // Don't reload same preview
+
                 preview.src = previewMap[key];
                 preview.load();
                 preview.play();
@@ -362,12 +363,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 preview.style.left = pos.left;
                 preview.style.top = pos.top;
                 preview.style.display = 'block';
-            });
 
-            link.addEventListener('mouseleave', () => {
-                preview.pause();
-                preview.style.display = 'none';
-                preview.src = '';
+                lastKey = key;
             });
         });
     });

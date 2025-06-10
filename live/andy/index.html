@@ -17,14 +17,22 @@
       height: 100vh;
     }
 
+    .container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
     .video-frame {
       background-color: white;
       border: 1px solid rgba(105, 105, 105, 1);
       border-radius: 5px;
       padding: 15px;
       box-sizing: border-box;
-      max-width: 90%;
-      max-height: 80vh;
+      max-width: auto;
+      max-height: auto;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -70,12 +78,18 @@
     }
 
   </style>
+
 </head>
+
 <body>
-  <div class="video-frame">
-    <video src="https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/andy.mp4" controls autoplay muted playsinline loop></video>
+  <div class="container">
+    <div class="video-frame">
+      <video src="https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/andy.mp4" controls autoplay muted playsinline loop></video>
+    </div>
   </div>
   <a class="more-button" href="https://www.youtube.com/watch?v=cZjVlCC-37I" target="_blank">more</a>
+</body>
+
 
 <script>
     const video = document.querySelector('video');
@@ -93,6 +107,5 @@
       }
     });
 </script>
-</body>
 
 </html>

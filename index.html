@@ -58,18 +58,23 @@
         }
 
         .button {
-            font-family: 'MyFont', sans-serif;
-            font-size: 14px;
-            padding: 10px 20px;
+            width: 180%;
+            height: 28px;
+            background-color: white;
+            border: 1px solid rgba(105, 105, 105, 1);
+            border-radius: 3px;
+            font-size: 13px;
+            line-height: 21px;
+            text-align: center;
             color: black;
-            background: transparent;
             cursor: default;
-            border: none;
-            transition: background 0.3s;
+            transition: background-color 0.2s;
+            font-family: 'MyFont', sans-serif;
+            padding: 0;
         }
 
         .button:hover {
-            background: rgba(0, 0, 0, 0.05);
+            background: #eeeeee;
         }
 
         .modal-overlay {
@@ -86,16 +91,20 @@
 
         .modal {
             position: relative;
-            background: rgba(0, 0, 0, 0.03);
+            background-color: white;
+            border: 1px solid rgba(105, 105, 105, 1);
+            border-radius: 5px;
             padding: 20px;
             max-width: 400px;
             width: 90%;
             word-break: break-word;
-            max-height: 20em; /* Limits height to approximately 10 lines */
-            overflow-y: scroll; /* Enables scrolling */
-            scrollbar-width: none; /* Thin scrollbar for Firefox */
-            scrollbar-color: black transparent; /* Black scrollbar track and transparent thumb for Firefox */
+            max-height: 20em;
+            overflow-y: scroll;
+            scrollbar-width: none;
+            scrollbar-color: black transparent;
             text-align: left;
+            font-size: 14px;
+            color: black;
         }
 
         .modal::-webkit-scrollbar {
@@ -120,7 +129,8 @@
 
             .button {
                 font-size: 13px;
-                padding: 8px 15px;
+                width: 180%;
+                height: 28px;
             }
 
             .modal {
@@ -131,12 +141,11 @@
         .modal-close {
             width: 24px;
             height: 21px;
-            background-color: #eeeeee;
-            border: 1px solid #444;
-            border-color: rgba(105, 105, 105, 1);
+            background-color: white;
+            border: 1px solid rgba(105, 105, 105, 1);
             border-radius: 3px;
             font-size: 13px;
-            line-height: 1;
+            line-height: 21px;
             color: black;
             cursor: default;
             display: flex;
@@ -147,7 +156,7 @@
         }
 
         .modal-close:hover {
-            background-color: lightgrey;
+            background-color: #eeeeee;
         }
 
         .lang-toggle-button {
@@ -157,7 +166,7 @@
             transform: translateX(-50%);
             width: 24px;
             height: 21px;
-            background-color: #eeeeee;
+            background-color: white;
             border: 1px solid rgba(105, 105, 105, 1);
             border-radius: 3px;
             font-size: 13px;
@@ -171,17 +180,32 @@
         }
 
         .lang-toggle-button:hover {
-            background-color: lightgrey;
+            background-color: #eeeeee;
+        }
+
+        .hover-preview {
+            position: fixed;
+            max-width: 450px;
+            max-height: 450px;
+            background-color: white;
+            border: 1px solid rgba(105, 105, 105, 1);
+            border-radius: 5px;
+            display: none;
+            z-index: 10000;
+            pointer-events: none;
+            padding: 15px;
+            box-sizing: border-box;
         }
 
 </style>
 </head>
 
 <body>
+<video id="hoverPreview" class="hover-preview" muted autoplay loop playsinline></video>
     <div class="container">
         <div class="buttons">
         <button class="button" data-bg="bio" onclick="showModal('bio')">about</button>
-        <button class="button" data-bg="live" onclick="showModal('live')">live shows</button>
+        <button class="button" data-bg="live" onclick="showModal('live')">live</button>
         <button class="button" data-bg="studio" onclick="showModal('studio')">studio</button>
         <button class="button" data-bg="contact" onclick="showModal('contact')">contact</button>
         </div>
@@ -197,17 +221,17 @@
     <div id="live" class="modal-overlay" onclick="handleOverlayClick(event, 'live')">
         <div class="modal" onclick="event.stopPropagation();"><button class="modal-close" onclick="closeModal('live')">&times;</button>
             <div id="liveContent">
-                <p>jaya - agua caliente <br><span class="grey-paren" style="line-height: 1.2;">(md/keyboards)</span></p>
-                <p><a href="https://www.youtube.com/watch?v=UOQlCaRE6Yc" target="_blank">leah dou - out of the loop us tour<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
-                <p><a href="https://www.instagram.com/reel/DFR84Enx_Kl/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">fortunes - disney california adventure<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
-                <p><a href="https://www.instagram.com/reel/C-qLAxfvXsU/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">zach louis - echoplex<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
-                <p><a href="https://www.blastoutyourstereo.com/saay-us-2024-tour-moroccan-lounge-review/" target="_blank">maya kuriel - moroccan lounge<br><span class="grey-paren" style="line-height: 1.2;">opening for saay (md/program/playback/keyboards)</span></a></p>
-                <p><a href="https://www.youtube.com/watch?v=B7ewNzbHK4c" target="_blank">alex to & landy wen - thunder valley venue<br><span class="grey-paren" style="line-height: 1.2;">(md/program/playback/keyboards)</span></a></p>
-                <p><a href="https://www.youtube.com/watch?v=BalQHkqsglw" target="_blank">priscilla chan - thunder valley venue<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
-                <p>della ding - morongo casino<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></p>
-                <p><a href="https://www.youtube.com/watch?v=cZjVlCC-37I" target="_blank">andy hui - yaamava' theater<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
-                <p>linda chung - graton casino<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></p>
-                <p>tambor - permanent records<br><span class="grey-paren" style="line-height: 1.2;">opening for quivers (keyboards)</span></p>
+                <p><a href="https://www.hongbinxu.com/liveshows/jaya">jaya - agua caliente<br><span class="grey-paren" style="line-height: 1.2;">(md/keyboards)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/liveshows/leahdou">leah dou - out of the loop us tour<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/liveshows/fortunes">fortunes - disney california adventure<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/liveshows/zach">zach louis - echoplex<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/liveshows/maya">maya kuriel - moroccan lounge<br><span class="grey-paren" style="line-height: 1.2;">opening for saay (md/program/playback/keyboards)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/liveshows/alex">alex to & landy wen - thunder valley venue<br><span class="grey-paren" style="line-height: 1.2;">(md/program/playback/keyboards)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/liveshows/priscilla">priscilla chan - thunder valley venue<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/liveshows/della">della ding - morongo casino<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/liveshows/andy">andy hui - yaamava' theater<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/liveshows/linda">linda chung - graton casino<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
+                <p><a href="https://www.hongbinxu.com/liveshows/tambor">tambor - permanent records<br><span class="grey-paren" style="line-height: 1.2;">opening for quivers (keyboards)</span></a></p>
             </div>
         </div>
     </div>
@@ -248,7 +272,12 @@
             document.getElementById(id).style.display = 'none';
             document.querySelector('.buttons').style.display = 'flex';
 
-            // Check if any other modal is still open
+            // Hide preview image
+            const preview = document.getElementById('hoverPreview');
+            preview.style.display = 'none';
+            preview.src = '';
+
+            // Show lang toggle only if all modals are closed
             const anyModalOpen = Array.from(document.querySelectorAll('.modal-overlay'))
                 .some(modal => modal.style.display === 'flex');
             if (!anyModalOpen) {
@@ -257,7 +286,6 @@
 
             resetBackground();
         }
-
         
         function handleOverlayClick(event, id) {
             if (event.target.classList.contains('modal-overlay')) {
@@ -265,9 +293,89 @@
             }
         }
 
-    </script>
+    
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const previewMap = {
+            'jaya': 'assets/images/jaya.jpg',
+            'leah': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/leah.mp4',
+            'fortunes': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/fortunes.mp4',
+            'zach': 'assets/images/zach-louis.mp4',
+            'maya': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/maya.mp4',
+            'alex': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/alex.mp4',
+            'priscilla': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/priscilla.mp4',
+            'della': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/della.mp4',
+            'andy': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/andy.mp4',
+            'linda':'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/linda.mp4',
+            'tambor': 'assets/images/tambor.mp4',
+        };
+
+        function getRandomPosition() {
+            const screenWidth = window.innerWidth;
+            const screenHeight = window.innerHeight;
+
+            const modalWidth = 400;
+            const modalHeight = 320; // approx.
+            const imageWidth = 450;
+            const imageHeight = 450;
+            const margin = 20;
+
+            let x, y;
+            let attempts = 0;
+            const maxAttempts = 100;
+
+            do {
+                x = Math.floor(Math.random() * (screenWidth - imageWidth - margin * 2)) + margin;
+                y = Math.floor(Math.random() * (screenHeight - imageHeight - margin * 2)) + margin;
+
+                // Modal is centered on screen
+                const modalLeft = screenWidth / 2 - modalWidth / 2;
+                const modalTop = screenHeight / 2 - modalHeight / 2;
+
+                const overlapsModal =
+                    x < modalLeft + modalWidth + margin &&
+                    x + imageWidth > modalLeft - margin &&
+                    y < modalTop + modalHeight + margin &&
+                    y + imageHeight > modalTop - margin;
+
+                if (!overlapsModal) break;
+
+                attempts++;
+            } while (attempts < maxAttempts);
+
+            // Clamp just in case of overflow at edges
+            x = Math.max(margin, Math.min(x, screenWidth - imageWidth - margin));
+            y = Math.max(margin, Math.min(y, screenHeight - imageHeight - margin));
+
+            return { left: x + 'px', top: y + 'px' };
+        }
+
+            Object.keys(previewMap).forEach(key => {
+                const links = document.querySelectorAll(`a[href*="${key}"]`);
+                links.forEach(link => {
+
+            const preview = document.getElementById('hoverPreview');
+
+                link.addEventListener('mouseenter', () => {
+                preview.src = previewMap[key];
+                preview.load();
+                preview.play();
+
+                const pos = getRandomPosition();
+                preview.style.left = pos.left;
+                preview.style.top = pos.top;
+                preview.style.display = 'block';
+            });
+
+                });
+            });
+
+        });
+
+</script>
 
     <a href="/cn" class="lang-toggle-button">中</a>
-    
+
 </body>
+
 </html>

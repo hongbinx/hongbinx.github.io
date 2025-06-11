@@ -252,7 +252,7 @@
     </div>
     </div>
 
-    <div id="bio" class="modal-overlay" onclick="handleOverlayClick(event, 'bio')">
+    <div id="bio" class="modal-overlay">
     <div class="modal-wrapper">
         <button class="modal-close" onclick="closeModal('bio')">back</button>
         <div class="modal" onclick="event.stopPropagation();"><button class="modal-close" onclick="closeModal('bio')">back</button>
@@ -262,7 +262,7 @@
     </div>
     </div>
 
-    <div id="live" class="modal-overlay" onclick="handleOverlayClick(event, 'live')">
+    <div id="live" class="modal-overlay">
     <div class="modal-wrapper">
         <button class="modal-close" onclick="closeModal('live')">back</button>
         <div class="modal" onclick="event.stopPropagation();"><button class="modal-close" onclick="closeModal('live')">back</button>
@@ -283,7 +283,7 @@
     </div>
     </div>
 
-    <div id="studio" class="modal-overlay" onclick="handleOverlayClick(event, 'studio')">
+    <div id="studio" class="modal-overlay">
     <div class="modal-wrapper">
         <button class="modal-close" onclick="closeModal('studio')">back</button>
         <div class="modal" onclick="event.stopPropagation();"><button class="modal-close" onclick="closeModal('studio')">back</button>
@@ -300,7 +300,7 @@
     </div>
     </div>
 
-    <div id="contact" class="modal-overlay" onclick="handleOverlayClick(event, 'contact')">
+    <div id="contact" class="modal-overlay">
     <div class="modal-wrapper">
         <button class="modal-close" onclick="closeModal('contact')">back</button>
         <div class="modal" onclick="event.stopPropagation();"><button class="modal-close" onclick="closeModal('contact')">back</button>
@@ -340,97 +340,92 @@
             resetBackground();
         }
         
-        function handleOverlayClick(event, id) {
-            if (event.target.classList.contains('modal-overlay')) {
-                closeModal(id);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+            if (!isDesktop) return;
+
+            const previewMap = {
+                'jaya': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/jaya.mp4',
+                'leah': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/leah.mp4',
+                'fortunes': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/fortunes.mp4',
+                'zach': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/zach.mp4',
+                'maya': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/maya.mp4',
+                'alex': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/alex.mp4',
+                'priscilla': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/priscilla.mp4',
+                'della': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/della.mp4',
+                'andy': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/andy.mp4',
+                'linda': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/linda.mp4',
+                'tambor': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/tambor.mp4',
+
+                'foryou': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/foryou.mp4',
+                'dishes': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/dishes.mp4',
+                'indecisive': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/indecisive.mp4',
+                'ktwon': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/ktwon.mp4',
+                'outsider': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/outsider.mp4',
+                'trouble': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/trouble.mp4',
+                'whatif': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/whatif.mp4',
+
+            };
+
+            function getRandomPosition() {
+                const screenWidth = window.innerWidth;
+                const screenHeight = window.innerHeight;
+                const modalWidth = 400;
+                const modalHeight = 320;
+                const imageWidth = 450;
+                const imageHeight = 450;
+                const margin = 20;
+
+                let x, y, attempts = 0;
+                const maxAttempts = 100;
+
+                do {
+                    x = Math.floor(Math.random() * (screenWidth - imageWidth - margin * 2)) + margin;
+                    y = Math.floor(Math.random() * (screenHeight - imageHeight - margin * 2)) + margin;
+
+                    const modalLeft = screenWidth / 2 - modalWidth / 2;
+                    const modalTop = screenHeight / 2 - modalHeight / 2;
+
+                    const overlapsModal =
+                        x < modalLeft + modalWidth + margin &&
+                        x + imageWidth > modalLeft - margin &&
+                        y < modalTop + modalHeight + margin &&
+                        y + imageHeight > modalTop - margin;
+
+                    if (!overlapsModal) break;
+                    attempts++;
+                } while (attempts < maxAttempts);
+
+                x = Math.max(margin, Math.min(x, screenWidth - imageWidth - margin));
+                y = Math.max(margin, Math.min(y, screenHeight - imageHeight - margin));
+
+                return { left: x + 'px', top: y + 'px' };
             }
-        }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
-    if (!isDesktop) return;
+            const preview = document.getElementById('hoverPreview');
+            let lastKey = '';
 
-    const previewMap = {
-        'jaya': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/jaya.mp4',
-        'leah': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/leah.mp4',
-        'fortunes': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/fortunes.mp4',
-        'zach': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/zach.mp4',
-        'maya': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/maya.mp4',
-        'alex': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/alex.mp4',
-        'priscilla': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/priscilla.mp4',
-        'della': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/della.mp4',
-        'andy': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/andy.mp4',
-        'linda': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/linda.mp4',
-        'tambor': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/tambor.mp4',
+            Object.keys(previewMap).forEach(key => {
+                const links = document.querySelectorAll(`a[href*="${key}"]`);
+                links.forEach(link => {
+                    link.addEventListener('mouseenter', () => {
+                        if (lastKey === key) return; // Don't reload same preview
 
-        'foryou': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/foryou.mp4',
-        'dishes': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/dishes.mp4',
-        'indecisive': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/indecisive.mp4',
-        'ktwon': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/ktwon.mp4',
-        'outsider': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/outsider.mp4',
-        'trouble': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/trouble.mp4',
-        'whatif': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/whatif.mp4',
+                        preview.src = previewMap[key];
+                        preview.load();
+                        preview.play();
 
-    };
+                        const pos = getRandomPosition();
+                        preview.style.left = pos.left;
+                        preview.style.top = pos.top;
+                        preview.style.display = 'block';
 
-    function getRandomPosition() {
-        const screenWidth = window.innerWidth;
-        const screenHeight = window.innerHeight;
-        const modalWidth = 400;
-        const modalHeight = 320;
-        const imageWidth = 450;
-        const imageHeight = 450;
-        const margin = 20;
-
-        let x, y, attempts = 0;
-        const maxAttempts = 100;
-
-        do {
-            x = Math.floor(Math.random() * (screenWidth - imageWidth - margin * 2)) + margin;
-            y = Math.floor(Math.random() * (screenHeight - imageHeight - margin * 2)) + margin;
-
-            const modalLeft = screenWidth / 2 - modalWidth / 2;
-            const modalTop = screenHeight / 2 - modalHeight / 2;
-
-            const overlapsModal =
-                x < modalLeft + modalWidth + margin &&
-                x + imageWidth > modalLeft - margin &&
-                y < modalTop + modalHeight + margin &&
-                y + imageHeight > modalTop - margin;
-
-            if (!overlapsModal) break;
-            attempts++;
-        } while (attempts < maxAttempts);
-
-        x = Math.max(margin, Math.min(x, screenWidth - imageWidth - margin));
-        y = Math.max(margin, Math.min(y, screenHeight - imageHeight - margin));
-
-        return { left: x + 'px', top: y + 'px' };
-    }
-
-    const preview = document.getElementById('hoverPreview');
-    let lastKey = '';
-
-    Object.keys(previewMap).forEach(key => {
-        const links = document.querySelectorAll(`a[href*="${key}"]`);
-        links.forEach(link => {
-            link.addEventListener('mouseenter', () => {
-                if (lastKey === key) return; // Don't reload same preview
-
-                preview.src = previewMap[key];
-                preview.load();
-                preview.play();
-
-                const pos = getRandomPosition();
-                preview.style.left = pos.left;
-                preview.style.top = pos.top;
-                preview.style.display = 'block';
-
-                lastKey = key;
+                        lastKey = key;
+                    });
+                });
             });
         });
-    });
-});
 
 </script>
 

@@ -115,11 +115,47 @@
           top: px; /* tweak this as needed: -1px, -1.5px, etc. */
         }
 
+
+         {
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+
+        .wiki-button {
+          position: absolute;
+          top: -55px;
+          left: 50%;
+          padding: 2px 0;
+          transform: translateX(-50%);
+          max-width: 400px;
+          width: 210px;
+          height: auto;
+          background-color: white;
+          border: 1px solid rgba(105, 105, 105, 1);
+          border-radius: 5px;
+          font-size: 14px;
+          text-align: center;
+          color: black;
+          text-decoration: none;
+          cursor: default;
+          transition: background-color 0.2s;
+          z-index: 9999;
+        }
+
+        .wiki-button:hover {
+          background-color: #f0f0f0;
+        }
+
+        .grey-paren {
+            color: rgba(0, 0, 0, 0.5);
+        }
+
 </style>
 </head>
 <body>
 <div class="container">
 <div class="video-frame">
+      <a class="wiki-button" href="https://m.weibo.cn/u/1865947070?t=&luicode=10000011&lfid=100103type%3D1%26q%3D%E8%AE%B8%E9%B8%BF%E5%BD%AC&featurecode=newtitle%C2%A0" target="_blank">许鸿彬 - what if<br/><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(词曲/制作/键盘/录音/混音/母带)</span></a>
 <a class="back-button" href="javascript:history.back()"><span class="back-symbol">back</span></a>
 <a class="more-button" href="https://music.163.com/#/song?id=1938533515" target="_blank">more</a>
 <video autoplay="" controls="" loop="" muted="" playsinline="" src="https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/whatif.mp4"></video>

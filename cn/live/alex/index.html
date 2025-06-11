@@ -115,6 +115,41 @@
           top: px; /* tweak this as needed: -1px, -1.5px, etc. */
         }
 
+
+         {
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+
+        .wiki-button {
+          position: absolute;
+          top: -55px;
+          left: 50%;
+          padding: 2px 0;
+          transform: translateX(-50%);
+          max-width: 400px;
+          width: 260px;
+          height: auto;
+          background-color: white;
+          border: 1px solid rgba(105, 105, 105, 1);
+          border-radius: 5px;
+          font-size: 14px;
+          text-align: center;
+          color: black;
+          text-decoration: none;
+          cursor: default;
+          transition: background-color 0.2s;
+          z-index: 9999;
+        }
+
+        .wiki-button:hover {
+          background-color: #f0f0f0;
+        }
+
+        .grey-paren {
+            color: rgba(0, 0, 0, 0.5);
+        }
+
 </style>
 
 </head>
@@ -122,6 +157,7 @@
 <body>
   <div class="container">
     <div class="video-frame">
+      <a class="wiki-button" href="https://m.weibo.cn/u/2136002182?luicode=10000011&lfid=1005051780781987" target="_blank">杜德偉 & 溫嵐 - thunder valley venue<br/><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(乐队总监/预录音轨/音轨播放/键盘)</span></a>
       <a class="back-button" href="javascript:history.back()"><span class="back-symbol">返回</span></a>
       <a class="more-button" href="http://xhslink.com/a/86FpCKSCJpEeb" target="_blank">更多</a>
       <video src="https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/alex.mp4" controls autoplay muted playsinline loop></video>

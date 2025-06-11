@@ -255,7 +255,7 @@
 </head>
 
 <body>
-<video id="hoverPreview" class="hover-preview" muted autoplay loop playsinline></video>
+<video id="hoverPreview" class="hover-preview" muted autoplay loop playsinline preload="metadata" poster=""></video>
     <div class="container">
         <div class="buttons">
         <button class="button" data-bg="bio" onclick="showModal('bio')">关于</button>
@@ -427,6 +427,7 @@
                         if (lastKey === key) return; // Don't reload same preview
 
                         preview.src = previewMap[key];
+                        preview.poster = `assets/thumbnails/${key}.jpg`;
                         preview.load();
                         preview.play();
 

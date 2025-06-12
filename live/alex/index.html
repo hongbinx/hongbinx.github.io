@@ -1,11 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>alex to</title>
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>alex to</title>
+<style>
         @font-face {
             font-family: 'MyFont';
             src: url('https://www.hongbinxu.com/assets/fonts/Arial.ttf') format('truetype');
@@ -146,24 +146,26 @@
         }
 
 </style>
-
 </head>
-
 <body>
-  <div class="container">
-    <div class="video-frame">
-      <a class="wiki-button" href="https://en.wikipedia.org/wiki/Alex_To" target="_blank">alex to &amp; landy wen - thunder valley venue<span class="grey-paren" style="line-height: 1.2;"><br>(md/program/playback/keyboards)</span></a>
-      <button class="back-button" onclick="history.back()">back</button>
-      <a class="more-button" href="https://www.youtube.com/watch?v=B7ewNzbHK4c" target="_blank">more</a>
-      <video src="https://media.hongbinxu.com/alex.mp4" controls autoplay muted playsinline loop></video>
-    </div>
-  </div>
-
-</body>
-
-
+<div class="container">
+<div class="video-frame">
+<a class="wiki-button" href="https://en.wikipedia.org/wiki/Alex_To" target="_blank">alex to &amp; landy wen - thunder valley venue<span class="grey-paren" style="line-height: 1.2;"><br/>(md/program/playback/keyboards)</span></a>
+<button class="back-button" onclick="history.back()">back</button>
+<a class="more-button" href="https://www.youtube.com/watch?v=B7ewNzbHK4c" target="_blank">more</a>
+<video autoplay="" controls="" id="autoVideo" loop="" muted="" playsinline="" poster="https://www.hongbinxu.com/assets/thumbnails/alex.webp" preload="metadata" src="https://media.hongbinxu.com/alex.mp4"></video>
+</div>
+</div>
 <script>
-    const video = document.querySelector('video');
+    const video = document.getElementById('autoVideo');
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (video) {
+        video.addEventListener('loadeddata', () => {
+          video.style.display = 'block';
+        });
+      }
+    });
 
     document.addEventListener('click', () => {
       video.muted = false;
@@ -177,6 +179,5 @@
         video.play();
       }
     });
-</script>
-
+    </script></body>
 </html>

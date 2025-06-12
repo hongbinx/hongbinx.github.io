@@ -247,7 +247,7 @@
 </head>
 
 <body>
-<video id="hoverPreview" class="hover-preview" muted autoplay loop playsinline preload="metadata" poster=""></video></video>
+<video id="hoverPreview" class="hover-preview" muted autoplay loop playsinline preload="metadata" poster=""></video>
     <div class="container">
         <div class="buttons">
         <button class="button" data-bg="bio" onclick="showModal('bio')">about</button>
@@ -347,92 +347,150 @@
         }
         
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const isDesktop = window.matchMedia("(min-width: 768px)").matches;
-            if (!isDesktop) return;
+document.addEventListener('DOMContentLoaded', () => {
+    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+    if (!isDesktop) return;
 
-            const previewMap = {
-                'jaya': 'https://media.hongbinxu.com/jaya.webp',
-                'leah': 'https://media.hongbinxu.com/leah.webp',
-                'fortunes': 'https://media.hongbinxu.com/fortunes.webp',
-                'zach': 'https://media.hongbinxu.com/zach.webp',
-                'maya': 'https://media.hongbinxu.com/maya.webp',
-                'alex': 'https://media.hongbinxu.com/alex.webp',
-                'priscilla': 'https://media.hongbinxu.com/priscilla.webp',
-                'della': 'https://media.hongbinxu.com/della.webp',
-                'andy': 'https://media.hongbinxu.com/andy.webp',
-                'linda': 'https://media.hongbinxu.com/linda.webp',
-                'tambor': 'https://media.hongbinxu.com/tambor.webp',
+    // Maps for video and poster
+    const previewMap = {
+        'jaya': 'https://media.hongbinxu.com/jaya.mp4',
+        'leah': 'https://media.hongbinxu.com/leah.mp4',
+        'fortunes': 'https://media.hongbinxu.com/fortunes.mp4',
+        'zach': 'https://media.hongbinxu.com/zach.mp4',
+        'maya': 'https://media.hongbinxu.com/maya.mp4',
+        'alex': 'https://media.hongbinxu.com/alex.mp4',
+        'priscilla': 'https://media.hongbinxu.com/priscilla.mp4',
+        'della': 'https://media.hongbinxu.com/della.mp4',
+        'andy': 'https://media.hongbinxu.com/andy.mp4',
+        'linda': 'https://media.hongbinxu.com/linda.mp4',
+        'tambor': 'https://media.hongbinxu.com/tambor.mp4',
+        'foryou': 'https://media.hongbinxu.com/foryou.mp4',
+        'dishes': 'https://media.hongbinxu.com/dishes.mp4',
+        'indecisive': 'https://media.hongbinxu.com/indecisive.mp4',
+        'ktwon': 'https://media.hongbinxu.com/ktwon.mp4',
+        'outsider': 'https://media.hongbinxu.com/outsider.mp4',
+        'trouble': 'https://media.hongbinxu.com/trouble.mp4',
+        'whatif': 'https://media.hongbinxu.com/whatif.mp4'
+    };
+    const posterMap = {
+        'jaya': 'https:/www.hongbinxu.com/assets/thumbnails/jaya.webp',
+        'leah': 'https:/www.hongbinxu.com/assets/thumbnails/leah.webp',
+        'fortunes': 'https:/www.hongbinxu.com/assets/thumbnails/fortunes.webp',
+        'zach': 'https:/www.hongbinxu.com/assets/thumbnails/zach.webp',
+        'maya': 'https:/www.hongbinxu.com/assets/thumbnails/maya.webp',
+        'alex': 'https:/www.hongbinxu.com/assets/thumbnails/alex.webp',
+        'priscilla': 'https:/www.hongbinxu.com/assets/thumbnails/priscilla.webp',
+        'della': 'https:/www.hongbinxu.com/assets/thumbnails/della.webp',
+        'andy': 'https:/www.hongbinxu.com/assets/thumbnails/andy.webp',
+        'linda': 'https:/www.hongbinxu.com/assets/thumbnails/linda.webp',
+        'tambor': 'https:/www.hongbinxu.com/assets/thumbnails/tambor.webp',
+        'foryou': 'https:/www.hongbinxu.com/assets/thumbnails/foryou.webp',
+        'dishes': 'https:/www.hongbinxu.com/assets/thumbnails/dishes.webp',
+        'indecisive': 'https:/www.hongbinxu.com/assets/thumbnails/indecisive.webp',
+        'ktwon': 'https:/www.hongbinxu.com/assets/thumbnails/ktwon.webp',
+        'outsider': 'https:/www.hongbinxu.com/assets/thumbnails/outsider.webp',
+        'trouble': 'https:/www.hongbinxu.com/assets/thumbnails/trouble.webp',
+        'whatif': 'https:/www.hongbinxu.com/assets/thumbnails/whatif.webp'
+    };
 
-                'foryou': 'https://media.hongbinxu.com/foryou.webp',
-                'dishes': 'https://media.hongbinxu.com/dishes.webp',
-                'indecisive': 'https://media.hongbinxu.com/indecisive.webp',
-                'ktwon': 'https://media.hongbinxu.com/ktwon.webp',
-                'outsider': 'https://media.hongbinxu.com/outsider.webp',
-                'trouble': 'https://media.hongbinxu.com/trouble.webp',
-                'whatif': 'https://media.hongbinxu.com/whatif.webp',
+    function getRandomPosition() {
+        const screenWidth = window.innerWidth;
+        const screenHeight = window.innerHeight;
+        const modalWidth = 400;
+        const modalHeight = 320;
+        const videoWidth = 450;
+        const videoHeight = 450;
+        const margin = 20;
+        let x, y, attempts = 0;
+        const maxAttempts = 100;
+        do {
+            x = Math.floor(Math.random() * (screenWidth - videoWidth - margin * 2)) + margin;
+            y = Math.floor(Math.random() * (screenHeight - videoHeight - margin * 2)) + margin;
+            const modalLeft = screenWidth / 2 - modalWidth / 2;
+            const modalTop = screenHeight / 2 - modalHeight / 2;
+            const overlapsModal =
+                x < modalLeft + modalWidth + margin &&
+                x + videoWidth > modalLeft - margin &&
+                y < modalTop + modalHeight + margin &&
+                y + videoHeight > modalTop - margin;
+            if (!overlapsModal) break;
+            attempts++;
+        } while (attempts < maxAttempts);
 
-            };
+        x = Math.max(margin, Math.min(x, screenWidth - videoWidth - margin));
+        y = Math.max(margin, Math.min(y, screenHeight - videoHeight - margin));
+        return { left: x + 'px', top: y + 'px' };
+    }
 
-            function getRandomPosition() {
-                const screenWidth = window.innerWidth;
-                const screenHeight = window.innerHeight;
-                const modalWidth = 400;
-                const modalHeight = 320;
-                const imageWidth = 450;
-                const imageHeight = 450;
-                const margin = 20;
+    const preview = document.getElementById('hoverPreview');
+    let lastKey = '';
+    let lastLink = null;
 
-                let x, y, attempts = 0;
-                const maxAttempts = 100;
+    Object.keys(previewMap).forEach(key => {
+        const links = document.querySelectorAll(`a[href*="${key}"]`);
+        links.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                if (lastKey === key) return; // Don't reload same preview
+                preview.pause();
+                preview.src = previewMap[key];
+                preview.poster = posterMap[key];
+                preview.currentTime = 0;
+                preview.load();
+                preview.style.display = 'block';
 
-                do {
-                    x = Math.floor(Math.random() * (screenWidth - imageWidth - margin * 2)) + margin;
-                    y = Math.floor(Math.random() * (screenHeight - imageHeight - margin * 2)) + margin;
+                // Position the video preview
+                const pos = getRandomPosition();
+                preview.style.left = pos.left;
+                preview.style.top = pos.top;
 
-                    const modalLeft = screenWidth / 2 - modalWidth / 2;
-                    const modalTop = screenHeight / 2 - modalHeight / 2;
+                preview.addEventListener('loadeddata', () => {
+                    preview.play();
+                }, { once: true });
 
-                    const overlapsModal =
-                        x < modalLeft + modalWidth + margin &&
-                        x + imageWidth > modalLeft - margin &&
-                        y < modalTop + modalHeight + margin &&
-                        y + imageHeight > modalTop - margin;
+                lastKey = key;
+                lastLink = link;
+            });
 
-                    if (!overlapsModal) break;
-                    attempts++;
-                } while (attempts < maxAttempts);
-
-                x = Math.max(margin, Math.min(x, screenWidth - imageWidth - margin));
-                y = Math.max(margin, Math.min(y, screenHeight - imageHeight - margin));
-
-                return { left: x + 'px', top: y + 'px' };
-            }
-
-            const preview = document.getElementById('hoverPreview');
-            let lastKey = '';
-
-            Object.keys(previewMap).forEach(key => {
-                const links = document.querySelectorAll(`a[href*="${key}"]`);
-                links.forEach(link => {
-                    link.addEventListener('mouseenter', () => {
-                        if (lastKey === key) return; // Don't reload same preview
-
-                        preview.src = previewMap[key];
-                        preview.poster = `assets/thumbnails/${key}.jpg`;
-                        preview.load();
-                        preview.play();
-
-                        const pos = getRandomPosition();
-                        preview.style.left = pos.left;
-                        preview.style.top = pos.top;
-                        preview.style.display = 'block';
-
-                        lastKey = key;
-                    });
-                });
+            link.addEventListener('mouseleave', (e) => {
+                // Do not hide on mouseleave, only hide when entering another link or clicking outside
             });
         });
+    });
+
+    // Optional: Hide preview if mouse moves off all preview links
+    document.addEventListener('mousemove', (e) => {
+        // If mouse is not over a preview link or the preview itself
+        if (!e.target.closest('a[href*="live"]') &&
+            !e.target.closest('a[href*="studio"]') &&
+            preview.style.display === 'block') {
+            // preview.style.display = 'none';
+            // preview.src = '';
+            // lastKey = '';
+            // lastLink = null;
+        }
+    });
+
+    // Always hide preview when closing a modal
+    window.closeModal = function(id) {
+        document.getElementById(id).style.display = 'none';
+        document.querySelector('.buttons').style.display = 'flex';
+
+        // Hide preview image
+        const preview = document.getElementById('hoverPreview');
+        preview.style.display = 'none';
+        preview.src = '';
+        lastKey = '';
+        lastLink = null;
+
+        // Show lang toggle only if all modals are closed
+        const anyModalOpen = Array.from(document.querySelectorAll('.modal-overlay'))
+            .some(modal => modal.style.display === 'flex');
+        if (!anyModalOpen) {
+            document.querySelector('.lang-toggle-button').style.display = 'block';
+        }
+        resetBackground();
+    }
+});
 
 </script>
 

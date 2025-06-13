@@ -193,13 +193,22 @@
 
 
 
+
 <script>
     const video = document.getElementById('autoVideo');
 
-    document.addEventListener('click', () => {
-      video.muted = false;
-      video.play();
-    }, { once: true });
+    document.addEventListener('DOMContentLoaded', () => {
+      if (video) {
+        video.addEventListener('loadeddata', () => {
+          video.style.display = 'block';
+        });
+
+        video.addEventListener('click', () => {
+          video.muted = false;
+          video.play();
+        }, { once: true });
+      }
+    });
 
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) {
@@ -209,6 +218,7 @@
       }
     });
 </script>
+
 
 <a href="/cn" class="home-button">许鸿彬</a>
 </body>

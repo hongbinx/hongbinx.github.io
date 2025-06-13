@@ -188,6 +188,7 @@
 <video autoplay="" controls="" id="autoVideo" loop="" muted="" playsinline="" poster="https://www.hongbinxu.com/assets/thumbnails/outsider.webp" preload="metadata" src="https://media.hongbinxu.com/outsider.mp4"></video>
 </div>
 </div>
+
 <script>
     const video = document.getElementById('autoVideo');
 
@@ -196,13 +197,13 @@
         video.addEventListener('loadeddata', () => {
           video.style.display = 'block';
         });
+
+        video.addEventListener('click', () => {
+          video.muted = false;
+          video.play();
+        }, { once: true });
       }
     });
-
-    document.addEventListener('click', () => {
-      video.muted = false;
-      video.play();
-    }, { once: true });
 
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) {
@@ -211,6 +212,7 @@
         video.play();
       }
     });
-    </script><a href="/" class="home-button">hongbin xu</a>
+</script>
+<a href="/" class="home-button">hongbin xu</a>
 </body>
 </html>

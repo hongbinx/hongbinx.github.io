@@ -22,7 +22,7 @@
           margin: 0;
           padding: 0;
           font-family: 'MyFont', sans-serif;
-          background-color: black;
+          background-color: rgba(202, 219, 253, 1);
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -39,7 +39,7 @@
         }
 
         .video-frame {
-          background-color: black;
+          background-color: white;
           border: 1px solid rgba(105, 105, 105, 1);
           border-radius: 5px;
           padding: 15px;
@@ -71,15 +71,15 @@
           bottom: -40px;
           left: 50%;
           transform: translateX(-50%);
-          width: 58px;
+          width: 44px;
           height: 24px;
-          background-color: black;
+          background-color: white;
           border: 1px solid rgba(105, 105, 105, 1);
           border-radius: 3px;
           font-size: 14px;
           line-height: 24px;
           text-align: center;
-          color: white;
+          color: black;
           text-decoration: none;
           cursor: pointer;
           transition: background-color 0.2s;
@@ -87,7 +87,7 @@
         }
 
         .more-button:hover {
-          background-color: #454545;
+          background-color: #f0f0f0;
         }
 
         .back-button {
@@ -98,12 +98,12 @@
                 z-index: 10001;
                 width: 44px;
                 height: 24px;
-                background-color: black;
+                background-color: white;
                 border: 1px solid rgba(105, 105, 105, 1);
                 border-radius: 3px;
                 font-size: 14px;
                 line-height: 24px;
-                color: white;
+                color: black;
                 cursor: pointer;
                 display: flex;
                 align-items: center;
@@ -114,7 +114,7 @@
         }
 
         .back-button:hover {
-          background-color: #454545;
+          background-color: #f0f0f0;
         }
 
         .back-symbol {
@@ -137,12 +137,12 @@
           max-width: 400px;
           width: 210px;
           height: auto;
-          background-color: black;
+          background-color: white;
           border: 1px solid rgba(105, 105, 105, 1);
           border-radius: 5px;
           font-size: 14px;
           text-align: center;
-          color: white;
+          color: black;
           text-decoration: none;
           cursor: pointer;
           transition: background-color 0.2s;
@@ -150,11 +150,11 @@
         }
 
         .wiki-button:hover {
-          background-color: #454545;
+          background-color: #f0f0f0;
         }
 
         .grey-paren {
-            color: rgba(105, 105, 105, 1);
+            color: rgba(0, 0, 0, 0.5);
         }
 
         .home-button {
@@ -165,13 +165,13 @@
             transform: translateX(-50%);
             width: 66px;
             height: 24px;
-            background-color: black;
+            background-color: white;
             border: 1px solid rgba(105, 105, 105, 1);
             border-radius: 3px;
             font-size: 14px;
             line-height: 24px;
             text-align: center;
-            color: white;
+            color: black;
             text-decoration: none;
             cursor: pointer;
             transition: background-color 0.2s;
@@ -179,7 +179,7 @@
         }
 
         .home-button:hover {
-            background-color: #454545;
+            background-color: #eeeeee;
             text-decoration: none;
             cursor: pointer;
         }
@@ -189,9 +189,9 @@
 <body>
 <div class="container">
 <div class="video-frame">
-<a class="wiki-button" href="https://m.weibo.cn/u/1865947070?t=&amp;luicode=10000011&amp;lfid=100103type%3D1%26q%3D%E8%AE%B8%E9%B8%BF%E5%BD%AC&amp;featurecode=newtitle%C2%A0" target="_blank">忧伤脑袋<br/><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(词曲/制作/键盘/录音/混音/母带)</span></a>
+<a class="wiki-button" href="https://m.weibo.cn/u/1865947070?t=&amp;luicode=10000011&amp;lfid=100103type%3D1%26q%3D%E8%AE%B8%E9%B8%BF%E5%BD%AC&amp;featurecode=newtitle%C2%A0" target="_blank">许鸿彬 - 忧伤脑袋<br/><span class="grey-paren" style="font-size: 0.9em; line-height: 1.2;">(词曲/制作/键盘/录音/混音/母带)</span></a>
 <a class="back-button" href="javascript:history.back()"><span class="back-symbol">返回</span></a>
-<a class="more-button" href="https://163cn.tv/MleVxr9" target="_blank">网易云</a>
+<a class="more-button" href="https://163cn.tv/MleVxr9" target="_blank">更多</a>
 <video autoplay="" controls="controls" id="autoVideo" loop="" muted="muted" playsinline="playsinline" poster="https://www.hongbinxu.com/assets/thumbnails/youshang.webp" preload="metadata" src="https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/youshang.mp4" webkit-playsinline="webkit-playsinline" x5-video-player-fullscreen="false" x5-video-player-type="h5"></video>
 </div>
 </div>

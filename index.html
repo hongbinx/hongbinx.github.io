@@ -1,540 +1,432 @@
-    <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/x-icon" href="https://www.hongbinxu.com/assets/favicon/favicon.ico?v=2"/>
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="manifest" href="assets/favicon/site.webmanifest">
+  <title>Hongbin Xu 许鸿彬</title>
+  <meta name="description" content="Music, studio credits, live performances, and original releases by Hongbin Xu.">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hongbin xu</title>
-    
-    <style>
+  <style>
+
         @font-face {
-            font-family: 'MyFont';
+            font-family: 'Arial';
             src: url('assets/fonts/Arial.ttf') format('truetype');
         }
-        
-        .grey-paren {
-            color: rgba(0, 0, 0, 0.5);
-        }
 
-        body {
-            background-color: rgba(202, 219, 253, 1);
-            color: black;
-            font-family: 'MyFont', sans-serif;
-            font-size: 14px;
-            margin: 0;
-            padding: 0;
-            overflow: hidden; /* Prevent scrolling */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        .container {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          text-align: center;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        a {
-            color: black;
-            text-decoration: none;
-        }
+    body {
+      background: #0;
+      color: #888;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
 
-        a:hover {
-            text-decoration: underline;
-            cursor: pointer;
-        }
+    a {
+      color: inherit;
+    }
 
-        .buttons {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 25px;
-        }
+    /* HEADER */
+    header {
+      padding: 28px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      border-bottom: 0.1px solid #888;
+    }
 
-        .button {
-            width: 150%;
-            height: 28px;
-            background-color: white;
-            border: 1px solid rgba(105, 105, 105, 1);
-            border-radius: 3px;
-            font-size: 14px;
-            line-height: 21px;
-            text-align: center;
-            color: black;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            font-family: 'MyFont', sans-serif;
-            padding: 0;
-        }
+    header h1 {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: none;
+    }
 
-        .button:hover {
-            background: #eeeeee;
-        }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
 
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0);
-            display: none;
-            justify-content: center;
-            align-items: center;
-        }
+    nav a {
+      color: #888;
+      text-decoration: none;
+      font-size: 12px;
+      text-transform: none;
+      letter-spacing: 1px;
+      transition: color 0.5s ease;
+    }
 
-        .modal-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 400px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    nav a:hover {
+      color: #ff0000;
+    }
 
-        .modal {
-            position: relative;
-            background-color: white;
-            border: 1px solid rgba(105, 105, 105, 1);
-            border-radius: 5px;
-            padding: 20px;
-            max-width: 400px;
-            width: 90%;
-            word-break: break-word;
-            max-height: 40em;
-            overflow-y: scroll;
-            scrollbar-width: none;
-            scrollbar-color: black transparent;
-            text-align: left;
-            font-size: 14px;
-            color: black;
-        }
+    /* MAIN CONTENT */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 70px 8%;
+    }
 
-        .modal::-webkit-scrollbar {
-            width: none; /* Thin scrollbar for WebKit browsers */
-            background-color: transparent;
-        }
+    section {
+      margin-bottom: 110px;
+      scroll-margin-top: 35px;
+    }
 
-        .modal::-webkit-scrollbar-thumb {
-            background-color: darkgray; /* Black scrollbar thumb */
-            border-radius: 4px; /* Smooth corners */
-        }
+    /* SECTION HEADINGS */
+    .section-title {
+      font-size: 12px;
+      color: #888;
+      text-transform: none;
+      letter-spacing: 3px;
+      font-weight: 400;
+      margin-bottom: 28px;
+    }
 
-        .modal::-webkit-scrollbar-track {
-            background-color: transparent; /* Transparent track */
-        }
+    /* BIO */
+    .bio {
+      max-width: 680px;
+      font-size: 13px;
+      color: #888;
+      line-height: 1.9;
+    }
 
+    /* STUDIO AND LIVE CREDITS */
+    .credit {
+      display: grid;
+      grid-template-columns: 80px minmax(0, 2fr) minmax(110px, 1fr);
+      gap: 20px;
+      align-items: baseline;
+      padding: 8px 0;
+      border-bottom: 0.3px solid #888;
+      font-size: 12px;
+    }
 
-        @media only screen and (max-width: 600px) {
-            .modal-wrapper {
-                width: 90%;
-                max-width: 90%;
-            }
+    .credit-year {
+      color: #888;
+    }
 
-            .modal {
-                width: 100%;
-                max-height: 20em;
-                max-width: 100%;
-            }
+    .credit-project {
+      color: #888;
+    }
 
-            body {
-                font-size: 14px;
-            }
+    .credit-role {
+      text-align: right;
+      color: #888;
+    }
 
-            .button {
-                font-size: 14px;
-                width: 150%;
-                height: 28px;
-            }
+    /* ORIGINAL MUSIC */
+    .music-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 32px 24px;
+    }
 
-            .modal-wrapper {
-                position: relative;
-                width: 100%;
-                max-width: 400px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
+    .music-item {
+      min-width: 0;
+    }
 
-            .modal {
-                max-width: 70%;
-                   }
-            }
+    .album-cover {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 18px;
+      background: #0;
+      transition: opacity 0.25s ease;
+    }
 
-        .modal-close {
-                position: absolute;
-                bottom: -40px;
-                left: 50%;
-                transform: translateX(-50%);
-                z-index: 10001;
-                width: 44px;
-                height: 24px;
-                background-color: white;
-                border: 1px solid rgba(105, 105, 105, 1);
-                border-radius: 3px;
-                font-size: 14px;
-                line-height: 24px;
-                color: black;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 0;
-                transition: background-color 0.2s;
-                text-decoration: none;
-            }
+    .music-item a:hover .album-cover {
+      opacity: 0.8;
+    }
 
-        .modal-close:hover {
-            background-color: #eeeeee;
-            text-decoration: none;
-        }
+    .music-item h4 {
+      color: #888;
+      font-size: 14px;
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
 
-        .lang-toggle-button {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 24px;
-            height: 21px;
-            background-color: white;
-            border: 1px solid rgba(105, 105, 105, 1);
-            border-radius: 3px;
-            font-size: 14px;
-            line-height: 21px;
-            text-align: center;
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            z-index: 9999;
-        }
+    .music-description {
+      color: #888;
+      font-size: 10px;
+      margin-bottom: 14px;
+    }
 
-        .lang-toggle-button:hover {
-            text-decoration: none;
-            background-color: #eeeeee;
-        }
+    .music-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+    }
 
-        .hover-preview {
-            position: fixed;
-            max-width: 450px;
-            max-height: 450px;
-            background-color: white;
-            border: 1px solid rgba(105, 105, 105, 1);
-            border-radius: 5px;
-            display: none;
-            z-index: 10000;
-            pointer-events: none;
-            padding: 15px;
-            box-sizing: border-box;
-        }
+    .music-links a {
+      font-size: 10px;
+      color: #aaa;
+      text-transform: none;
+      letter-spacing: 1px;
+      text-decoration: none;
+      border-bottom: 0.2px solid #888;
+      padding-bottom: 2px;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
 
-        .back-symbol {
-          position: relative;
-          top: px; /* tweak this if needed, e.g., -1px */
-        }
+    .music-links a:hover {
+      color: #ff0000;
+      border-color: #ff0000;
+    }
 
-        .home-button {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90px;
-            height: 24px;
-            background-color: white;
-            border: 1px solid rgba(105, 105, 105, 1);
-            box-sizing: border-box;
-            border-radius: 3px;
-            font-size: 14px;
-            line-height: 22px;
-            text-align: center;
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            z-index: 9999;
+    /* FOOTER */
+    footer {
+      border-top: 0.5px solid #888;
+      padding: 28px 8%;
+      color: #888;
+      font-size: 11px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
 
-        }
+    footer a {
+      color: #888;
+      text-decoration: none;
+    }
 
-        .home-button:hover {
-            text-decoration: none;
-            background-color: #eeeeee;
-        }
+    footer a:hover {
+      color: #ff0000;
+    }
 
+    /* TABLET */
+    @media (max-width: 800px) {
+      .music-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
 
-</style>
+      .credit {
+        grid-template-columns: 60px minmax(0, 2fr) minmax(90px, 1fr);
+        gap: 12px;
+      }
+    }
+
+    /* MOBILE */
+    @media (max-width: 560px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px 6%;
+      }
+
+      nav {
+        gap: 10px;
+      }
+
+      nav a {
+        font-size: 10px;
+      }
+
+      main {
+        padding: 45px 6%;
+      }
+
+      section {
+        margin-bottom: 80px;
+      }
+
+      .bio {
+        font-size: 11px;
+      }
+
+      .credit {
+        font-size: 11px;
+        grid-template-columns: 1fr 1fr;
+        gap: 4px 11px;
+        padding: 8px 0;
+      }
+
+      .credit-year {
+        grid-column: 1 / -1;
+        font-size: 10px;
+      }
+
+      .credit-project {
+        grid-column: 1;
+      }
+
+      .credit-role {
+        grid-column: 2;
+        text-align: right;
+        font-size: 11px;
+      }
+
+      .music-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px 16px;
+      }
+
+      .music-item h4 {
+        font-size: 12px;
+      }
+
+      .music-links {
+        gap: 10px;
+      }
+
+      footer {
+        font-size: 10px;
+        padding: 12px 6%;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .music-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .music-item {
+        max-width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<video id="hoverPreview" class="hover-preview" muted autoplay loop playsinline preload="metadata" poster=""></video>
-    <div class="container">
-        <div class="buttons">
-        <button class="button" data-bg="bio" onclick="showModal('bio')">about</button>
-        <button class="button" data-bg="live" onclick="showModal('live')">live</button>
-        <button class="button" data-bg="studio" onclick="showModal('studio')">studio</button>
-        <button class="button" data-bg="contact" onclick="showModal('contact')">contact</button>
-        </div>
-    </div>
-    </div>
 
-    <div id="bio" class="modal-overlay">
-    <div class="modal-wrapper">
-        <a class="modal-close" onclick="closeModal('bio')"><span class="back-symbol">back</span></a>
-        <div class="modal" onclick="event.stopPropagation();">
-        
-            <p id="bioContent">hongbin xu is a keyboardist, music director and producer based in los angeles. he earned a bachelor of music in keyboard performance in contemporary styles with a minor in audio production from the musicians institute. since then, he has supported artists on stage and in studio.</p>
-        </div>
-    </div>
-    </div>
+  <!-- HEADER AND NAVIGATION -->
+  <header>
+    <h1>许鸿彬</h1>
 
-    <div id="live" class="modal-overlay">
-    <div class="modal-wrapper">
-        <a class="modal-close" onclick="closeModal('live')"><span class="back-symbol">back</span></a>
-        <div class="modal" onclick="event.stopPropagation();">
-            <div id="liveContent">
-                <p><a href="https://www.hongbinxu.com/live/jaya">jaya - agua caliente<br><span class="grey-paren" style="line-height: 1.2;">(md/keyboards)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/live/leah">leah dou - out of the loop tour us leg<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/live/fortunes">fortunes - disney california adventure<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/live/zach">zach louis - echoplex<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/live/maya">maya kuriel - moroccan lounge<br><span class="grey-paren" style="line-height: 1.2;">opening for saay (md/program/playback/keyboards)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/live/alex">alex to & landy wen - thunder valley venue<br><span class="grey-paren" style="line-height: 1.2;">(md/program/playback/keyboards)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/live/priscilla">priscilla chan - thunder valley venue<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/live/della">ding dang - morongo casino<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/live/andy">andy hui - yaamava' theater<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/live/linda">linda chung - graton casino<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/live/tambor">tambor - permanent records<br><span class="grey-paren" style="line-height: 1.2;">opening for quivers (keyboards)</span></a></p>
-            </div>
-        </div>
-    </div>
-    </div>
+    <nav aria-label="Main navigation">
+      <a href="#bio">Bio</a>
+      <a href="#music">Music</a>
+      <a href="#credits-studio">Credits</a>
+    </nav>
+  </header>
 
-    <div id="studio" class="modal-overlay">
-    <div class="modal-wrapper">
-        <a class="modal-close" onclick="closeModal('studio')"><span class="back-symbol">back</span></a>
-        <div class="modal" onclick="event.stopPropagation();">
-            <div id="studioContent">
-                <p><a href="https://www.hongbinxu.com/studio/youshang">xu hongbin - you shang nao dai<br><span class="grey-paren" style="line-height: 1.2;">(songwriting/production/keyboards/recording/mixing/mastering)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/studio/sweet">sarah lanigan - sweet energy<br><span class="grey-paren" style="line-height: 1.2;">(production/keyboards/recording/mixing/mastering)</span></a></p>                
-                <p><a href="https://www.hongbinxu.com/studio/foryou">qiming fei - for you<br><span class="grey-paren" style="line-height: 1.2;">(arrangement/keyboards)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/studio/indecisive">sarah lanigan - indecisive<br><span class="grey-paren" style="line-height: 1.2;">(production/keyboards/recording/mixing/mastering)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/studio/ktwon">killagramz & ann one - ktown love<br><span class="grey-paren" style="line-height: 1.2;">(production/keyboards)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/studio/flourish">jellyeeee - flourish<br><span class="grey-paren" style="line-height: 1.2;">(strings)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/studio/dishes">aria liang - dishes<br><span class="grey-paren" style="line-height: 1.2;">(production/keyboards/recording/mixing/mastering)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/studio/trouble">su isaac - trouble<br><span class="grey-paren" style="line-height: 1.2;">(keyboards)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/studio/outsider">jellyeeee - outsider<br><span class="grey-paren" style="line-height: 1.2;">(organ)</span></a></p>
-                <p><a href="https://www.hongbinxu.com/studio/whatif">xu hongbin - what if<br><span class="grey-paren" style="line-height: 1.2;">(songwriting/production/keyboards/recording/mixing/mastering)</span></a></p>
-            </div>
-        </div>
-    </div>
-    </div>
+  <main>
 
-    <div id="contact" class="modal-overlay">
-    <div class="modal-wrapper">
-        <a class="modal-close" onclick="closeModal('contact')"><span class="back-symbol">back</span></a>
-        <div class="modal" onclick="event.stopPropagation();">
-            <div id="contactContent">
-                <p><a href="https://www.instagram.com/hongbinxu_/" target="_blank">instagram: @hongbinxu_</a></p>
-            </div>
-        </div>
-    </div>
-    </div>
+    <!-- 01: BIO -->
+    <section id="bio">
+      <h3 class="section-title">01 / Bio</h3>
 
-    <script> 
-        
-        function showModal(id) {
-            document.getElementById(id).style.display = 'flex';
-            document.querySelector('.buttons').style.display = 'none';
-            document.querySelector('.lang-toggle-button').style.display = 'none';
-            changeBackground(id);
-        }
+      <p class="bio">
+        Hongbin Xu is a recording artist, keyboardist, music director and producer based in Los Angeles. He earned a bachelor of music in keyboard performance in contemporary styles, with a minor in audio production, from the Musicians Institute in 2023. Since then, he has supported artists on stage and in studio.
+      </p>
+    </section>
 
-        function closeModal(id) {
-            document.getElementById(id).style.display = 'none';
-            document.querySelector('.buttons').style.display = 'flex';
+    <!-- 04: ORIGINAL MUSIC -->
+    <section id="music">
+      <h3 class="section-title">02 / Music</h3>
 
-            // Hide preview image
-            const preview = document.getElementById('hoverPreview');
-            preview.style.display = 'none';
-            preview.src = '';
+      <div class="music-grid">
 
-            // Show lang toggle only if all modals are closed
-            const anyModalOpen = Array.from(document.querySelectorAll('.modal-overlay'))
-                .some(modal => modal.style.display === 'flex');
-            if (!anyModalOpen) {
-                document.querySelector('.lang-toggle-button').style.display = 'block';
-            }
+        <!-- RELEASE 1 -->
+        <article class="music-item">
+          <img
+            class="album-cover"
+            src="assets/pictures/ysnd.jpg"
+            alt="Album cover for Your Album Title"
+            loading="lazy"
+          >
 
-            resetBackground();
-        }
-        
+          <h4>忧伤脑袋</h4>
+          <p class="music-description">EP · 2025</p>
 
-document.addEventListener('DOMContentLoaded', () => {
-    const isDesktop = window.matchMedia("(min-width: 1400px)").matches;
-    if (!isDesktop) return;
+          <div class="music-links">
+            <a href="https://on.soundcloud.com/sNKX5ph4kfysFaqXXi"
+               target="_blank"
+               rel="noopener noreferrer">Soundcloud ↗</a>
 
-    // Maps for video and poster
-    const previewMap = {
-        'jaya': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/jaya.mp4',
-        'leah': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/leah.mp4',
-        'fortunes': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/fortunes.mp4',
-        'zach': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/zach.mp4',
-        'maya': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/maya.mp4',
-        'alex': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/alex.mp4',
-        'priscilla': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/priscilla.mp4',
-        'della': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/della.mp4',
-        'andy': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/andy.mp4',
-        'linda': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/linda.mp4',
-        'tambor': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/tambor.mp4',
+            <a href="https://hongbinxu.bandcamp.com/album/-"
+               target="_blank"
+               rel="noopener noreferrer">Bandcamp ↗</a>
+          </div>
+        </article>
 
-        'youshang': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/youshang.mp4',
-        'sweet': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/sweet.mp4',
-        'foryou': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/foryou.mp4',
-        'dishes': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/dishes.mp4',
-        'indecisive': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/indecisive.mp4',
-        'ktwon': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/ktwon.mp4',
-        'outsider': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/outsider.mp4',
-        'trouble': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/trouble.mp4',
-        'whatif': 'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/whatif.mp4',
-        'flourish':'https://pub-aef2b72a7f5b4e4284b8908e06ebf312.r2.dev/flourish.mp4',
-    };
-    const posterMap = {
-        'jaya': 'assets/thumbnails/jaya.webp',
-        'leah': 'assets/thumbnails/leah.webp',
-        'fortunes': 'assets/thumbnails/fortunes.webp',
-        'zach': 'assets/thumbnails/zach.webp',
-        'maya': 'assets/thumbnails/maya.webp',
-        'alex': 'assets/thumbnails/alex.webp',
-        'priscilla': 'assets/thumbnails/priscilla.webp',
-        'della': 'assets/thumbnails/della2.webp',
-        'andy': 'assets/thumbnails/andy.webp',
-        'linda': 'assets/thumbnails/linda.webp',
-        'tambor': 'assets/thumbnails/tambor2.webp',
+      </div>
+    </section>
 
-        'youshang': 'assets/thumbnails/youshang.webp',
-        'sweet': 'assets/thumbnails/sweet.webp',
-        'foryou': 'assets/thumbnails/foryou2.webp',
-        'dishes': 'assets/thumbnails/dishes3.webp',
-        'indecisive': 'assets/thumbnails/indecisive.webp',
-        'ktwon': 'assets/thumbnails/ktwon.webp',
-        'outsider': 'assets/thumbnails/outsider.webp',
-        'trouble': 'assets/thumbnails/trouble.webp',
-        'whatif': 'assets/thumbnails/whatif2.webp',
-        'flourish': 'assets/thumbnails/flourish.webp',
-    };
+    <!-- 02: STUDIO CREDITS -->
+    <section id="credits-studio">
+      <h3 class="section-title">03 / Studio Credits</h3>
 
-    function getRandomPosition() {
-        const screenWidth = window.innerWidth;
-        const screenHeight = window.innerHeight;
-        const modalWidth = 400;
-        const modalHeight = 320;
-        const videoWidth = 450;
-        const videoHeight = 450;
-        const margin = 20;
-        let x, y, attempts = 0;
-        const maxAttempts = 100;
-        do {
-            x = Math.floor(Math.random() * (screenWidth - videoWidth - margin * 2)) + margin;
-            y = Math.floor(Math.random() * (screenHeight - videoHeight - margin * 2)) + margin;
-            const modalLeft = screenWidth / 2 - modalWidth / 2;
-            const modalTop = screenHeight / 2 - modalHeight / 2;
-            const overlapsModal =
-                x < modalLeft + modalWidth + margin &&
-                x + videoWidth > modalLeft - margin &&
-                y < modalTop + modalHeight + margin &&
-                y + videoHeight > modalTop - margin;
-            if (!overlapsModal) break;
-            attempts++;
-        } while (attempts < maxAttempts);
+      <div class="credit">
+        <span class="credit-year">2026</span>
+        <span class="credit-project">Git Down — Ameera, Slimkid3, DJ Robert Smith & DJ Goce</span>
+        <span class="credit-role">Vocal Recording Engineer</span>
+      </div>
 
-        x = Math.max(margin, Math.min(x, screenWidth - videoWidth - margin));
-        y = Math.max(margin, Math.min(y, screenHeight - videoHeight - margin));
-        return { left: x + 'px', top: y + 'px' };
-    }
+      <div class="credit">
+        <span class="credit-year">2026</span>
+        <span class="credit-project">Bittersweet Remedy — Isekai Stage</span>
+        <span class="credit-role">Keyboards</span>
+      </div>
 
-    const preview = document.getElementById('hoverPreview');
-    let lastKey = '';
-    let lastLink = null;
+      <div class="credit">
+        <span class="credit-year">2024</span>
+        <span class="credit-project">For You — Qiming Fei</span>
+        <span class="credit-role">Arrangment / Keyboards</span>
+      </div>
 
-    Object.keys(previewMap).forEach(key => {
-        const links = document.querySelectorAll(`a[href*="${key}"]`);
-        links.forEach(link => {
-            link.addEventListener('mouseenter', () => {
-                if (lastKey === key) return; // Don't reload same preview
-                preview.pause();
-                preview.src = previewMap[key];
-                preview.poster = posterMap[key];
-                preview.currentTime = 0;
-                preview.load();
-                preview.style.display = 'block';
+      <div class="credit">
+        <span class="credit-year">2024</span>
+        <span class="credit-project">Ktown Love — Killagramz & Ann One</span>
+        <span class="credit-role">Production / Keyboards</span>
+      </div>
 
-                // Position the video preview
-                const pos = getRandomPosition();
-                preview.style.left = pos.left;
-                preview.style.top = pos.top;
+      <!-- Copy a credit block to add another project -->
+    </section>
 
-                preview.addEventListener('loadeddata', () => {
-                    preview.play();
-                }, { once: true });
+    <!-- 03: LIVE CREDITS -->
+    <section id="credits-live">
+      <h3 class="section-title">04 / Live Credits</h3>
 
-                lastKey = key;
-                lastLink = link;
-            });
+      <div class="credit">
+        <span class="credit-year">2025</span>
+        <span class="credit-project">Leah Dou — Out of the Loop US Tour</span>
+        <span class="credit-role">Keyboards</span>
+      </div>
 
-            link.addEventListener('mouseleave', (e) => {
-                // Do not hide on mouseleave, only hide when entering another link or clicking outside
-            });
-        });
-    });
+      <div class="credit">
+        <span class="credit-year">2025</span>
+        <span class="credit-project">Jaya — Agua Caliente</span>
+        <span class="credit-role">Music Director / Keyboards</span>
+      </div>
 
-    // Optional: Hide preview if mouse moves off all preview links
-    document.addEventListener('mousemove', (e) => {
-        // If mouse is not over a preview link or the preview itself
-        if (!e.target.closest('a[href*="live"]') &&
-            !e.target.closest('a[href*="studio"]') &&
-            preview.style.display === 'block') {
-            // preview.style.display = 'none';
-            // preview.src = '';
-            // lastKey = '';
-            // lastLink = null;
-        }
-    });
+      <div class="credit">
+        <span class="credit-year">2025</span>
+        <span class="credit-project">Pinyuan Huang — Agua Caliente</span>
+        <span class="credit-role">Musical Director / Programmer / Playback / Keyboards</span>
+      </div>
 
-    // Always hide preview when closing a modal
-    window.closeModal = function(id) {
-        document.getElementById(id).style.display = 'none';
-        document.querySelector('.buttons').style.display = 'flex';
+      <div class="credit">
+        <span class="credit-year">2024</span>
+        <span class="credit-project">Zach Louis — Echoplex</span>
+        <span class="credit-role">Keyboards</span>
+      </div>
 
-        // Hide preview image
-        const preview = document.getElementById('hoverPreview');
-        preview.style.display = 'none';
-        preview.src = '';
-        lastKey = '';
-        lastLink = null;
+      <!-- Copy a credit block to add another show -->
+    </section>
 
-        // Show lang toggle only if all modals are closed
-        const anyModalOpen = Array.from(document.querySelectorAll('.modal-overlay'))
-            .some(modal => modal.style.display === 'flex');
-        if (!anyModalOpen) {
-            document.querySelector('.lang-toggle-button').style.display = 'block';
-        }
-        resetBackground();
-    }
-});
 
-</script>
+  </main>
 
-    <a href="/cn" class="lang-toggle-button">中</a>
-    <a href="/" class="home-button">hongbin xu</a>
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 Hongbin Xu</span>
+    <a href="mailto:you@example.com">Contact</a>
+  </footer>
 
 </body>
-
 </html>
